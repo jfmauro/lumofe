@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import be.tivano.lumo.R
 import be.tivano.lumo.databinding.ActivityOnboardingBinding
+import androidx.activity.OnBackPressedCallback
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -132,12 +133,15 @@ class OnboardingActivity : AppCompatActivity() {
         startActivity(Intent(this, RegisterActivity::class.java))
     }
 
-    override fun onBackPressed() {
-        val current = binding.viewPager.currentItem
-        if (current > 0) {
-            binding.viewPager.currentItem = current - 1
-        } else {
-            super.onBackPressed()
+    onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            val current = binding.viewPager.currentItem
+            if (current > 0) {
+                binding.viewPager.currentItem = current - 1
+            } else {
+                isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
-    }
+    })
 }

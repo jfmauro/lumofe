@@ -21,8 +21,8 @@
         <item name="android:statusBarColor">@color/sc_background</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Text appearance -->
-        <item name="textColorPrimary">@color/sc_on_surface</item>
-        <item name="textColorSecondary">@color/sc_on_surface_muted</item>
+        <item name="android:textColorPrimary">@color/sc_on_surface</item>
+        <item name="android:textColorSecondary">@color/sc_on_surface_muted</item>
         <!-- Shape -->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lumo.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lumo.MediumComponent</item>

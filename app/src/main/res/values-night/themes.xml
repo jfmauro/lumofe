@@ -13,8 +13,8 @@
         <item name="colorOnSurface">@color/sc_on_surface</item>
         <item name="colorError">@color/sc_error</item>
         <item name="android:statusBarColor">@color/sc_background</item>
-        <item name="textColorPrimary">@color/sc_on_surface</item>
-        <item name="textColorSecondary">@color/sc_on_surface_muted</item>
+        <item name="android:textColorPrimary">@color/sc_on_surface</item>
+        <item name="android:textColorSecondary">@color/sc_on_surface_muted</item>
         <item name="materialButtonStyle">@style/Widget.Lumo.Button.Primary</item>
         <item name="textInputStyle">@style/Widget.Lumo.TextInputLayout</item>
     </style>

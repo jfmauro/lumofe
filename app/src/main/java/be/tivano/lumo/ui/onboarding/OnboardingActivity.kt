@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import be.tivano.lumo.R
 import be.tivano.lumo.databinding.ActivityOnboardingBinding
-import androidx.activity.OnBackPressedCallback
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -23,6 +23,17 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val current = binding.viewPager.currentItem
+                if (current > 0) {
+                    binding.viewPager.currentItem = current - 1
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        })
 
         setupViewPager()
         setupStepDots()
@@ -133,15 +144,5 @@ class OnboardingActivity : AppCompatActivity() {
         startActivity(Intent(this, RegisterActivity::class.java))
     }
 
-    onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            val current = binding.viewPager.currentItem
-            if (current > 0) {
-                binding.viewPager.currentItem = current - 1
-            } else {
-                isEnabled = false
-                onBackPressedDispatcher.onBackPressed()
-            }
-        }
-    })
+
 }

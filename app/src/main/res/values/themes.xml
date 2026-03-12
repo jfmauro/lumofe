@@ -1,16 +1,123 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Lumofe" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Lumo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/sc_primary</item>
+        <item name="colorPrimaryDark">@color/sc_primary_dark</item>
+        <item name="colorPrimaryVariant">@color/sc_primary_dark</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/sc_secondary</item>
+        <item name="colorSecondaryVariant">@color/sc_secondary_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Background -->
+        <item name="android:colorBackground">@color/sc_background</item>
+        <item name="colorSurface">@color/sc_surface</item>
+        <item name="colorOnSurface">@color/sc_on_surface</item>
+        <!-- Error -->
+        <item name="colorError">@color/sc_error</item>
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/sc_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Text appearance -->
+        <item name="textColorPrimary">@color/sc_on_surface</item>
+        <item name="textColorSecondary">@color/sc_on_surface_muted</item>
+        <!-- Shape -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lumo.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lumo.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Lumo.LargeComponent</item>
+        <!-- Button style override -->
+        <item name="materialButtonStyle">@style/Widget.Lumo.Button.Primary</item>
+        <!-- Text input style -->
+        <item name="textInputStyle">@style/Widget.Lumo.TextInputLayout</item>
     </style>
+
+    <style name="Theme.Lumo.Splash" parent="Theme.Lumo">
+        <item name="android:windowBackground">@color/sc_background</item>
+    </style>
+
+    <!-- Shape appearances -->
+    <style name="ShapeAppearance.Lumo.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Lumo.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Lumo.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Primary button -->
+    <style name="Widget.Lumo.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/sc_secondary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="rippleColor">@color/sc_secondary_dark</item>
+    </style>
+
+    <!-- Outlined secondary button -->
+    <style name="Widget.Lumo.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/sc_primary</item>
+        <item name="android:textColor">@color/sc_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <!-- Text input layout -->
+    <style name="Widget.Lumo.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/sc_outline</item>
+        <item name="hintTextColor">@color/sc_on_surface_muted</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+    <!-- Feature card -->
+    <style name="Widget.Lumo.FeatureCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/sc_surface</item>
+        <item name="strokeColor">@color/sc_outline_variant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">16dp</item>
+    </style>
+
+    <!-- Typography -->
+    <style name="TextAppearance.Lumo.Display" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/sc_on_surface</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Lumo.Headline" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/sc_on_surface</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Lumo.Title" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/sc_on_surface</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Lumo.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/sc_on_surface_muted</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingMultiplier">1.4</item>
+    </style>
+
+    <style name="TextAppearance.Lumo.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/sc_on_surface_subtle</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

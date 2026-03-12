@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/screen_horizontal_padding"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <!-- Anchor icon -->
+        <TextView
+            android:id="@+id/tvAnchorIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="⚓"
+            android:textSize="16sp"
+            android:textColor="@color/sc_primary"
+            android:contentDescription="@string/cd_safecircle_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Illustration placeholder (circle of people) -->
+        <FrameLayout
+            android:id="@+id/illustrationContainer"
+            android:layout_width="260dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_illustration_placeholder"
+            android:contentDescription="@string/cd_illustration_welcome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnchorIcon">
+
+            <!-- SVG-style circle network illustration via shapes -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="👥"
+                android:textSize="72sp" />
+
+        </FrameLayout>
+
+        <!-- App name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            style="@style/TextAppearance.Lumo.Display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="@string/welcome_title"
+            android:textColor="@color/sc_on_surface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/illustrationContainer" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            style="@style/TextAppearance.Lumo.Body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/welcome_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

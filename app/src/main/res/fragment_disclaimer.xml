@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/screen_horizontal_padding"
+        android:paddingTop="40dp"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <!-- Icon + Title -->
+        <TextView
+            android:id="@+id/tvDisclaimerIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="⚖️"
+            android:textSize="44sp" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextAppearance.Lumo.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/disclaimer_title" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            style="@style/TextAppearance.Lumo.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/disclaimer_subtitle" />
+
+        <!-- Disclaimer card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/sc_disclaimer_bg"
+            app:strokeColor="@color/sc_disclaimer_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <!-- Item 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/ic_dot_disclaimer"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        style="@style/TextAppearance.Lumo.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disclaimer_item1"
+                        android:textColor="@color/sc_on_surface" />
+                </LinearLayout>
+
+                <!-- Item 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/ic_dot_disclaimer"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        style="@style/TextAppearance.Lumo.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disclaimer_item2"
+                        android:textColor="@color/sc_on_surface" />
+                </LinearLayout>
+
+                <!-- Item 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/ic_dot_disclaimer"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        style="@style/TextAppearance.Lumo.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disclaimer_item3"
+                        android:textColor="@color/sc_on_surface" />
+                </LinearLayout>
+
+                <!-- Item 4 (emergency) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/ic_dot_disclaimer_warning"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        style="@style/TextAppearance.Lumo.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disclaimer_item4"
+                        android:textColor="@color/sc_on_surface" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Checkbox acceptance -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkboxDisclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/disclaimer_checkbox"
+            android:textAppearance="@style/TextAppearance.Lumo.Body"
+            android:textColor="@color/sc_on_surface"
+            android:contentDescription="@string/cd_disclaimer_check"
+            app:buttonTint="@color/sc_primary" />
+
+    </LinearLayout>
+</ScrollView>

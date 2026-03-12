@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">SafeCircle</string>
+    <string name="app_tagline">You are never alone.</string>
+
+    <!-- Common -->
+    <string name="common_next">Continue</string>
+    <string name="common_back">Back</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_ok">OK</string>
+    <string name="common_error_network">Network error. Check your connection.</string>
+    <string name="common_error_generic">An error occurred. Please try again.</string>
+    <string name="common_error_server">Server error. Try again later.</string>
+    <string name="common_loading">Loading…</string>
+
+    <!-- Onboarding Step indicator -->
+    <string name="onboarding_step">Step %1$d of %2$d</string>
+
+    <!-- Screen 1: Welcome -->
+    <string name="welcome_title">Welcome to SafeCircle</string>
+    <string name="welcome_subtitle">Your daily support network</string>
+    <string name="welcome_description">Stay connected with your loved ones through a simple daily check-in.</string>
+    <string name="welcome_btn_create">Create my circle</string>
+    <string name="welcome_btn_invitation">I received an invitation</string>
+
+    <!-- Screen 2: Understand SafeCircle -->
+    <string name="understand_title">Understand SafeCircle</string>
+    <string name="understand_subtitle">Your daily support network</string>
+    <string name="understand_feature1_title">Daily check-in in 1 tap</string>
+    <string name="understand_feature1_desc">Signal your presence every day in just a few seconds.</string>
+    <string name="understand_feature2_title">Automatic alerts</string>
+    <string name="understand_feature2_desc">Your loved ones are notified if you\'re absent for too long.</string>
+    <string name="understand_feature3_title">Circle of trust</string>
+    <string name="understand_feature3_desc">Coordinate your network of caring loved ones.</string>
+    <string name="understand_btn_wait">Please wait %1$ds…</string>
+    <string name="understand_btn_continue">Got it, continue</string>
+
+    <!-- Screen 3: Disclaimer -->
+    <string name="disclaimer_title">Important to know</string>
+    <string name="disclaimer_subtitle">Please read carefully before continuing</string>
+    <string name="disclaimer_item1">SafeCircle is <b>not an emergency service</b></string>
+    <string name="disclaimer_item2">SafeCircle does <b>not offer 24/7 monitoring</b></string>
+    <string name="disclaimer_item3">SafeCircle does <b>not guarantee your safety</b></string>
+    <string name="disclaimer_item4">In a real emergency, <b>call your local emergency services</b></string>
+    <string name="disclaimer_checkbox">I have read and understood these limitations</string>
+    <string name="disclaimer_btn">Accept and continue</string>
+    <string name="disclaimer_version">v1.0.0</string>
+
+    <!-- Screen 4: Create Account -->
+    <string name="register_title">Create your account</string>
+    <string name="register_subtitle">A few details to get started</string>
+    <string name="register_field_firstname">First name</string>
+    <string name="register_field_lastname">Last name</string>
+    <string name="register_field_email">Email</string>
+    <string name="register_field_phone">Phone (optional)</string>
+    <string name="register_field_phone_hint">+1 555 123 4567</string>
+    <string name="register_btn_submit">Create my account</string>
+    <string name="register_loading">Creating account…</string>
+
+    <!-- Validation errors -->
+    <string name="error_firstname_required">First name is required</string>
+    <string name="error_firstname_invalid">First name must be between 2 and 50 characters</string>
+    <string name="error_lastname_required">Last name is required</string>
+    <string name="error_lastname_invalid">Last name must be between 2 and 50 characters</string>
+    <string name="error_email_required">Email is required</string>
+    <string name="error_email_invalid">Invalid email format (e.g. name@domain.com)</string>
+    <string name="error_email_already_exists">An account already exists with this email</string>
+    <string name="error_phone_invalid">Invalid format (e.g. +33612345678)</string>
+
+    <!-- Registration success / API errors -->
+    <string name="register_success">Account created successfully!</string>
+    <string name="register_error_409">This email is already in use. Use password recovery if this account is yours.</string>
+    <string name="register_error_400">Invalid data. Please check the fields.</string>
+    <string name="register_error_429">Too many attempts. Try again in one hour.</string>
+
+    <!-- Draft restore -->
+    <string name="draft_restore_title">Resume your entry?</string>
+    <string name="draft_restore_message">Data was saved during your last visit.</string>
+    <string name="draft_restore_yes">Resume</string>
+    <string name="draft_restore_no">Start over</string>
+
+    <!-- Content descriptions for accessibility -->
+    <string name="cd_safecircle_logo">SafeCircle logo</string>
+    <string name="cd_illustration_welcome">Illustration of connected people</string>
+    <string name="cd_check_feature">Check-in icon</string>
+    <string name="cd_alert_feature">Alerts icon</string>
+    <string name="cd_circle_feature">Circle icon</string>
+    <string name="cd_disclaimer_check">Disclaimer checkbox</string>
+</resources>

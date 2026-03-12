@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Brand primary: warm sage green (anchor/nature) -->
+    <color name="sc_primary">#4A7C6F</color>
+    <color name="sc_primary_dark">#2D5A50</color>
+    <color name="sc_primary_light">#7AAF9E</color>
+    <color name="sc_primary_container">#E8F4F1</color>
+
+    <!-- Brand secondary: warm terracotta (CTA) -->
+    <color name="sc_secondary">#C8644A</color>
+    <color name="sc_secondary_dark">#A04D38</color>
+    <color name="sc_secondary_light">#E8947E</color>
+    <color name="sc_secondary_container">#FDEEE9</color>
+
+    <!-- Neutral / Background -->
+    <color name="sc_background">#FAFAF8</color>
+    <color name="sc_surface">#FFFFFF</color>
+    <color name="sc_surface_variant">#F2F4F0</color>
+
+    <!-- Text -->
+    <color name="sc_on_background">#1C2B26</color>
+    <color name="sc_on_surface">#1C2B26</color>
+    <color name="sc_on_surface_muted">#6B7A74</color>
+    <color name="sc_on_surface_subtle">#9CABA4</color>
+
+    <!-- Semantic -->
+    <color name="sc_error">#D32F2F</color>
+    <color name="sc_error_container">#FDECEA</color>
+    <color name="sc_success">#388E3C</color>
+    <color name="sc_success_container">#E8F5E9</color>
+    <color name="sc_warning">#F57C00</color>
+
+    <!-- Outline -->
+    <color name="sc_outline">#C8D5D1</color>
+    <color name="sc_outline_variant">#E2ECEB</color>
+
+    <!-- Scrim / overlay -->
+    <color name="sc_scrim">#80000000</color>
+
+    <!-- Disclaimer special -->
+    <color name="sc_disclaimer_bg">#FFF8F5</color>
+    <color name="sc_disclaimer_border">#F0C4B4</color>
+
+    <!-- White / Black -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

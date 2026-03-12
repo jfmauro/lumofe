@@ -160,7 +160,6 @@
         android:paddingHorizontal="@dimen/screen_horizontal_padding"
         android:paddingBottom="32dp"
         android:paddingTop="12dp"
-        app:layout_anchor="@id/fake"
         android:layout_gravity="bottom">
 
         <com.google.android.material.button.MaterialButton

@@ -22,7 +22,7 @@ android {
         }
         create("staging") {
             initWith(getByName("debug"))
-            buildConfigField("String", "BASE_URL", "\" https://piacular-gunnar-nonerroneously.ngrok-free.dev/\"")
+            buildConfigField("String", "BASE_URL", "\"https://piacular-gunnar-nonerroneously.ngrok-free.dev/\"")
         }
         release {
             isMinifyEnabled = false

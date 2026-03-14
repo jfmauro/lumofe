@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName
 // ─── REQUEST ────────────────────────────────────────────────────────────────
 
 data class RegisterRequest(
-    @SerializedName("prenom") val prenom: String,
-    @SerializedName("nom") val nom: String,
+    @SerializedName("firstname") val firstname: String,
+    @SerializedName("lastname") val lastname: String,
     @SerializedName("email") val email: String,
-    @SerializedName("telephone") val telephone: String?,
-    @SerializedName("disclaimerAcceptedAt") val disclaimerAcceptedAt: String,
-    @SerializedName("disclaimerVersion") val disclaimerVersion: String
+    @SerializedName("phone") val phone: String?,
+    @SerializedName("disclaimerAccepted") val disclaimerAccepted: Boolean,
+    @SerializedName("countryCode") val countryCode: String
 )
 
 // ─── RESPONSE ───────────────────────────────────────────────────────────────

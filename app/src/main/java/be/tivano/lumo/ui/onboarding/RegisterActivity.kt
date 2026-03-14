@@ -164,6 +164,8 @@ class RegisterActivity : AppCompatActivity() {
         val lastName = binding.etLastname.text?.toString()?.trim().orEmpty()
         val email = binding.etEmail.text?.toString()?.trim()?.lowercase().orEmpty()
         val phone = binding.etPhone.text?.toString()?.trim()?.ifBlank { null }
+        //val disclaimerAccepted =
+
 
         if (!ValidationUtil.isFormValid(firstName, lastName, email, phone.orEmpty())) return
 
@@ -172,12 +174,12 @@ class RegisterActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val request = RegisterRequest(
-                    prenom = firstName,
-                    nom = lastName,
+                    firstname = firstName,
+                    lastname = lastName,
                     email = email,
-                    telephone = phone,
-                    disclaimerAcceptedAt = DateTimeFormatter.ISO_INSTANT.format(Instant.now()),
-                    disclaimerVersion = getString(R.string.disclaimer_version)
+                    phone = phone,
+                    disclaimerAccepted = false,
+                    countryCode = "BE"
                 )
 
                 val response = RetrofitClient.apiService.register(request)

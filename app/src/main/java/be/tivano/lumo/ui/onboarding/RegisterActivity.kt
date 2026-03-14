@@ -164,8 +164,6 @@ class RegisterActivity : AppCompatActivity() {
         val lastName = binding.etLastname.text?.toString()?.trim().orEmpty()
         val email = binding.etEmail.text?.toString()?.trim()?.lowercase().orEmpty()
         val phone = binding.etPhone.text?.toString()?.trim()?.ifBlank { null }
-        //val disclaimerAccepted =
-
 
         if (!ValidationUtil.isFormValid(firstName, lastName, email, phone.orEmpty())) return
 
@@ -178,8 +176,8 @@ class RegisterActivity : AppCompatActivity() {
                     lastname = lastName,
                     email = email,
                     phone = phone,
-                    disclaimerAccepted = false,
-                    countryCode = "BE"
+                    countryCode = "BE",
+                    disclaimerAccepted = true
                 )
 
                 val response = RetrofitClient.apiService.register(request)
@@ -189,10 +187,9 @@ class RegisterActivity : AppCompatActivity() {
                         val body = response.body()!!
                         tokenManager.saveToken(body.token)
                         tokenManager.saveUser(
-                            userId = body.userId,
-                            firstName = body.prenom,
-                            lastName = body.nom,
-                            email = body.email
+                            userId = body.user.userId,
+                            name = body.user.fullName,
+                            email = body.user.email
                         )
                         DraftManager.clearDraft(this@RegisterActivity)
                         Toast.makeText(

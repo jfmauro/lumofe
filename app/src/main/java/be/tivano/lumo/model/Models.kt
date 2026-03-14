@@ -9,22 +9,22 @@ data class RegisterRequest(
     @SerializedName("lastname") val lastname: String,
     @SerializedName("email") val email: String,
     @SerializedName("phone") val phone: String?,
-    @SerializedName("disclaimerAccepted") val disclaimerAccepted: Boolean,
-    @SerializedName("countryCode") val countryCode: String
+    @SerializedName("countryCode") val countryCode: String,
+    @SerializedName("disclaimerAccepted") val disclaimerAccepted: Boolean
 )
 
 // ─── RESPONSE ───────────────────────────────────────────────────────────────
 
 data class RegisterResponse(
+    @SerializedName("token") val token: String,
+    @SerializedName("message") val message: String,
+    @SerializedName("user") val user: RegisteredUser
+)
+
+data class RegisteredUser(
     @SerializedName("userId") val userId: String,
     @SerializedName("email") val email: String,
-    @SerializedName("prenom") val prenom: String,
-    @SerializedName("nom") val nom: String,
-    @SerializedName("telephone") val telephone: String?,
-    @SerializedName("token") val token: String,
-    @SerializedName("tokenType") val tokenType: String,
-    @SerializedName("expiresIn") val expiresIn: Long,
-    @SerializedName("createdAt") val createdAt: String
+    @SerializedName("fullName") val fullName: String
 )
 
 data class CheckEmailResponse(
@@ -42,10 +42,11 @@ data class ApiErrorResponse(
 
 data class OnboardingDraft(
     val timestamp: Long,
-    val prenom: String = "",
-    val nom: String = "",
+    val firstname: String = "",
+    val lastname: String = "",
     val email: String = "",
-    val telephone: String = "",
+    val phone: String = "",
+    val countryCode: String = "BE",
     val disclaimerAccepted: Boolean = false,
     val currentScreen: Int = 0
 )

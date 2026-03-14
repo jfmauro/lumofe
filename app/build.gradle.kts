@@ -14,6 +14,9 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val timerSeconds = project.findProperty("understand_timer_seconds") ?: "10"
+        buildConfigField("int", "UNDERSTAND_TIMER_SECONDS", timerSeconds.toString())
     }
 
     buildTypes {

@@ -99,7 +99,7 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun startUnderstandTimer() {
-        val totalSeconds = 10
+        val totalSeconds = be.tivano.lumo.BuildConfig.UNDERSTAND_TIMER_SECONDS
         var remaining = totalSeconds
         val handler = android.os.Handler(mainLooper)
         val runnable = object : Runnable {

@@ -132,18 +132,9 @@ class RegisterActivity : AppCompatActivity() {
         )
         DraftManager.saveDraft(this, draft)
     }
-
-    private fun restoreDraft(draft: OnboardingDraft) {
-        binding.etFirstname.setText(draft.firstname)
-        binding.etLastname.setText(draft.lastname)
-        binding.etEmail.setText(draft.email)
-        binding.etPhone.setText(draft.phone)
-        updateSubmitState()
-    }
-
     private fun offerDraftRestoreIfAvailable() {
-        val draft = DraftManager.loadDraft(this)
-        if (draft != null && draft.firstname.isNotBlank()) {
+        val draft = DraftManager.loadDraft(this) ?: return
+        if (draft.isNotEmpty()) {
             AlertDialog.Builder(this)
                 .setTitle(R.string.draft_restore_title)
                 .setMessage(R.string.draft_restore_message)
@@ -153,6 +144,14 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun restoreDraft(draft: OnboardingDraft) {
+        val safe = draft.sanitized()
+        binding.etFirstname.setText(safe.firstname)
+        binding.etLastname.setText(safe.lastname)
+        binding.etEmail.setText(safe.email)
+        binding.etPhone.setText(safe.phone)
+        updateSubmitState()
+    }
     // ─── SUBMIT ──────────────────────────────────────────────────────────────
 
     private fun setupSubmitButton() {

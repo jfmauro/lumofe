@@ -41,7 +41,7 @@ data class ApiErrorResponse(
 // ─── DRAFT ──────────────────────────────────────────────────────────────────
 
 data class OnboardingDraft(
-    val timestamp: Long,
+    val timestamp: Long = 0L,
     val firstname: String = "",
     val lastname: String = "",
     val email: String = "",
@@ -49,4 +49,17 @@ data class OnboardingDraft(
     val countryCode: String = "BE",
     val disclaimerAccepted: Boolean = false,
     val currentScreen: Int = 0
-)
+) {
+    fun sanitized(): OnboardingDraft = copy(
+        firstname = firstname.orSafe(),
+        lastname = lastname.orSafe(),
+        email = email.orSafe(),
+        phone = phone.orSafe(),
+        countryCode = countryCode.orSafe("BE")
+    )
+
+    fun isNotEmpty(): Boolean =
+        firstname.isNotBlank() || lastname.isNotBlank() || email.isNotBlank()
+
+    private fun String?.orSafe(default: String = ""): String = this?.trim() ?: default
+}

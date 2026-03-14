@@ -123,10 +123,10 @@ class RegisterActivity : AppCompatActivity() {
     private fun saveDraft() {
         val draft = OnboardingDraft(
             timestamp = System.currentTimeMillis(),
-            prenom = binding.etFirstname.text?.toString().orEmpty(),
-            nom = binding.etLastname.text?.toString().orEmpty(),
+            firstname = binding.etFirstname.text?.toString().orEmpty(),
+            lastname = binding.etLastname.text?.toString().orEmpty(),
             email = binding.etEmail.text?.toString().orEmpty(),
-            telephone = binding.etPhone.text?.toString().orEmpty(),
+            phone = binding.etPhone.text?.toString().orEmpty(),
             disclaimerAccepted = true,
             currentScreen = 4
         )
@@ -134,16 +134,16 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun restoreDraft(draft: OnboardingDraft) {
-        binding.etFirstname.setText(draft.prenom)
-        binding.etLastname.setText(draft.nom)
+        binding.etFirstname.setText(draft.firstname)
+        binding.etLastname.setText(draft.lastname)
         binding.etEmail.setText(draft.email)
-        binding.etPhone.setText(draft.telephone)
+        binding.etPhone.setText(draft.phone)
         updateSubmitState()
     }
 
     private fun offerDraftRestoreIfAvailable() {
         val draft = DraftManager.loadDraft(this)
-        if (draft != null && draft.prenom.isNotBlank()) {
+        if (draft != null && draft.firstname.isNotBlank()) {
             AlertDialog.Builder(this)
                 .setTitle(R.string.draft_restore_title)
                 .setMessage(R.string.draft_restore_message)
@@ -188,7 +188,7 @@ class RegisterActivity : AppCompatActivity() {
                         tokenManager.saveToken(body.token)
                         tokenManager.saveUser(
                             userId = body.user.userId,
-                            name = body.user.fullName,
+                            fullName = body.user.fullName,
                             email = body.user.email
                         )
                         DraftManager.clearDraft(this@RegisterActivity)

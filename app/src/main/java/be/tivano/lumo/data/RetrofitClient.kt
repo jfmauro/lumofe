@@ -1,6 +1,7 @@
 package be.tivano.lumo.data
 
 import android.content.Context
+import be.tivano.lumo.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    private const val BASE_URL = "https://lumo.up.railway.app/"
+    private val BASE_URL = BuildConfig.BASE_URL
 
     @Volatile
     private var apiServiceInstance: ApiService? = null

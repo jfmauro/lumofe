@@ -43,11 +43,10 @@ class TokenManager(private val context: Context) {
         }
     }
 
-    suspend fun saveUser(userId: String, firstName: String, lastName: String, email: String) {
+    suspend fun saveUser(userId: String, fullName: String, email: String) {
         context.dataStore.edit { preferences ->
             preferences[USER_ID_KEY] = userId
-            preferences[USER_FIRSTNAME_KEY] = firstName
-            preferences[USER_LASTNAME_KEY] = lastName
+            preferences[USER_FIRSTNAME_KEY] = fullName
             preferences[USER_EMAIL_KEY] = email
         }
     }

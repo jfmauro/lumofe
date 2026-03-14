@@ -14,18 +14,28 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val timerSeconds = project.findProperty("understand_timer_seconds") ?: "10"
+        buildConfigField("int", "UNDERSTAND_TIMER_SECONDS", timerSeconds.toString())
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:8080/\"")
+        }
+        create("staging") {
+            initWith(getByName("debug"))
+            buildConfigField("String", "BASE_URL", "\"https://piacular-gunnar-nonerroneously.ngrok-free.dev/\"")
+        }
         release {
             isMinifyEnabled = false
+            buildConfigField("String", "BASE_URL", "\"https://lumo.up.railway.app/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
-
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
@@ -38,6 +48,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

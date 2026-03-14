@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 object DraftManager {
 
     private const val PREFS_NAME = "onboarding_draft_prefs"
-    private const val KEY_DRAFT = "onboarding_draft_v1"
+    private const val KEY_DRAFT = "onboarding_draft_v2"
     private val EXPIRY_MS = TimeUnit.DAYS.toMillis(7)
     private val gson = Gson()
 
@@ -28,11 +28,11 @@ object DraftManager {
             val age = System.currentTimeMillis() - draft.timestamp
             if (age > EXPIRY_MS) {
                 clearDraft(context)
-                null
-            } else {
-                draft
+                return null
             }
+            draft.sanitized().takeIf { it.isNotEmpty() }
         } catch (e: Exception) {
+            clearDraft(context)
             null
         }
     }

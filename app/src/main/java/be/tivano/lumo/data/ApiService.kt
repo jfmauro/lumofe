@@ -10,10 +10,6 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ApiService {
-
-    @POST("api/v1/users/register")
+    @POST("api/v1/auth/register")
     suspend fun register(@Body request: RegisterRequest): Response<RegisterResponse>
-
-    @GET("api/v1/users/check-email")
-    suspend fun checkEmail(@Query("email") email: String): Response<CheckEmailResponse>
 }

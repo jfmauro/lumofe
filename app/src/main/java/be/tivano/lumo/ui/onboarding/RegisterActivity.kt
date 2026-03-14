@@ -123,27 +123,18 @@ class RegisterActivity : AppCompatActivity() {
     private fun saveDraft() {
         val draft = OnboardingDraft(
             timestamp = System.currentTimeMillis(),
-            prenom = binding.etFirstname.text?.toString().orEmpty(),
-            nom = binding.etLastname.text?.toString().orEmpty(),
+            firstname = binding.etFirstname.text?.toString().orEmpty(),
+            lastname = binding.etLastname.text?.toString().orEmpty(),
             email = binding.etEmail.text?.toString().orEmpty(),
-            telephone = binding.etPhone.text?.toString().orEmpty(),
+            phone = binding.etPhone.text?.toString().orEmpty(),
             disclaimerAccepted = true,
             currentScreen = 4
         )
         DraftManager.saveDraft(this, draft)
     }
-
-    private fun restoreDraft(draft: OnboardingDraft) {
-        binding.etFirstname.setText(draft.prenom)
-        binding.etLastname.setText(draft.nom)
-        binding.etEmail.setText(draft.email)
-        binding.etPhone.setText(draft.telephone)
-        updateSubmitState()
-    }
-
     private fun offerDraftRestoreIfAvailable() {
-        val draft = DraftManager.loadDraft(this)
-        if (draft != null && draft.prenom.isNotBlank()) {
+        val draft = DraftManager.loadDraft(this) ?: return
+        if (draft.isNotEmpty()) {
             AlertDialog.Builder(this)
                 .setTitle(R.string.draft_restore_title)
                 .setMessage(R.string.draft_restore_message)
@@ -153,6 +144,14 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun restoreDraft(draft: OnboardingDraft) {
+        val safe = draft.sanitized()
+        binding.etFirstname.setText(safe.firstname)
+        binding.etLastname.setText(safe.lastname)
+        binding.etEmail.setText(safe.email)
+        binding.etPhone.setText(safe.phone)
+        updateSubmitState()
+    }
     // ─── SUBMIT ──────────────────────────────────────────────────────────────
 
     private fun setupSubmitButton() {
@@ -172,12 +171,12 @@ class RegisterActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val request = RegisterRequest(
-                    prenom = firstName,
-                    nom = lastName,
+                    firstname = firstName,
+                    lastname = lastName,
                     email = email,
-                    telephone = phone,
-                    disclaimerAcceptedAt = DateTimeFormatter.ISO_INSTANT.format(Instant.now()),
-                    disclaimerVersion = getString(R.string.disclaimer_version)
+                    phone = phone,
+                    countryCode = "BE",
+                    disclaimerAccepted = true
                 )
 
                 val response = RetrofitClient.apiService.register(request)
@@ -187,10 +186,9 @@ class RegisterActivity : AppCompatActivity() {
                         val body = response.body()!!
                         tokenManager.saveToken(body.token)
                         tokenManager.saveUser(
-                            userId = body.userId,
-                            firstName = body.prenom,
-                            lastName = body.nom,
-                            email = body.email
+                            userId = body.user.userId,
+                            fullName = body.user.fullName,
+                            email = body.user.email
                         )
                         DraftManager.clearDraft(this@RegisterActivity)
                         Toast.makeText(

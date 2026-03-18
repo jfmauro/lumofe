@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Renamed intent: now maps to raspberry pale (DSL bg_icon_raspberry) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid android:color="#1AF57C00" />
+    android:shape="rectangle">
+    <solid android:color="#F9E4E8" />
+    <corners android:radius="12dp" />
 </shape>

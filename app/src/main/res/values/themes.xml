@@ -1,123 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Lumo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color -->
-        <item name="colorPrimary">@color/sc_primary</item>
-        <item name="colorPrimaryDark">@color/sc_primary_dark</item>
-        <item name="colorPrimaryVariant">@color/sc_primary_dark</item>
+    <!-- ================================================================
+         LUMO Theme — DSL-aligned
+         Replaces MaterialComponents with Material3
+         Palette: caramel primary / raspberry secondary / sage tertiary
+         Typography: Outfit (body) + Playfair Display (headings) + DM Serif Display (display)
+         ================================================================ -->
+
+    <style name="Theme.Lumo" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/lumo_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color -->
-        <item name="colorSecondary">@color/sc_secondary</item>
-        <item name="colorSecondaryVariant">@color/sc_secondary_dark</item>
+        <item name="colorPrimaryContainer">@color/lumo_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/lumo_on_primary_container</item>
+
+        <item name="colorSecondary">@color/lumo_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
-        <!-- Background -->
-        <item name="android:colorBackground">@color/sc_background</item>
-        <item name="colorSurface">@color/sc_surface</item>
-        <item name="colorOnSurface">@color/sc_on_surface</item>
-        <!-- Error -->
-        <item name="colorError">@color/sc_error</item>
-        <!-- Status bar -->
-        <item name="android:statusBarColor">@color/sc_background</item>
+        <item name="colorSecondaryContainer">@color/lumo_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/lumo_on_secondary_container</item>
+
+        <item name="colorTertiary">@color/lumo_tertiary</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorTertiaryContainer">@color/lumo_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/lumo_on_tertiary_container</item>
+
+        <item name="colorError">@color/lumo_error</item>
+        <item name="colorErrorContainer">@color/lumo_error_container</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorOnErrorContainer">@color/lumo_on_secondary_container</item>
+
+        <item name="android:colorBackground">@color/lumo_background</item>
+        <item name="colorSurface">@color/lumo_surface</item>
+        <item name="colorSurfaceVariant">@color/lumo_surface_variant</item>
+        <item name="colorOnSurface">@color/lumo_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/lumo_on_surface_muted</item>
+        <item name="colorOutline">@color/lumo_outline</item>
+        <item name="colorOutlineVariant">@color/lumo_outline_variant</item>
+
+        <item name="android:statusBarColor">@color/lumo_background</item>
         <item name="android:windowLightStatusBar">true</item>
-        <!-- Text appearance -->
-        <item name="android:textColorPrimary">@color/sc_on_surface</item>
-        <item name="android:textColorSecondary">@color/sc_on_surface_muted</item>
-        <!-- Shape -->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lumo.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lumo.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Lumo.LargeComponent</item>
-        <!-- Button style override -->
+        <item name="android:navigationBarColor">@color/lumo_surface</item>
+
+        <item name="android:fontFamily">@font/outfit</item>
+        <item name="android:textColorPrimary">@color/lumo_on_surface</item>
+        <item name="android:textColorSecondary">@color/lumo_on_surface_muted</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lumo.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lumo.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Lumo.Large</item>
+
         <item name="materialButtonStyle">@style/Widget.Lumo.Button.Primary</item>
-        <!-- Text input style -->
         <item name="textInputStyle">@style/Widget.Lumo.TextInputLayout</item>
+
     </style>
 
     <style name="Theme.Lumo.Splash" parent="Theme.Lumo">
-        <item name="android:windowBackground">@color/sc_background</item>
+        <item name="android:windowBackground">@color/lumo_splash_dark_start</item>
+        <item name="android:statusBarColor">@color/lumo_splash_dark_start</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/lumo_splash_dark_start</item>
     </style>
 
-    <!-- Shape appearances -->
-    <style name="ShapeAppearance.Lumo.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <!-- SHAPES — all with explicit Material3 parents -->
+    <style name="ShapeAppearance.Lumo.ExtraSmall" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
-
-    <style name="ShapeAppearance.Lumo.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+    <style name="ShapeAppearance.Lumo.Small" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>
-
-    <style name="ShapeAppearance.Lumo.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+    <style name="ShapeAppearance.Lumo.Medium" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
     </style>
+    <style name="ShapeAppearance.Lumo.Large" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+    <style name="ShapeAppearance.Lumo.ExtraLarge" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">32dp</item>
+    </style>
+    <style name="ShapeAppearance.Lumo.Pill" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
-    <!-- Primary button -->
-    <style name="Widget.Lumo.Button.Primary" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/sc_secondary</item>
+    <!-- BUTTONS -->
+    <style name="Widget.Lumo.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/lumo_primary</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:minHeight">56dp</item>
         <item name="cornerRadius">28dp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="rippleColor">@color/sc_secondary_dark</item>
+        <item name="android:fontFamily">@font/outfit_semibold</item>
+        <item name="rippleColor">#33FFFFFF</item>
+        <item name="elevation">4dp</item>
     </style>
 
-    <!-- Outlined secondary button -->
-    <style name="Widget.Lumo.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="strokeColor">@color/sc_primary</item>
-        <item name="android:textColor">@color/sc_primary</item>
-        <item name="android:textSize">16sp</item>
+    <style name="Widget.Lumo.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/lumo_primary_light</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:textColor">@color/lumo_primary</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:minHeight">56dp</item>
         <item name="cornerRadius">28dp</item>
+        <item name="android:fontFamily">@font/outfit_medium</item>
+        <item name="rippleColor">@color/lumo_primary_container</item>
     </style>
 
-    <!-- Text input layout -->
-    <style name="Widget.Lumo.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/sc_outline</item>
-        <item name="hintTextColor">@color/sc_on_surface_muted</item>
-        <item name="boxCornerRadiusTopStart">12dp</item>
-        <item name="boxCornerRadiusTopEnd">12dp</item>
-        <item name="boxCornerRadiusBottomStart">12dp</item>
-        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    <style name="Widget.Lumo.Button.Danger" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/lumo_secondary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:fontFamily">@font/outfit_semibold</item>
+        <item name="rippleColor">#33FFFFFF</item>
+        <item name="elevation">4dp</item>
     </style>
 
-    <!-- Feature card -->
-    <style name="Widget.Lumo.FeatureCard" parent="Widget.MaterialComponents.CardView">
+    <style name="Widget.Lumo.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/lumo_primary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">@font/outfit_semibold</item>
+        <item name="rippleColor">@color/lumo_primary_container</item>
+    </style>
+
+    <!-- TEXT INPUT -->
+    <style name="Widget.Lumo.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/lumo_outline</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/lumo_on_surface_muted</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="android:fontFamily">@font/outfit</item>
+        <item name="counterTextColor">@color/lumo_on_surface_subtle</item>
+    </style>
+
+    <!-- CARDS -->
+    <style name="Widget.Lumo.Card" parent="Widget.Material3.CardView.Elevated">
         <item name="cardElevation">0dp</item>
-        <item name="cardBackgroundColor">@color/sc_surface</item>
-        <item name="strokeColor">@color/sc_outline_variant</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeColor">@color/lumo_outline_variant</item>
         <item name="strokeWidth">1dp</item>
-        <item name="cardCornerRadius">16dp</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="contentPadding">0dp</item>
     </style>
 
-    <!-- Typography -->
-    <style name="TextAppearance.Lumo.Display" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="android:textColor">@color/sc_on_surface</item>
-        <item name="android:textSize">28sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+    <style name="Widget.Lumo.FeatureCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeColor">@color/lumo_outline_variant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="contentPadding">0dp</item>
     </style>
 
-    <style name="TextAppearance.Lumo.Headline" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textColor">@color/sc_on_surface</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+    <!-- STEP CHIP -->
+    <style name="Widget.Lumo.StepChip" parent="android:Widget">
+        <item name="android:background">@drawable/bg_step_chip</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textColor">@color/lumo_primary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/outfit_bold</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="TextAppearance.Lumo.Title" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="android:textColor">@color/sc_on_surface</item>
-        <item name="android:textSize">17sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+    <!-- DIVIDER -->
+    <style name="Widget.Lumo.Divider" parent="android:Widget">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/lumo_outline_variant</item>
     </style>
 
-    <style name="TextAppearance.Lumo.Body" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textColor">@color/sc_on_surface_muted</item>
-        <item name="android:textSize">15sp</item>
+    <!-- TYPOGRAPHY — DSL scale mapped to TextAppearance -->
+
+    <!-- display_xl: DM Serif Display 35sp — WelcomeScreen title -->
+    <style name="TextAppearance.Lumo.DisplayXl" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/lumo_on_surface_muted</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:fontFamily">@font/dm_serif_display</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <!-- title_l: Playfair Display 26sp 500 — onboarding H2 -->
+    <style name="TextAppearance.Lumo.TitleL" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/lumo_on_surface</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:fontFamily">@font/playfair_display_medium</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <!-- title_m: Playfair Display 19sp 500 — section headers -->
+    <style name="TextAppearance.Lumo.TitleM" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/lumo_on_surface</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:fontFamily">@font/playfair_display_medium</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+
+    <!-- title_s: Playfair Display 14sp 600 — card headers -->
+    <style name="TextAppearance.Lumo.TitleS" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/lumo_on_surface</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/playfair_display_semibold</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+
+    <!-- body_l: Outfit 14sp 400 — feature descriptions -->
+    <style name="TextAppearance.Lumo.BodyL" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/lumo_on_surface_muted</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/outfit</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+    <!-- body_m: Outfit 13sp 400 — standard body -->
+    <style name="TextAppearance.Lumo.BodyM" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/lumo_on_surface_muted</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">@font/outfit</item>
         <item name="android:lineSpacingMultiplier">1.4</item>
     </style>
 
-    <style name="TextAppearance.Lumo.Caption" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:textColor">@color/sc_on_surface_subtle</item>
+    <!-- body_s: Outfit 12sp 400 — captions, timestamps -->
+    <style name="TextAppearance.Lumo.BodyS" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/lumo_text_muted</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/outfit</item>
+        <item name="android:lineSpacingMultiplier">1.4</item>
     </style>
+
+    <!-- label_m: Outfit 11sp 600 ls 0.04 — chips, badges -->
+    <style name="TextAppearance.Lumo.LabelM" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/lumo_on_surface_muted</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/outfit_semibold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <!-- label_s: Outfit 10sp 700 uppercase — section labels -->
+    <style name="TextAppearance.Lumo.LabelS" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/lumo_on_surface_subtle</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/outfit_bold</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- stat_value: Playfair Display 19sp 600 — numeric stats -->
+    <style name="TextAppearance.Lumo.StatValue" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/lumo_primary</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:fontFamily">@font/playfair_display_semibold</item>
+    </style>
+
+    <!-- Overline — label_s variant with primary color -->
+    <style name="TextAppearance.Lumo.Overline" parent="TextAppearance.Lumo.LabelS">
+        <item name="android:textColor">@color/lumo_primary</item>
+    </style>
+
+    <!-- Backward-compat aliases for existing layout references -->
+    <style name="TextAppearance.Lumo.Display" parent="TextAppearance.Lumo.TitleL" />
+    <style name="TextAppearance.Lumo.Headline" parent="TextAppearance.Lumo.TitleL" />
+    <style name="TextAppearance.Lumo.Title" parent="TextAppearance.Lumo.TitleS" />
+    <style name="TextAppearance.Lumo.Body" parent="TextAppearance.Lumo.BodyL" />
+    <style name="TextAppearance.Lumo.Label" parent="TextAppearance.Lumo.LabelM" />
+    <style name="TextAppearance.Lumo.Caption" parent="TextAppearance.Lumo.BodyS" />
+
+    <!-- SmallComponent / MediumComponent / LargeComponent aliases for main-branch XML references -->
+    <style name="ShapeAppearance.Lumo.SmallComponent" parent="ShapeAppearance.Lumo.Small" />
+    <style name="ShapeAppearance.Lumo.MediumComponent" parent="ShapeAppearance.Lumo.Medium" />
+    <style name="ShapeAppearance.Lumo.LargeComponent" parent="ShapeAppearance.Lumo.Large" />
 
 </resources>

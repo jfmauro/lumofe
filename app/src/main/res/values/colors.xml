@@ -1,47 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand primary: warm sage green (anchor/nature) -->
-    <color name="sc_primary">#4A7C6F</color>
-    <color name="sc_primary_dark">#2D5A50</color>
-    <color name="sc_primary_light">#7AAF9E</color>
-    <color name="sc_primary_container">#E8F4F1</color>
 
-    <!-- Brand secondary: warm terracotta (CTA) -->
-    <color name="sc_secondary">#C8644A</color>
-    <color name="sc_secondary_dark">#A04D38</color>
-    <color name="sc_secondary_light">#E8947E</color>
-    <color name="sc_secondary_container">#FDEEE9</color>
+    <!-- ================================================================
+         LUMO — Color tokens (DSL-aligned replacement)
+         Primary: Caramel #C8855A | Secondary: Raspberry #C25C6E | Tertiary: Sage #7A9E8E
+         Replaces the main-branch sage-green / terracotta palette
+         ================================================================ -->
 
-    <!-- Neutral / Background -->
-    <color name="sc_background">#FAFAF8</color>
-    <color name="sc_surface">#FFFFFF</color>
-    <color name="sc_surface_variant">#F2F4F0</color>
+    <color name="lumo_primary">#C8855A</color>
+    <color name="lumo_primary_dark">#A86640</color>
+    <color name="lumo_primary_light">#E4A880</color>
+    <color name="lumo_primary_container">#F5DEC8</color>
+    <color name="lumo_on_primary_container">#5C3318</color>
 
-    <!-- Text -->
-    <color name="sc_on_background">#1C2B26</color>
-    <color name="sc_on_surface">#1C2B26</color>
-    <color name="sc_on_surface_muted">#6B7A74</color>
-    <color name="sc_on_surface_subtle">#9CABA4</color>
+    <color name="lumo_secondary">#C25C6E</color>
+    <color name="lumo_secondary_dark">#9E3E50</color>
+    <color name="lumo_secondary_light">#E8899A</color>
+    <color name="lumo_secondary_container">#F9E4E8</color>
+    <color name="lumo_on_secondary_container">#5C1A27</color>
 
-    <!-- Semantic -->
-    <color name="sc_error">#D32F2F</color>
-    <color name="sc_error_container">#FDECEA</color>
-    <color name="sc_success">#388E3C</color>
-    <color name="sc_success_container">#E8F5E9</color>
-    <color name="sc_warning">#F57C00</color>
+    <color name="lumo_tertiary">#7A9E8E</color>
+    <color name="lumo_tertiary_dark">#5C8070</color>
+    <color name="lumo_tertiary_light">#A8C5B8</color>
+    <color name="lumo_tertiary_container">#DFF0EA</color>
+    <color name="lumo_on_tertiary_container">#1A4035</color>
 
-    <!-- Outline -->
-    <color name="sc_outline">#C8D5D1</color>
-    <color name="sc_outline_variant">#E2ECEB</color>
+    <color name="lumo_success">#7A9E8E</color>
+    <color name="lumo_success_container">#DFF0EA</color>
+    <color name="lumo_warning">#C8855A</color>
+    <color name="lumo_warning_container">#F5DEC8</color>
+    <color name="lumo_error">#C25C6E</color>
+    <color name="lumo_error_container">#F9E4E8</color>
 
-    <!-- Scrim / overlay -->
-    <color name="sc_scrim">#80000000</color>
+    <color name="lumo_background">#FAF6F0</color>
+    <color name="lumo_surface">#FAF6F0</color>
+    <color name="lumo_surface_variant">#F0E8DC</color>
+    <color name="lumo_surface_sand">#E8DDD0</color>
+    <color name="lumo_surface_sand_dark">#D4C5B0</color>
 
-    <!-- Disclaimer special -->
-    <color name="sc_disclaimer_bg">#FFF8F5</color>
-    <color name="sc_disclaimer_border">#F0C4B4</color>
+    <color name="lumo_hero_start">#F5DEC8</color>
+    <color name="lumo_hero_mid">#FAF6F0</color>
+    <color name="lumo_hero_end">#DFF0EA</color>
+    <color name="lumo_splash_dark_start">#5C3318</color>
+    <color name="lumo_splash_dark_end">#4A2810</color>
+    <color name="lumo_wellness_dark_start">#1A3A30</color>
+    <color name="lumo_wellness_dark_end">#0D2820</color>
 
-    <!-- White / Black -->
+    <color name="lumo_on_background">#2D2420</color>
+    <color name="lumo_on_surface">#2D2420</color>
+    <color name="lumo_on_surface_muted">#6B4F3A</color>
+    <color name="lumo_on_surface_subtle">#9C7B63</color>
+    <color name="lumo_text_muted">#B0A090</color>
+
+    <color name="lumo_outline">#D4C5B0</color>
+    <color name="lumo_outline_variant">#E8DDD0</color>
+    <color name="lumo_nav_active_bg">#F5DEC8</color>
+    <color name="lumo_alert_urgent_bg">#FFF0F3</color>
+    <color name="lumo_alert_info_bg">#FFF8F0</color>
+    <color name="lumo_alert_ok_bg">#F0FBF7</color>
+    <color name="lumo_scrim">#73000000</color>
+
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Legacy sc_* aliases — keeps all existing references valid -->
+    <color name="sc_primary">@color/lumo_primary</color>
+    <color name="sc_primary_dark">@color/lumo_primary_dark</color>
+    <color name="sc_primary_light">@color/lumo_primary_light</color>
+    <color name="sc_primary_container">@color/lumo_primary_container</color>
+    <color name="sc_secondary">@color/lumo_secondary</color>
+    <color name="sc_secondary_dark">@color/lumo_secondary_dark</color>
+    <color name="sc_secondary_light">@color/lumo_secondary_light</color>
+    <color name="sc_secondary_container">@color/lumo_secondary_container</color>
+    <color name="sc_background">@color/lumo_background</color>
+    <color name="sc_surface">@color/lumo_surface</color>
+    <color name="sc_surface_variant">@color/lumo_surface_variant</color>
+    <color name="sc_on_background">@color/lumo_on_background</color>
+    <color name="sc_on_surface">@color/lumo_on_surface</color>
+    <color name="sc_on_surface_muted">@color/lumo_on_surface_muted</color>
+    <color name="sc_on_surface_subtle">@color/lumo_on_surface_subtle</color>
+    <color name="sc_error">@color/lumo_error</color>
+    <color name="sc_error_container">@color/lumo_error_container</color>
+    <color name="sc_success">@color/lumo_success</color>
+    <color name="sc_success_container">@color/lumo_success_container</color>
+    <color name="sc_warning">@color/lumo_warning</color>
+    <color name="sc_outline">@color/lumo_outline</color>
+    <color name="sc_outline_variant">@color/lumo_outline_variant</color>
+    <color name="sc_scrim">@color/lumo_scrim</color>
+    <color name="sc_disclaimer_bg">@color/lumo_secondary_container</color>
+    <color name="sc_disclaimer_border">@color/lumo_secondary_light</color>
+
 </resources>

@@ -23,15 +23,12 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val current = binding.viewPager.currentItem
-                if (current > 0) {
-                    binding.viewPager.currentItem = current - 1
-                } else {
-                    isEnabled = false
-                    onBackPressedDispatcher.onBackPressed()
-                }
+                if (current > 0) binding.viewPager.currentItem = current - 1
+                else { isEnabled = false; onBackPressedDispatcher.onBackPressed() }
             }
         })
 
@@ -46,19 +43,18 @@ class OnboardingActivity : AppCompatActivity() {
         binding.viewPager.isUserInputEnabled = false
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                updateUiForStep(position)
-            }
+            override fun onPageSelected(position: Int) { updateUiForStep(position) }
         })
     }
 
     private fun setupStepDots() {
+        // KEY CHANGE: dots are now ImageViews sized to step_dot_size (8dp) for consistency
+        // with the DSL ic_step_dot_active (pill) / ic_step_dot_inactive (circle)
         stepDots = List(OnboardingPagerAdapter.TOTAL_STEPS) { index ->
             ImageView(this).apply {
                 val size = resources.getDimensionPixelSize(R.dimen.progress_indicator_size)
                 val params = LinearLayout.LayoutParams(size, size).apply {
-                    marginStart = 6
-                    marginEnd = 6
+                    marginStart = 6; marginEnd = 6
                 }
                 layoutParams = params
                 setImageResource(
@@ -126,10 +122,8 @@ class OnboardingActivity : AppCompatActivity() {
                 navigateToRegister()
             }
         }
-
         binding.btnSecondary.setOnClickListener {
-            // "J'ai reçu une invitation" - placeholder for Feature 0.3 deep link
-            // TODO: navigate to invitation flow (Feature 0.3)
+            // TODO: navigate to invitation deep-link flow (Feature 0.3)
         }
     }
 
@@ -143,6 +137,4 @@ class OnboardingActivity : AppCompatActivity() {
     private fun navigateToRegister() {
         startActivity(Intent(this, RegisterActivity::class.java))
     }
-
-
 }

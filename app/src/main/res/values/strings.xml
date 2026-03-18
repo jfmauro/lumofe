@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- App -->
-    <string name="app_name">SafeCircle</string>
-    <string name="app_tagline">Vous n\'êtes jamais seul.</string>
+
+    <!-- App identity -->
+    <string name="app_name">Lumo</string>
+    <string name="app_tagline">Votre réseau de soutien quotidien.</string>
+    <string name="app_tagline_sub">Votre cercle de soutien, toujours là.</string>
 
     <!-- Common -->
     <string name="common_next">Continuer</string>
@@ -13,50 +15,65 @@
     <string name="common_error_generic">Une erreur est survenue. Veuillez réessayer.</string>
     <string name="common_error_server">Erreur serveur. Réessayez plus tard.</string>
     <string name="common_loading">Chargement…</string>
+    <string name="common_retry">Réessayer</string>
 
-    <!-- Onboarding Step indicator -->
+    <!-- Onboarding step indicator -->
     <string name="onboarding_step">Étape %1$d sur %2$d</string>
 
     <!-- Screen 1: Welcome -->
-    <string name="welcome_title">Bienvenue sur SafeCircle</string>
-    <string name="welcome_subtitle">Votre réseau de support quotidien</string>
+    <string name="welcome_title">Bienvenue\nsur Lumo</string>
+    <string name="welcome_subtitle">Votre réseau de soutien quotidien.</string>
     <string name="welcome_description">Restez connecté avec vos proches grâce à un check-in quotidien simple.</string>
     <string name="welcome_btn_create">Créer mon cercle</string>
     <string name="welcome_btn_invitation">J\'ai reçu une invitation</string>
 
-    <!-- Screen 2: Understand SafeCircle -->
-    <string name="understand_title">Comprendre SafeCircle</string>
-    <string name="understand_subtitle">Votre réseau de soutien quotidien</string>
+    <!-- Screen 2: Understand Lumo -->
+    <string name="understand_title">Comprendre\nLumo</string>
+    <string name="understand_subtitle">Votre réseau de soutien quotidien.</string>
     <string name="understand_feature1_title">Check-in quotidien en 1 tap</string>
-    <string name="understand_feature1_desc">Signalez votre présence chaque jour en quelques secondes.</string>
+    <string name="understand_feature1_desc">Signalez votre présence en quelques secondes chaque jour.</string>
     <string name="understand_feature2_title">Alertes automatiques</string>
     <string name="understand_feature2_desc">Vos proches sont notifiés en cas d\'absence prolongée.</string>
-    <string name="understand_feature3_title">Cercle de confiance</string>
-    <string name="understand_feature3_desc">Coordonnez votre réseau de proches bienveillants.</string>
+    <string name="understand_feature3_title">Coordination de cercle</string>
+    <string name="understand_feature3_desc">Gérez et coordonnez votre cercle de proches facilement.</string>
+    <string name="understand_feature_privacy_title">Confidentialité garantie</string>
+    <string name="understand_feature_privacy_desc">Vos données restent privées, partagées uniquement avec votre cercle.</string>
     <string name="understand_btn_wait">Patientez %1$ds…</string>
-    <string name="understand_btn_continue">J\'ai compris, continuer</string>
+    <string name="understand_btn_continue">J\'ai compris, continuer →</string>
 
     <!-- Screen 3: Disclaimer -->
-    <string name="disclaimer_title">Important à savoir</string>
-    <string name="disclaimer_subtitle">Lisez attentivement avant de continuer</string>
+    <string name="disclaimer_step_label">Avant de commencer</string>
+    <string name="disclaimer_title">Avant de commencer</string>
+    <string name="disclaimer_subtitle">Lumo a des limites importantes</string>
+    <string name="disclaimer_intro">Lumo n\'est <b>pas un service d\'urgence</b>. En cas de détresse réelle, appelez le 112.</string>
+    <string name="disclaimer_limitations_header">Limitations importantes</string>
     <string name="disclaimer_item1">SafeCircle n\'est <b>pas un service d\'urgence</b></string>
     <string name="disclaimer_item2">SafeCircle n\'offre <b>pas de surveillance 24/7</b></string>
     <string name="disclaimer_item3">SafeCircle ne <b>garantit pas votre sécurité</b></string>
     <string name="disclaimer_item4">En cas de besoin réel, <b>contactez le 15, 17 ou 18</b></string>
+    <string name="disclaimer_limit1">Fiabilité conditionnelle aux membres actifs</string>
+    <string name="disclaimer_limit2">Aucune garantie de réponse immédiate du cercle</string>
+    <string name="disclaimer_limit3">Pas un substitut aux services d\'urgence</string>
+    <string name="disclaimer_limit4">Signalement basé sur la détection d\'absence</string>
     <string name="disclaimer_checkbox">J\'ai lu et compris ces limitations</string>
     <string name="disclaimer_btn">Accepter et continuer</string>
+    <string name="disclaimer_btn_continue">Accepter et continuer</string>
     <string name="disclaimer_version">v1.0.0</string>
 
-    <!-- Screen 4: Create Account -->
-    <string name="register_title">Créez votre compte</string>
-    <string name="register_subtitle">Quelques informations pour commencer</string>
+    <!-- Screen 4: Register -->
+    <string name="register_title">Créer mon compte</string>
+    <string name="register_subtitle">Quelques informations pour vous identifier.</string>
+    <string name="register_step">4 / 4</string>
     <string name="register_field_firstname">Prénom</string>
     <string name="register_field_lastname">Nom</string>
-    <string name="register_field_email">Email</string>
+    <string name="register_field_email">Adresse e-mail</string>
     <string name="register_field_phone">Téléphone (optionnel)</string>
-    <string name="register_field_phone_hint">+33 6 12 34 56 78</string>
+    <string name="register_field_phone_hint">+32 4 12 34 56 78</string>
+    <string name="register_field_password">Mot de passe (8+ caractères)</string>
     <string name="register_btn_submit">Créer mon compte</string>
     <string name="register_loading">Création du compte…</string>
+    <string name="register_login_link">Déjà un compte ? <b>Se connecter</b></string>
+    <string name="register_terms">En créant votre compte, vous acceptez nos <u>Conditions d\'utilisation</u> et notre <u>Politique de confidentialité</u>.</string>
 
     <!-- Validation errors -->
     <string name="error_firstname_required">Le prénom est obligatoire</string>
@@ -66,11 +83,12 @@
     <string name="error_email_required">L\'email est obligatoire</string>
     <string name="error_email_invalid">Format d\'email invalide (ex: nom@domaine.fr)</string>
     <string name="error_email_already_exists">Un compte existe déjà avec cet email</string>
-    <string name="error_phone_invalid">Format invalide (ex: +33612345678)</string>
+    <string name="error_phone_invalid">Format invalide (ex: +32612345678)</string>
+    <string name="error_password_too_short">Le mot de passe doit contenir au moins 8 caractères</string>
 
-    <!-- Registration success / API errors -->
+    <!-- API responses -->
     <string name="register_success">Compte créé avec succès !</string>
-    <string name="register_error_409">Cet email est déjà utilisé. Utilisez la récupération de mot de passe si ce compte vous appartient.</string>
+    <string name="register_error_409">Cet email est déjà utilisé.</string>
     <string name="register_error_400">Données invalides. Vérifiez les champs.</string>
     <string name="register_error_429">Trop de tentatives. Réessayez dans une heure.</string>
 
@@ -80,11 +98,63 @@
     <string name="draft_restore_yes">Reprendre</string>
     <string name="draft_restore_no">Recommencer</string>
 
-    <!-- Content descriptions for accessibility -->
-    <string name="cd_safecircle_logo">Logo SafeCircle</string>
-    <string name="cd_illustration_welcome">Illustration de personnes connectées</string>
-    <string name="cd_check_feature">Icône check-in</string>
+    <!-- Circle creation -->
+    <string name="circle_create_title">Définissez votre cercle</string>
+    <string name="circle_create_subtitle">Quelques détails rapides. Cela pourra être modifié par la suite.</string>
+    <string name="circle_field_name">Nom du cercle *</string>
+    <string name="circle_field_description">Description (optionnel)</string>
+    <string name="circle_tip">Vous pourrez inviter vos proches après la création du cercle.</string>
+    <string name="circle_btn_create">Créer le cercle →</string>
+
+    <!-- Responsibilities -->
+    <string name="resp_title">Responsabilités en tant que créateur du cercle</string>
+    <string name="resp_cta">Accepter et créer le cercle</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_invitations">Invitations</string>
+    <string name="nav_alerts">Alertes</string>
+    <string name="nav_energy">Énergie</string>
+
+    <!-- Check-in -->
+    <string name="checkin_header">Check-in quotidien</string>
+    <string name="checkin_mood_question">Comment vous sentez-vous ?</string>
+    <string name="mood_tired">Fatigué</string>
+    <string name="mood_neutral">Neutre</string>
+    <string name="mood_good">Bien</string>
+    <string name="mood_energetic">Énergique</string>
+
+    <!-- Invitations -->
+    <string name="invitations_title">Invitations</string>
+    <string name="invitations_send">+ Envoyer une invitation</string>
+    <string name="filter_all">Toutes</string>
+    <string name="filter_pending">En attente</string>
+    <string name="filter_accepted">Acceptées</string>
+    <string name="filter_refused">Refusées</string>
+
+    <!-- Alerts -->
+    <string name="alerts_title">Alertes &amp; Actions</string>
+
+    <!-- Decline -->
+    <string name="decline_title">Refuser cette invitation ?</string>
+    <string name="decline_confirm">Confirmer le refus</string>
+    <string name="decline_cancel">Annuler</string>
+
+    <!-- Login -->
+    <string name="login_title">Content de vous revoir !</string>
+    <string name="login_btn_submit">Se connecter</string>
+    <string name="login_field_email">Adresse e-mail</string>
+    <string name="login_field_password">Mot de passe</string>
+    <string name="login_forgot_password">Mot de passe oublié ?</string>
+
+    <!-- Accessibility -->
+    <string name="cd_safecircle_logo">Logo Lumo — marque lumineuse</string>
+    <string name="cd_lumo_logo">Logo Lumo — marque lumineuse</string>
+    <string name="cd_illustration_welcome">Illustration d\'un groupe de personnes connectées</string>
+    <string name="cd_check_feature">Coche de validation</string>
     <string name="cd_alert_feature">Icône alertes</string>
     <string name="cd_circle_feature">Icône cercle</string>
     <string name="cd_disclaimer_check">Case à cocher disclaimer</string>
+    <string name="cd_back_button">Retour à l\'écran précédent</string>
+
 </resources>

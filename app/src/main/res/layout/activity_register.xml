@@ -1,109 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    KEY CHANGES vs main:
+    - IDs renamed: tilFirstname->tilFirstName, etFirstname->etFirstName,
+                   tilLastname->tilLastName, etLastname->etLastName,
+                   btnSubmit->btnRegister
+    - Header gradient band added (bg_register_header)
+    - Password field added (tilPassword / etPassword)
+    - Card pulls over gradient with negative margin
+    - ProgressBar replaced with LinearProgressIndicator
+-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sc_background">
+    android:background="@color/lumo_background">
+
+    <!-- Caramel gradient header band -->
+    <View
+        android:id="@+id/headerBand"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_register_header" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/screen_horizontal_padding"
-            android:paddingTop="@dimen/spacing_xl"
             android:paddingBottom="120dp">
 
-            <!-- Step indicator -->
-            <TextView
-                android:id="@+id/tvStepIndicator"
-                style="@style/TextAppearance.Lumo.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/bg_step_chip"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp"
-                android:text="4/4"
-                android:textColor="@color/sc_primary" />
-
-            <!-- Title -->
-            <TextView
-                android:id="@+id/tvTitle"
-                style="@style/TextAppearance.Lumo.Headline"
+            <!-- Header -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:text="@string/register_title" />
+                android:paddingTop="56dp"
+                android:paddingBottom="32dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp">
 
-            <!-- Subtitle -->
-            <TextView
-                android:id="@+id/tvSubtitle"
-                style="@style/TextAppearance.Lumo.Body"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="@string/register_subtitle" />
+                <TextView
+                    android:id="@+id/tvStepIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/register_step"
+                    style="@style/Widget.Lumo.StepChip" />
 
-            <!-- Form card -->
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/playfair_display_medium"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.2" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/register_subtitle"
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/outfit"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <!-- Form card overlapping gradient -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/formCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="-20dp"
+                app:cardCornerRadius="32dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/sc_surface"
-                app:strokeColor="@color/sc_outline_variant"
-                app:strokeWidth="1dp"
-                app:cardCornerRadius="20dp">
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/lumo_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/card_padding">
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:paddingTop="32dp"
+                    android:paddingBottom="16dp">
 
-                    <!-- First name -->
+                    <!-- First name: ID etFirstName (camelCase) -->
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilFirstname"
+                        android:id="@+id/tilFirstName"
                         style="@style/Widget.Lumo.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:hint="@string/register_field_firstname"
                         app:endIconMode="clear_text">
-
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etFirstname"
+                            android:id="@+id/etFirstName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName|textCapWords"
                             android:imeOptions="actionNext"
-                            android:maxLength="50" />
+                            android:maxLength="50"
+                            android:fontFamily="@font/outfit" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Last name -->
+                    <!-- Last name: ID etLastName -->
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilLastname"
+                        android:id="@+id/tilLastName"
                         style="@style/Widget.Lumo.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="16dp"
                         android:hint="@string/register_field_lastname"
                         app:endIconMode="clear_text">
-
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etLastname"
+                            android:id="@+id/etLastName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName|textCapWords"
                             android:imeOptions="actionNext"
-                            android:maxLength="50" />
+                            android:maxLength="50"
+                            android:fontFamily="@font/outfit" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Email -->
@@ -112,17 +142,17 @@
                         style="@style/Widget.Lumo.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="16dp"
                         android:hint="@string/register_field_email"
                         app:endIconMode="clear_text">
-
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress"
                             android:imeOptions="actionNext"
-                            android:maxLength="100" />
+                            android:maxLength="100"
+                            android:fontFamily="@font/outfit" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Phone (optional) -->
@@ -131,53 +161,115 @@
                         style="@style/Widget.Lumo.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="16dp"
                         android:hint="@string/register_field_phone"
                         app:endIconMode="clear_text"
                         app:helperText="@string/register_field_phone_hint">
-
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="phone"
-                            android:imeOptions="actionDone"
-                            android:maxLength="16" />
+                            android:imeOptions="actionNext"
+                            android:maxLength="16"
+                            android:fontFamily="@font/outfit" />
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Password (new field — DSL FIELD_PASSWORD) -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPassword"
+                        style="@style/Widget.Lumo.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:hint="@string/register_field_password"
+                        app:endIconMode="password_toggle">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:imeOptions="actionDone"
+                            android:fontFamily="@font/outfit" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Submit button: ID btnRegister (renamed from btnSubmit) -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/register_btn_submit"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_btn_primary"
+                        android:stateListAnimator="@null"
+                        android:enabled="false"
+                        app:cornerRadius="28dp"
+                        app:elevation="4dp" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        android:indeterminate="true"
+                        app:indicatorColor="@color/lumo_primary"
+                        app:trackColor="@color/lumo_outline_variant"
+                        app:trackCornerRadius="4dp" />
+
+                    <!-- Error banner -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/errorBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFF0F3"
+                        app:strokeColor="#33C25C6E"
+                        app:strokeWidth="1dp">
+                        <TextView
+                            android:id="@+id/tvError"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="14dp"
+                            android:textColor="#C25C6E"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/outfit_semibold"
+                            android:lineSpacingMultiplier="1.4" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvLoginLink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/register_login_link"
+                        android:textColor="#9C7B63"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvTerms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/register_terms"
+                        android:textColor="#B0A090"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/outfit"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.4" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <!-- Bottom sticky submit button -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/sc_background"
-        android:paddingHorizontal="@dimen/screen_horizontal_padding"
-        android:paddingBottom="32dp"
-        android:paddingTop="12dp"
-        android:layout_gravity="bottom">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubmit"
-            style="@style/Widget.Lumo.Button.Primary"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
-            android:text="@string/register_btn_submit"
-            android:enabled="false" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:visibility="gone" />
-
-    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,63 +4,71 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/screen_horizontal_padding"
-        android:paddingTop="40dp"
-        android:paddingBottom="@dimen/spacing_lg">
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp">
 
-        <!-- Title -->
+        <!-- title_l: Playfair Display 26sp -->
         <TextView
             android:id="@+id/tvTitle"
-            style="@style/TextAppearance.Lumo.Headline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/understand_title" />
+            android:text="@string/understand_title"
+            android:textColor="#2D2420"
+            android:textSize="26sp"
+            android:fontFamily="@font/playfair_display_medium"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="2" />
 
-        <!-- Subtitle -->
+        <!-- body_m muted -->
         <TextView
             android:id="@+id/tvSubtitle"
-            style="@style/TextAppearance.Lumo.Body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@string/understand_subtitle" />
+            android:layout_marginBottom="20dp"
+            android:text="@string/understand_subtitle"
+            android:textColor="#B0A090"
+            android:textSize="13sp"
+            android:fontFamily="@font/outfit"
+            android:lineSpacingMultiplier="1.4" />
 
-        <!-- Feature card 1 -->
+        <!-- Feature card 1: Check-in — sage -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFeature1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginBottom="14dp"
             style="@style/Widget.Lumo.FeatureCard">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/card_padding"
+                android:padding="16dp"
                 android:gravity="center_vertical">
 
                 <FrameLayout
-                    android:layout_width="@dimen/feature_card_icon_bg"
-                    android:layout_height="@dimen/feature_card_icon_bg"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_feature_icon_green">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:contentDescription="@string/cd_check_feature"
                         android:text="✓"
-                        android:textColor="@color/sc_primary"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textColor="#7A9E8E"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:contentDescription="@string/cd_check_feature" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -69,49 +77,54 @@
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
                     <TextView
-                        style="@style/TextAppearance.Lumo.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/understand_feature1_title" />
-
+                        android:text="@string/understand_feature1_title"
+                        android:textColor="#2D2420"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/playfair_display_semibold"
+                        android:lineSpacingMultiplier="1.3" />
                     <TextView
-                        style="@style/TextAppearance.Lumo.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/understand_feature1_desc" />
+                        android:text="@string/understand_feature1_desc"
+                        android:textColor="#B0A090"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit"
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Feature card 2 -->
+        <!-- Feature card 2: Alerts — raspberry -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFeature2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="14dp"
             style="@style/Widget.Lumo.FeatureCard">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/card_padding"
+                android:padding="16dp"
                 android:gravity="center_vertical">
 
                 <FrameLayout
-                    android:layout_width="@dimen/feature_card_icon_bg"
-                    android:layout_height="@dimen/feature_card_icon_bg"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_feature_icon_orange">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:contentDescription="@string/cd_alert_feature"
                         android:text="🔔"
-                        android:textSize="22sp" />
+                        android:textSize="20sp"
+                        android:contentDescription="@string/cd_alert_feature" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -120,49 +133,54 @@
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
                     <TextView
-                        style="@style/TextAppearance.Lumo.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/understand_feature2_title" />
-
+                        android:text="@string/understand_feature2_title"
+                        android:textColor="#2D2420"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/playfair_display_semibold"
+                        android:lineSpacingMultiplier="1.3" />
                     <TextView
-                        style="@style/TextAppearance.Lumo.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/understand_feature2_desc" />
+                        android:text="@string/understand_feature2_desc"
+                        android:textColor="#B0A090"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit"
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Feature card 3 -->
+        <!-- Feature card 3: Circle — caramel -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFeature3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="14dp"
             style="@style/Widget.Lumo.FeatureCard">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/card_padding"
+                android:padding="16dp"
                 android:gravity="center_vertical">
 
                 <FrameLayout
-                    android:layout_width="@dimen/feature_card_icon_bg"
-                    android:layout_height="@dimen/feature_card_icon_bg"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_feature_icon_teal">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:contentDescription="@string/cd_circle_feature"
                         android:text="🤝"
-                        android:textSize="22sp" />
+                        android:textSize="20sp"
+                        android:contentDescription="@string/cd_circle_feature" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -171,22 +189,83 @@
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
                     <TextView
-                        style="@style/TextAppearance.Lumo.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/understand_feature3_title" />
-
+                        android:text="@string/understand_feature3_title"
+                        android:textColor="#2D2420"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/playfair_display_semibold"
+                        android:lineSpacingMultiplier="1.3" />
                     <TextView
-                        style="@style/TextAppearance.Lumo.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/understand_feature3_desc" />
+                        android:text="@string/understand_feature3_desc"
+                        android:textColor="#B0A090"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit"
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Feature card 4: Privacy — caramel (new card, DSL FEATURE_PRIVACY_*) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFeature4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Lumo.FeatureCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_feature_icon_teal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="🔒"
+                        android:textSize="20sp"
+                        android:contentDescription="@null" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/understand_feature_privacy_title"
+                        android:textColor="#2D2420"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/playfair_display_semibold"
+                        android:lineSpacingMultiplier="1.3" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/understand_feature_privacy_desc"
+                        android:textColor="#B0A090"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit"
+                        android:lineSpacingMultiplier="1.4" />
+                </LinearLayout>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+
 </ScrollView>

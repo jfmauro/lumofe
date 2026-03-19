@@ -97,4 +97,16 @@
     <string name="cd_disclaimer_check">Disclaimer checkbox</string>
     <string name="cd_back_button">Back to previous screen</string>
 
+    <string name="concept_title">Understanding\nLumo</string>
+    <string name="concept_subtitle">Your daily support network.</string>
+    <string name="concept_feature1_title">Daily check-in in 1 tap</string>
+    <string name="concept_feature1_desc">Signal your presence in just a few seconds each day.</string>
+    <string name="concept_feature2_title">Automatic alerts</string>
+    <string name="concept_feature2_desc">Your loved ones are notified if you are absent for too long.</string>
+    <string name="concept_feature3_title">Circle coordination</string>
+    <string name="concept_feature3_desc">Easily manage and coordinate your circle of loved ones.</string>
+    <string name="concept_feature4_title">Guaranteed privacy</string>
+    <string name="concept_feature4_desc">Your data stays private, shared only with your circle.</string>
+    <string name="concept_cta">Got it, continue →</string>
+
 </resources>

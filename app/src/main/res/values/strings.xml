@@ -50,7 +50,7 @@
     <string name="disclaimer_item1">SafeCircle n\'est <b>pas un service d\'urgence</b></string>
     <string name="disclaimer_item2">SafeCircle n\'offre <b>pas de surveillance 24/7</b></string>
     <string name="disclaimer_item3">SafeCircle ne <b>garantit pas votre sécurité</b></string>
-    <string name="disclaimer_item4">En cas de besoin réel, <b>contactez le 15, 17 ou 18</b></string>
+    <string name="disclaimer_item4">En cas de besoin réel, <b>contactez le 112</b></string>
     <string name="disclaimer_limit1">Fiabilité conditionnelle aux membres actifs</string>
     <string name="disclaimer_limit2">Aucune garantie de réponse immédiate du cercle</string>
     <string name="disclaimer_limit3">Pas un substitut aux services d\'urgence</string>
@@ -162,5 +162,18 @@
     <string name="nav_section_account">Compte</string>
     <string name="nav_item_logout">Se déconnecter</string>
     <string name="nav_drawer_opened">Navigation ouverte</string>
+
+
+    <string name="concept_title">Comprendre\nLumo</string>
+    <string name="concept_subtitle">Votre réseau de soutien quotidien.</string>
+    <string name="concept_feature1_title">Check-in quotidien en 1 tap</string>
+    <string name="concept_feature1_desc">Signalez votre présence en quelques secondes chaque jour.</string>
+    <string name="concept_feature2_title">Alertes automatiques</string>
+    <string name="concept_feature2_desc">Vos proches sont notifiés en cas d\'absence prolongée.</string>
+    <string name="concept_feature3_title">Coordination de cercle</string>
+    <string name="concept_feature3_desc">Gérez et coordonnez votre cercle de proches facilement.</string>
+    <string name="concept_feature4_title">Confidentialité garantie</string>
+    <string name="concept_feature4_desc">Vos données restent privées, partagées uniquement avec votre cercle.</string>
+    <string name="concept_cta">J\'ai compris, continuer →</string>
 
 </resources>

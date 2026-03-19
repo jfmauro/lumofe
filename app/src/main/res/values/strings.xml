@@ -157,4 +157,10 @@
     <string name="cd_disclaimer_check">Case à cocher disclaimer</string>
     <string name="cd_back_button">Retour à l\'écran précédent</string>
 
+    <!-- Compte -->
+    <string name="nav_header_subtitle">Présence &amp; connexion</string>
+    <string name="nav_section_account">Compte</string>
+    <string name="nav_item_logout">Se déconnecter</string>
+    <string name="nav_drawer_opened">Navigation ouverte</string>
+
 </resources>

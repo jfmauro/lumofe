@@ -283,4 +283,10 @@
     <style name="ShapeAppearance.Lumo.MediumComponent" parent="ShapeAppearance.Lumo.Medium" />
     <style name="ShapeAppearance.Lumo.LargeComponent" parent="ShapeAppearance.Lumo.Large" />
 
+    <style name="TextAppearance.Lumo.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/playfair_display_semibold</item>
+        <item name="android:textColor">@color/lumo_on_surface</item>
+    </style>
+
 </resources>

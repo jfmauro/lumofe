@@ -91,4 +91,10 @@
     <color name="sc_disclaimer_bg">@color/lumo_secondary_container</color>
     <color name="sc_disclaimer_border">@color/lumo_secondary_light</color>
 
+    <color name="surface_cream">#FAF6F0</color>
+    <color name="charcoal">#2D2420</color>
+    <color name="muted">#B0A090</color>
+    <color name="caramel">#C8855A</color>
+    <color name="cream">#FAF6F0</color>
+
 </resources>

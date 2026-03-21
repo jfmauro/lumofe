@@ -52,8 +52,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/register_title"
                     android:textColor="#FFFFFF"
-                    android:textSize="26sp"
-                    android:fontFamily="@font/playfair_display_medium"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:letterSpacing="0.06"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.2" />
 

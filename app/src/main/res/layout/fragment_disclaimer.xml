@@ -25,24 +25,13 @@
             android:id="@+id/tvStepLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="13dp"
             android:text="@string/disclaimer_step_label"
             android:textColor="#C8855A"
-            android:textSize="10sp"
+            android:textSize="14sp"
             android:fontFamily="@font/outfit_bold"
             android:letterSpacing="0.06"
             android:textAllCaps="true" />
-
-        <!-- title_l Playfair -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/disclaimer_title"
-            android:textColor="#2D2420"
-            android:textSize="26sp"
-            android:fontFamily="@font/playfair_display_medium"
-            android:lineSpacingMultiplier="1.2" />
 
         <!-- body_m muted -->
         <TextView

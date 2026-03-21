@@ -26,12 +26,13 @@
                 android:id="@+id/tv_concept_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="13dp"
                 android:text="@string/concept_title"
-                android:fontFamily="@font/playfair_display_semibold"
-                android:textSize="28sp"
-                android:textColor="@color/charcoal"
-                android:lineSpacingMultiplier="1.1"
-                android:includeFontPadding="false"/>
+                android:textColor="#C8855A"
+                android:textSize="14sp"
+                android:fontFamily="@font/outfit_bold"
+                android:letterSpacing="0.06"
+                android:textAllCaps="true" />
 
             <TextView
                 android:id="@+id/tv_concept_subtitle"

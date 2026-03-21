@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
 import be.tivano.lumo.R
 import be.tivano.lumo.databinding.ActivityOnboardingBinding
@@ -23,6 +25,17 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.bottomSheet) { view, insets ->
+            val navBarInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            view.setPadding(
+                view.paddingLeft,
+                view.paddingTop,
+                view.paddingRight,
+                resources.getDimensionPixelSize(R.dimen.bottom_sheet_padding_bottom) + navBarInset
+            )
+            insets
+        }
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

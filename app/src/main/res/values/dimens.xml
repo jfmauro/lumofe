@@ -81,4 +81,6 @@
     <dimen name="elevation_md">4dp</dimen>
     <dimen name="elevation_lg">8dp</dimen>
 
+    <dimen name="bottom_sheet_padding_bottom">32dp</dimen>
+
 </resources>

@@ -21,7 +21,7 @@
             android:text="⚓"
             android:textSize="16sp"
             android:textColor="@color/sc_primary"
-            android:contentDescription="@string/cd_safecircle_logo"
+            android:contentDescription="@string/cd_lumo_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

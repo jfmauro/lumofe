@@ -47,9 +47,9 @@
     <string name="disclaimer_subtitle">Lumo a des limites importantes</string>
     <string name="disclaimer_intro">Lumo n\'est <b>pas un service d\'urgence</b>. En cas de détresse réelle, appelez le 112.</string>
     <string name="disclaimer_limitations_header">Limitations importantes</string>
-    <string name="disclaimer_item1">SafeCircle n\'est <b>pas un service d\'urgence</b></string>
-    <string name="disclaimer_item2">SafeCircle n\'offre <b>pas de surveillance 24/7</b></string>
-    <string name="disclaimer_item3">SafeCircle ne <b>garantit pas votre sécurité</b></string>
+    <string name="disclaimer_item1">Pulse n\'est <b>pas un service d\'urgence</b></string>
+    <string name="disclaimer_item2">Pulse n\'offre <b>pas de surveillance 24/7</b></string>
+    <string name="disclaimer_item3">Pulse ne <b>garantit pas votre sécurité</b></string>
     <string name="disclaimer_item4">En cas de besoin réel, <b>contactez le 112</b></string>
     <string name="disclaimer_limit1">Fiabilité conditionnelle aux membres actifs</string>
     <string name="disclaimer_limit2">Aucune garantie de réponse immédiate du cercle</string>
@@ -148,7 +148,6 @@
     <string name="login_forgot_password">Mot de passe oublié ?</string>
 
     <!-- Accessibility -->
-    <string name="cd_safecircle_logo">Logo Lumo — marque lumineuse</string>
     <string name="cd_lumo_logo">Logo Lumo — marque lumineuse</string>
     <string name="cd_illustration_welcome">Illustration d\'un groupe de personnes connectées</string>
     <string name="cd_check_feature">Coche de validation</string>

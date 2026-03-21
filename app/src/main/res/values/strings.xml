@@ -98,13 +98,35 @@
     <string name="draft_restore_yes">Reprendre</string>
     <string name="draft_restore_no">Recommencer</string>
 
-    <!-- Circle creation -->
-    <string name="circle_create_title">Définissez votre cercle</string>
-    <string name="circle_create_subtitle">Quelques détails rapides. Cela pourra être modifié par la suite.</string>
+    <!-- Circle creation — US-0.1.2 -->
+    <string name="circle_step_label">ÉTAPE 2 / 4</string>
+    <string name="circle_create_title">Créons votre cercle</string>
+    <string name="circle_create_subtitle">Donnez un nom à votre réseau de support.</string>
+    <string name="circle_suggestions_label">Suggestions rapides</string>
+    <string name="circle_suggestion_family">Famille</string>
+    <string name="circle_suggestion_family_named">Famille %1$s</string>
+    <string name="circle_suggestion_friends">Mes Proches</string>
+    <string name="circle_suggestion_support">Cercle de Support</string>
+    <string name="circle_suggestion_custom">Personnaliser</string>
     <string name="circle_field_name">Nom du cercle *</string>
     <string name="circle_field_description">Description (optionnel)</string>
+    <string name="circle_desc_counter">%1$d/200</string>
+    <string name="circle_desc_counter_zero">0/200</string>
     <string name="circle_tip">Vous pourrez inviter vos proches après la création du cercle.</string>
-    <string name="circle_btn_create">Créer le cercle →</string>
+    <string name="circle_btn_create">Créer mon cercle →</string>
+    <string name="circle_btn_creating">Création en cours…</string>
+    <string name="circle_description_hint_family">Cercle familial de la famille %1$s</string>
+    <string name="circle_description_hint_friends">Mon cercle de proches pour le soutien mutuel</string>
+    <string name="circle_description_hint_support">Mon réseau de soutien quotidien</string>
+    <string name="circle_description_hint_custom">Ex: Mon cercle avec Alice, Bob et Claire pour qu\'ils sachent que je vais bien</string>
+
+    <!-- Circle validation errors -->
+    <string name="error_circle_name_too_short">Le nom doit contenir au moins 3 caractères</string>
+    <string name="error_circle_name_too_long">Le nom ne peut pas dépasser 50 caractères</string>
+    <string name="error_circle_name_invalid_chars">Caractères spéciaux non autorisés</string>
+    <string name="error_circle_name_already_exists">Un cercle avec ce nom existe déjà</string>
+    <string name="error_circle_desc_too_long">La description ne peut pas dépasser 200 caractères</string>
+    <string name="error_session_expired">Session expirée, veuillez vous reconnecter</string>
 
     <!-- Responsibilities -->
     <string name="resp_title">Responsabilités en tant que créateur du cercle</string>
@@ -161,7 +183,6 @@
     <string name="nav_section_account">Compte</string>
     <string name="nav_item_logout">Se déconnecter</string>
     <string name="nav_drawer_opened">Navigation ouverte</string>
-
 
     <string name="concept_title">Comprendre\nLumo</string>
     <string name="concept_subtitle">Votre réseau de soutien quotidien.</string>

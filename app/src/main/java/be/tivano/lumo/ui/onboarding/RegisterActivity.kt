@@ -236,8 +236,9 @@ class RegisterActivity : AppCompatActivity() {
         binding.progressBar.visibility = if (loading) View.VISIBLE else View.GONE
     }
 
+
     private fun navigateToMain() {
-        startActivity(Intent(this, MainActivity::class.java).apply {
+        startActivity(Intent(this, be.tivano.lumo.ui.circle.CreateCircleActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         })
     }

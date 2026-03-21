@@ -1,178 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!-- App identity -->
-<string name="app_name">Lumo</string>
-<string name="app_tagline">Your daily support network.</string>
-<string name="app_tagline_sub">Your support circle, always there.</string>
+    <string name="app_name">Lumo</string>
+    <string name="app_tagline">Your daily support network.</string>
+    <string name="app_tagline_sub">Your circle of support, always there.</string>
 
-<!-- Common -->
-<string name="common_next">Continue</string>
-<string name="common_back">Back</string>
-<string name="common_cancel">Cancel</string>
-<string name="common_ok">OK</string>
-<string name="common_error_network">Network error. Please check your connection.</string>
-<string name="common_error_generic">An error occurred. Please try again.</string>
-<string name="common_error_server">Server error. Please try again later.</string>
-<string name="common_loading">Loading…</string>
-<string name="common_retry">Retry</string>
+    <string name="common_next">Continue</string>
+    <string name="common_back">Back</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_ok">OK</string>
+    <string name="common_error_network">Network error. Check your connection.</string>
+    <string name="common_error_generic">An error occurred. Please try again.</string>
+    <string name="common_error_server">Server error. Try again later.</string>
+    <string name="common_loading">Loading…</string>
+    <string name="common_retry">Retry</string>
 
-<!-- Onboarding step indicator -->
-<string name="onboarding_step">Step %1$d of %2$d</string>
+    <string name="onboarding_step">Step %1$d of %2$d</string>
 
-<!-- Screen 1: Welcome -->
-<string name="welcome_title">Welcome\nto Lumo</string>
-<string name="welcome_subtitle">Your daily support network.</string>
-<string name="welcome_description">Stay connected with your loved ones through a simple daily check-in.</string>
-<string name="welcome_btn_create">Create my circle</string>
-<string name="welcome_btn_invitation">I received an invitation</string>
+    <string name="welcome_title">Welcome\nto Lumo</string>
+    <string name="welcome_subtitle">Your daily support network.</string>
+    <string name="welcome_description">Stay connected with your loved ones through a simple daily check-in.</string>
+    <string name="welcome_btn_create">Create my circle</string>
+    <string name="welcome_btn_invitation">I received an invitation</string>
 
-<!-- Screen 2: Understand Lumo -->
-<string name="understand_title">Understand\nLumo</string>
-<string name="understand_subtitle">Your daily support network.</string>
-<string name="understand_feature1_title">1-tap daily check-in</string>
-<string name="understand_feature1_desc">Signal your presence in seconds every day.</string>
-<string name="understand_feature2_title">Automatic alerts</string>
-<string name="understand_feature2_desc">Your loved ones are notified in case of prolonged absence.</string>
-<string name="understand_feature3_title">Circle coordination</string>
-<string name="understand_feature3_desc">Manage and coordinate your circle of loved ones easily.</string>
-<string name="understand_feature_privacy_title">Guaranteed privacy</string>
-<string name="understand_feature_privacy_desc">Your data remains private, shared only with your circle.</string>
-<string name="understand_btn_wait">Please wait %1$ds…</string>
-<string name="understand_btn_continue">I understand, continue →</string>
+    <string name="understand_title">Understand\nLumo</string>
+    <string name="understand_subtitle">Your daily support network.</string>
+    <string name="understand_feature1_title">Daily check-in in 1 tap</string>
+    <string name="understand_feature1_desc">Signal your presence in seconds every day.</string>
+    <string name="understand_feature2_title">Automatic alerts</string>
+    <string name="understand_feature2_desc">Your loved ones are notified in case of prolonged absence.</string>
+    <string name="understand_feature3_title">Circle coordination</string>
+    <string name="understand_feature3_desc">Manage and coordinate your circle of loved ones easily.</string>
+    <string name="understand_feature_privacy_title">Guaranteed privacy</string>
+    <string name="understand_feature_privacy_desc">Your data stays private, shared only with your circle.</string>
+    <string name="understand_btn_wait">Please wait %1$ds…</string>
+    <string name="understand_btn_continue">Got it, continue →</string>
 
-<!-- Screen 3: Disclaimer -->
-<string name="disclaimer_step_label">Before you start</string>
-<string name="disclaimer_title">Before you start</string>
-<string name="disclaimer_subtitle">Lumo has important limitations</string>
-<string name="disclaimer_intro">Lumo is <b>not an emergency service</b>. In case of real distress, call 112 (or 911).</string>
-<string name="disclaimer_limitations_header">Important limitations</string>
-<string name="disclaimer_item1">Lumo is <b>not an emergency service</b></string>
-<string name="disclaimer_item2">Lumo does <b>not offer 24/7 monitoring</b></string>
-<string name="disclaimer_item3">Lumo does <b>not guarantee your safety</b></string>
-<string name="disclaimer_item4">In case of real need, <b>contact emergency services</b></string>
-<string name="disclaimer_limit1">Reliability depends on active members</string>
-<string name="disclaimer_limit2">No guarantee of immediate response from the circle</string>
-<string name="disclaimer_limit3">Not a substitute for emergency services</string>
-<string name="disclaimer_limit4">Alerting based on absence detection</string>
-<string name="disclaimer_checkbox">I have read and understood these limitations</string>
-<string name="disclaimer_btn">Accept and continue</string>
-<string name="disclaimer_btn_continue">Accept and continue</string>
-<string name="disclaimer_version">v1.0.0</string>
+    <string name="disclaimer_step_label">Before we start</string>
+    <string name="disclaimer_title">Before we start</string>
+    <string name="disclaimer_subtitle">Lumo has important limitations</string>
+    <string name="disclaimer_intro">Lumo is <b>not an emergency service</b>. In a real emergency, call 112.</string>
+    <string name="disclaimer_limitations_header">Important limitations</string>
+    <string name="disclaimer_item1">SafeCircle is <b>not an emergency service</b></string>
+    <string name="disclaimer_item2">SafeCircle does <b>not offer 24/7 monitoring</b></string>
+    <string name="disclaimer_item3">SafeCircle does <b>not guarantee your safety</b></string>
+    <string name="disclaimer_item4">In a real emergency, <b>call your local emergency services</b></string>
+    <string name="disclaimer_limit1">Reliability depends on active members</string>
+    <string name="disclaimer_limit2">No guarantee of immediate circle response</string>
+    <string name="disclaimer_limit3">Not a substitute for emergency services</string>
+    <string name="disclaimer_limit4">Alerts based on absence detection only</string>
+    <string name="disclaimer_checkbox">I have read and understood these limitations</string>
+    <string name="disclaimer_btn">Accept and continue</string>
+    <string name="disclaimer_btn_continue">Accept and continue</string>
+    <string name="disclaimer_version">v1.0.0</string>
 
-<!-- Screen 4: Register -->
-<string name="register_title">Create my account</string>
-<string name="register_subtitle">A few details to identify you.</string>
-<string name="register_step">4 / 4</string>
-<string name="register_field_firstname">First name</string>
-<string name="register_field_lastname">Last name</string>
-<string name="register_field_email">Email address</string>
-<string name="register_field_phone">Phone (optional)</string>
-<string name="register_field_phone_hint">+1 234 567 890</string>
-<string name="register_field_password">Password (8+ characters)</string>
-<string name="register_btn_submit">Create my account</string>
-<string name="register_loading">Creating account…</string>
-<string name="register_login_link">Already have an account? <b>Log in</b></string>
-<string name="register_terms">By creating your account, you agree to our <u>Terms of Use</u> and <u>Privacy Policy</u>.</string>
+    <string name="register_title">Create my account</string>
+    <string name="register_subtitle">A few details to get started.</string>
+    <string name="register_step">4 / 4</string>
+    <string name="register_field_firstname">First name</string>
+    <string name="register_field_lastname">Last name</string>
+    <string name="register_field_email">Email address</string>
+    <string name="register_field_phone">Phone (optional)</string>
+    <string name="register_field_phone_hint">+32 4 12 34 56 78</string>
+    <string name="register_field_password">Password (8+ characters)</string>
+    <string name="register_btn_submit">Create my account</string>
+    <string name="register_loading">Creating account…</string>
+    <string name="register_login_link">Already have an account? <b>Sign in</b></string>
+    <string name="register_terms">By creating your account, you agree to our <u>Terms of Use</u> and <u>Privacy Policy</u>.</string>
 
-<!-- Validation errors -->
-<string name="error_firstname_required">First name is required</string>
-<string name="error_firstname_invalid">First name must be between 2 and 50 characters</string>
-<string name="error_lastname_required">Last name is required</string>
-<string name="error_lastname_invalid">Last name must be between 2 and 50 characters</string>
-<string name="error_email_required">Email is required</string>
-<string name="error_email_invalid">Invalid email format (ex: name@domain.com)</string>
-<string name="error_email_already_exists">An account already exists with this email</string>
-<string name="error_phone_invalid">Invalid format (ex: +1234567890)</string>
-<string name="error_password_too_short">Password must be at least 8 characters long</string>
+    <string name="error_firstname_required">First name is required</string>
+    <string name="error_firstname_invalid">First name must be between 2 and 50 characters</string>
+    <string name="error_lastname_required">Last name is required</string>
+    <string name="error_lastname_invalid">Last name must be between 2 and 50 characters</string>
+    <string name="error_email_required">Email is required</string>
+    <string name="error_email_invalid">Invalid email format (e.g. name@domain.com)</string>
+    <string name="error_email_already_exists">An account already exists with this email</string>
+    <string name="error_phone_invalid">Invalid format (e.g. +32612345678)</string>
+    <string name="error_password_too_short">Password must be at least 8 characters</string>
 
-<!-- API responses -->
-<string name="register_success">Account created successfully!</string>
-<string name="register_error_409">This email is already in use.</string>
-<string name="register_error_400">Invalid data. Please check the fields.</string>
-<string name="register_error_429">Too many attempts. Try again in an hour.</string>
+    <string name="register_success">Account created successfully!</string>
+    <string name="register_error_409">This email is already in use.</string>
+    <string name="register_error_400">Invalid data. Please check the fields.</string>
+    <string name="register_error_429">Too many attempts. Try again in one hour.</string>
 
-<!-- Draft restore -->
-<string name="draft_restore_title">Resume your entry?</string>
-<string name="draft_restore_message">Data was saved during your last visit.</string>
-<string name="draft_restore_yes">Resume</string>
-<string name="draft_restore_no">Start over</string>
+    <string name="draft_restore_title">Resume your entry?</string>
+    <string name="draft_restore_message">Data was saved during your last visit.</string>
+    <string name="draft_restore_yes">Resume</string>
+    <string name="draft_restore_no">Start over</string>
 
-<!-- Circle creation -->
-<string name="circle_create_title">Define your circle</string>
-<string name="circle_create_subtitle">Quick details. This can be modified later.</string>
-<string name="circle_field_name">Circle name *</string>
-<string name="circle_field_description">Description (optional)</string>
-<string name="circle_tip">You can invite your loved ones after creating the circle.</string>
-<string name="circle_btn_create">Create circle →</string>
+    <!-- Circle creation — US-0.1.2 -->
+    <string name="circle_step_label">STEP 2 / 4</string>
+    <string name="circle_create_title">Let\'s create your circle</string>
+    <string name="circle_create_subtitle">Give a name to your support network.</string>
+    <string name="circle_suggestions_label">Quick suggestions</string>
+    <string name="circle_suggestion_family">Family</string>
+    <string name="circle_suggestion_family_named">Family %1$s</string>
+    <string name="circle_suggestion_friends">My Close Ones</string>
+    <string name="circle_suggestion_support">Support Circle</string>
+    <string name="circle_suggestion_custom">Customize</string>
+    <string name="circle_field_name">Circle name *</string>
+    <string name="circle_field_description">Description (optional)</string>
+    <string name="circle_desc_counter">%1$d/200</string>
+    <string name="circle_desc_counter_zero">0/200</string>
+    <string name="circle_tip">You can invite your loved ones after creating the circle.</string>
+    <string name="circle_btn_create">Create my circle →</string>
+    <string name="circle_btn_creating">Creating…</string>
+    <string name="circle_description_hint_family">Family circle of the %1$s family</string>
+    <string name="circle_description_hint_friends">My circle of close ones for mutual support</string>
+    <string name="circle_description_hint_support">My daily support network</string>
+    <string name="circle_description_hint_custom">E.g. My circle with Alice, Bob and Claire so they know I\'m okay</string>
 
-<!-- Responsibilities -->
-<string name="resp_title">Responsibilities as circle creator</string>
-<string name="resp_cta">Accept and create circle</string>
+    <!-- Circle validation errors -->
+    <string name="error_circle_name_too_short">Name must be at least 3 characters</string>
+    <string name="error_circle_name_too_long">Name cannot exceed 50 characters</string>
+    <string name="error_circle_name_invalid_chars">Special characters not allowed</string>
+    <string name="error_circle_name_already_exists">A circle with this name already exists</string>
+    <string name="error_circle_desc_too_long">Description cannot exceed 200 characters</string>
+    <string name="error_session_expired">Session expired, please sign in again</string>
 
-<!-- Navigation -->
-<string name="nav_home">Home</string>
-<string name="nav_invitations">Invitations</string>
-<string name="nav_alerts">Alerts</string>
-<string name="nav_energy">Energy</string>
+    <string name="cd_lumo_logo">Lumo logo</string>
+    <string name="cd_illustration_welcome">Illustration of connected people</string>
+    <string name="cd_check_feature">Check-in icon</string>
+    <string name="cd_alert_feature">Alerts icon</string>
+    <string name="cd_circle_feature">Circle icon</string>
+    <string name="cd_disclaimer_check">Disclaimer checkbox</string>
+    <string name="cd_back_button">Back to previous screen</string>
 
-<!-- Check-in -->
-<string name="checkin_header">Daily check-in</string>
-<string name="checkin_mood_question">How are you feeling?</string>
-<string name="mood_tired">Tired</string>
-<string name="mood_neutral">Neutral</string>
-<string name="mood_good">Good</string>
-<string name="mood_energetic">Energetic</string>
-
-<!-- Invitations -->
-<string name="invitations_title">Invitations</string>
-<string name="invitations_send">+ Send an invitation</string>
-<string name="filter_all">All</string>
-<string name="filter_pending">Pending</string>
-<string name="filter_accepted">Accepted</string>
-<string name="filter_refused">Refused</string>
-
-<!-- Alerts -->
-<string name="alerts_title">Alerts &amp; Actions</string>
-
-<!-- Decline -->
-<string name="decline_title">Decline this invitation?</string>
-<string name="decline_confirm">Confirm decline</string>
-<string name="decline_cancel">Cancel</string>
-
-<!-- Login -->
-<string name="login_title">Welcome back!</string>
-<string name="login_btn_submit">Log in</string>
-<string name="login_field_email">Email address</string>
-<string name="login_field_password">Password</string>
-<string name="login_forgot_password">Forgot password?</string>
-
-<!-- Accessibility -->
-<string name="cd_lumo_logo">Lumo logo — glowing brand</string>
-<string name="cd_illustration_welcome">Illustration of a group of connected people</string>
-<string name="cd_check_feature">Checkmark icon</string>
-<string name="cd_alert_feature">Alerts icon</string>
-<string name="cd_circle_feature">Circle icon</string>
-<string name="cd_disclaimer_check">Disclaimer checkbox</string>
-<string name="cd_back_button">Back to previous screen</string>
-
-<!-- Account -->
-<string name="nav_header_subtitle">Presence &amp; connection</string>
-<string name="nav_section_account">Account</string>
-<string name="nav_item_logout">Log out</string>
-<string name="nav_drawer_opened">Navigation opened</string>
-
-<!-- Concept -->
-<string name="concept_title">Understand\nLumo</string>
-<string name="concept_subtitle">Your daily support network.</string>
-<string name="concept_feature1_title">1-tap daily check-in</string>
-<string name="concept_feature1_desc">Signal your presence in seconds every day.</string>
-<string name="concept_feature2_title">Automatic alerts</string>
-<string name="concept_feature2_desc">Your loved ones are notified in case of prolonged absence.</string>
-<string name="concept_feature3_title">Circle coordination</string>
-<string name="concept_feature3_desc">Manage and coordinate your circle of loved ones easily.</string>
-<string name="concept_feature4_title">Guaranteed privacy</string>
-<string name="concept_feature4_desc">Your data remains private, shared only with your circle.</string>
-<string name="concept_cta">I understand, continue →</string>
+    <string name="concept_title">Understanding\nLumo</string>
+    <string name="concept_subtitle">Your daily support network.</string>
+    <string name="concept_feature1_title">Daily check-in in 1 tap</string>
+    <string name="concept_feature1_desc">Signal your presence in just a few seconds each day.</string>
+    <string name="concept_feature2_title">Automatic alerts</string>
+    <string name="concept_feature2_desc">Your loved ones are notified if you are absent for too long.</string>
+    <string name="concept_feature3_title">Circle coordination</string>
+    <string name="concept_feature3_desc">Easily manage and coordinate your circle of loved ones.</string>
+    <string name="concept_feature4_title">Guaranteed privacy</string>
+    <string name="concept_feature4_desc">Your data stays private, shared only with your circle.</string>
+    <string name="concept_cta">Got it, continue →</string>
 
 </resources>

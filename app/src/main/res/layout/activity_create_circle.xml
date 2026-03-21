@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lumo_background">
+
+    <!-- Caramel gradient header band — identical pattern to activity_register.xml -->
+    <View
+        android:id="@+id/headerBand"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_register_header" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="120dp">
+
+            <!-- Header zone on gradient -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="56dp"
+                android:paddingBottom="32dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp">
+
+                <!-- Back button — top-left inside header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBack"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="@string/common_back"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit"
+                        app:icon="@drawable/ic_nav_logout"
+                        app:iconGravity="start"
+                        app:iconTint="#B3FFFFFF"
+                        app:iconSize="16dp" />
+
+                </LinearLayout>
+
+                <!-- Step indicator chip -->
+                <TextView
+                    android:id="@+id/tvStepLabel"
+                    style="@style/Widget.Lumo.StepChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/circle_step_label" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/circle_create_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:letterSpacing="0.01"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.2" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/circle_create_subtitle"
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/outfit"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <!-- Form card overlapping gradient — same pattern as RegisterActivity -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/formCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/lumo_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:paddingTop="32dp"
+                    android:paddingBottom="16dp">
+
+                    <!-- Suggestions section label -->
+                    <TextView
+                        android:id="@+id/tvSuggestionsLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="@string/circle_suggestions_label"
+                        android:textColor="@color/lumo_on_surface_subtle"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/outfit_bold"
+                        android:letterSpacing="0.06"
+                        android:textAllCaps="true" />
+
+                    <!-- Suggestion card: Family -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSuggestionFamily"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/lumo_outline_variant"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/lumo_primary_container">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_suggestion_family"
+                                    android:contentDescription="@null"
+                                    app:tint="@color/lumo_primary" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:id="@+id/tvSuggestionFamily"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:text="@string/circle_suggestion_family"
+                                android:textColor="@color/lumo_on_surface"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/outfit_semibold" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Suggestion card: Friends -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSuggestionFriends"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/lumo_outline_variant"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/lumo_tertiary_container">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_suggestion_friends"
+                                    android:contentDescription="@null"
+                                    app:tint="@color/lumo_tertiary" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:text="@string/circle_suggestion_friends"
+                                android:textColor="@color/lumo_on_surface"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/outfit_semibold" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Suggestion card: Support -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSuggestionSupport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/lumo_outline_variant"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/lumo_secondary_container">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_suggestion_support"
+                                    android:contentDescription="@null"
+                                    app:tint="@color/lumo_secondary" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:text="@string/circle_suggestion_support"
+                                android:textColor="@color/lumo_on_surface"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/outfit_semibold" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Suggestion card: Custom -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSuggestionCustom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/lumo_outline_variant"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/lumo_surface_variant">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_suggestion_custom"
+                                    android:contentDescription="@null"
+                                    app:tint="@color/lumo_on_surface_muted" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:text="@string/circle_suggestion_custom"
+                                android:textColor="@color/lumo_on_surface"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/outfit_semibold" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@color/lumo_outline_variant" />
+
+                    <!-- Circle name field -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCircleName"
+                        style="@style/Widget.Lumo.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/circle_field_name"
+                        app:endIconMode="clear_text"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCircleName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:imeOptions="actionNext"
+                            android:maxLength="50"
+                            android:fontFamily="@font/outfit" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Description field -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCircleDescription"
+                        style="@style/Widget.Lumo.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:hint="@string/circle_field_description">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCircleDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:imeOptions="actionDone"
+                            android:maxLength="200"
+                            android:minLines="3"
+                            android:gravity="top"
+                            android:fontFamily="@font/outfit" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Description character counter -->
+                    <TextView
+                        android:id="@+id/tvDescCounter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="@string/circle_desc_counter_zero"
+                        android:textColor="@color/lumo_text_muted"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/outfit" />
+
+                    <!-- Info tip -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/lumo_primary_container"
+                        app:strokeWidth="0dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="14dp"
+                            android:text="@string/circle_tip"
+                            android:textColor="@color/lumo_on_primary_container"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/outfit"
+                            android:lineSpacingMultiplier="1.4" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Create button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCreateCircle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/circle_btn_create"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_btn_primary"
+                        android:stateListAnimator="@null"
+                        android:enabled="false"
+                        app:cornerRadius="28dp"
+                        app:elevation="4dp" />
+
+                    <!-- Progress indicator -->
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        android:indeterminate="true"
+                        app:indicatorColor="@color/lumo_primary"
+                        app:trackColor="@color/lumo_outline_variant"
+                        app:trackCornerRadius="4dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

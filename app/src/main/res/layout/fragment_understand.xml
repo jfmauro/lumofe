@@ -1,192 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/surface_cream"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/screen_horizontal_padding"
-        android:paddingTop="40dp"
-        android:paddingBottom="@dimen/spacing_lg">
+        android:paddingBottom="40dp">
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/TextAppearance.Lumo.Headline"
+        <!-- Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/understand_title" />
+            android:orientation="vertical"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp">
 
-        <!-- Subtitle -->
-        <TextView
-            android:id="@+id/tvSubtitle"
-            style="@style/TextAppearance.Lumo.Body"
+            <TextView
+                android:id="@+id/tv_concept_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="13dp"
+                android:text="@string/concept_title"
+                android:textColor="#C8855A"
+                android:textSize="14sp"
+                android:fontFamily="@font/outfit_bold"
+                android:letterSpacing="0.06"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/tv_concept_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/concept_subtitle"
+                android:fontFamily="@font/outfit_regular"
+                android:textSize="14sp"
+                android:textColor="@color/muted"/>
+
+        </LinearLayout>
+
+        <!-- Feature list -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@string/understand_subtitle" />
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="20dp">
 
-        <!-- Feature card 1 -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            style="@style/Widget.Lumo.FeatureCard">
-
+            <!-- Feature 1: Check-in -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/card_padding"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_feature_item_default"
+                android:padding="16dp"
+                android:elevation="2dp">
 
-                <FrameLayout
-                    android:layout_width="@dimen/feature_card_icon_bg"
-                    android:layout_height="@dimen/feature_card_icon_bg"
-                    android:background="@drawable/bg_feature_icon_green">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/cd_check_feature"
-                        android:text="✓"
-                        android:textColor="@color/sc_primary"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-                </FrameLayout>
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_feature_icon_sage"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_feature_checkin"
+                    android:contentDescription="@string/concept_feature1_title"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
 
                     <TextView
-                        style="@style/TextAppearance.Lumo.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/understand_feature1_title" />
+                        android:text="@string/concept_feature1_title"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/charcoal"/>
 
                     <TextView
-                        style="@style/TextAppearance.Lumo.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/understand_feature1_desc" />
+                        android:layout_marginTop="2dp"
+                        android:text="@string/concept_feature1_desc"
+                        android:fontFamily="@font/outfit_regular"
+                        android:textSize="12sp"
+                        android:textColor="@color/muted"
+                        android:lineSpacingMultiplier="1.4"/>
+
                 </LinearLayout>
+
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Feature card 2 -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            style="@style/Widget.Lumo.FeatureCard">
-
+            <!-- Feature 2: Alertes -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/card_padding"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_feature_item_default"
+                android:padding="16dp"
+                android:layout_marginTop="14dp"
+                android:elevation="2dp">
 
-                <FrameLayout
-                    android:layout_width="@dimen/feature_card_icon_bg"
-                    android:layout_height="@dimen/feature_card_icon_bg"
-                    android:background="@drawable/bg_feature_icon_orange">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/cd_alert_feature"
-                        android:text="🔔"
-                        android:textSize="22sp" />
-                </FrameLayout>
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_feature_icon_raspberry"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_feature_alert"
+                    android:contentDescription="@string/concept_feature2_title"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
 
                     <TextView
-                        style="@style/TextAppearance.Lumo.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/understand_feature2_title" />
+                        android:text="@string/concept_feature2_title"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/charcoal"/>
 
                     <TextView
-                        style="@style/TextAppearance.Lumo.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/understand_feature2_desc" />
+                        android:layout_marginTop="2dp"
+                        android:text="@string/concept_feature2_desc"
+                        android:fontFamily="@font/outfit_regular"
+                        android:textSize="12sp"
+                        android:textColor="@color/muted"
+                        android:lineSpacingMultiplier="1.4"/>
+
                 </LinearLayout>
+
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Feature card 3 -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            style="@style/Widget.Lumo.FeatureCard">
-
+            <!-- Feature 3: Coordination -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/card_padding"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_feature_item_default"
+                android:padding="16dp"
+                android:layout_marginTop="14dp"
+                android:elevation="2dp">
 
-                <FrameLayout
-                    android:layout_width="@dimen/feature_card_icon_bg"
-                    android:layout_height="@dimen/feature_card_icon_bg"
-                    android:background="@drawable/bg_feature_icon_teal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/cd_circle_feature"
-                        android:text="🤝"
-                        android:textSize="22sp" />
-                </FrameLayout>
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_feature_icon_caramel"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_feature_circle"
+                    android:contentDescription="@string/concept_feature3_title"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
 
                     <TextView
-                        style="@style/TextAppearance.Lumo.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/understand_feature3_title" />
+                        android:text="@string/concept_feature3_title"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/charcoal"/>
 
                     <TextView
-                        style="@style/TextAppearance.Lumo.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/understand_feature3_desc" />
+                        android:layout_marginTop="2dp"
+                        android:text="@string/concept_feature3_desc"
+                        android:fontFamily="@font/outfit_regular"
+                        android:textSize="12sp"
+                        android:textColor="@color/muted"
+                        android:lineSpacingMultiplier="1.4"/>
+
                 </LinearLayout>
+
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+
+            <!-- Feature 4: Confidentialité (gradient background) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_feature_item_privacy"
+                android:padding="16dp"
+                android:layout_marginTop="14dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_feature_icon_caramel"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_feature_privacy"
+                    android:contentDescription="@string/concept_feature4_title"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/concept_feature4_title"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/charcoal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/concept_feature4_desc"
+                        android:fontFamily="@font/outfit_regular"
+                        android:textSize="12sp"
+                        android:textColor="@color/muted"
+                        android:lineSpacingMultiplier="1.4"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
-</ScrollView>
+
+</androidx.core.widget.NestedScrollView>

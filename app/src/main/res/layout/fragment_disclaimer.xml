@@ -1,168 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    KEY CHANGE vs main: checkbox ID renamed checkboxDisclaimer -> cbDisclaimer
+    to match the new DisclaimerFragment.kt binding reference.
+-->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/screen_horizontal_padding"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:paddingTop="40dp"
-        android:paddingBottom="@dimen/spacing_lg">
+        android:paddingBottom="24dp">
 
-        <!-- Icon + Title -->
+        <!-- label_s overline caramel -->
         <TextView
-            android:id="@+id/tvDisclaimerIcon"
+            android:id="@+id/tvStepLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="⚖️"
-            android:textSize="44sp" />
+            android:layout_marginBottom="13dp"
+            android:text="@string/disclaimer_step_label"
+            android:textColor="#C8855A"
+            android:textSize="14sp"
+            android:fontFamily="@font/outfit_bold"
+            android:letterSpacing="0.06"
+            android:textAllCaps="true" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/TextAppearance.Lumo.Headline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="@string/disclaimer_title" />
-
+        <!-- body_m muted -->
         <TextView
             android:id="@+id/tvSubtitle"
-            style="@style/TextAppearance.Lumo.Body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@string/disclaimer_subtitle" />
+            android:layout_marginBottom="24dp"
+            android:text="@string/disclaimer_subtitle"
+            android:textColor="#B0A090"
+            android:textSize="13sp"
+            android:fontFamily="@font/outfit"
+            android:lineSpacingMultiplier="1.4" />
 
-        <!-- Disclaimer card -->
+        <!-- Warning card: raspberry tint -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardWarning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFF0F3"
+            app:strokeColor="#33C25C6E"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="14dp"
+                android:gravity="top">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/ic_dot_disclaimer_warning" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/disclaimer_intro"
+                    android:textColor="#C25C6E"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/outfit_semibold"
+                    android:lineSpacingMultiplier="1.4" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Limitations card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardLimitations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             app:cardBackgroundColor="@color/sc_disclaimer_bg"
             app:strokeColor="@color/sc_disclaimer_border"
             app:strokeWidth="1dp"
-            app:cardCornerRadius="16dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/card_padding">
+                android:padding="16dp">
 
                 <!-- Item 1 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="4dp"
-                        android:background="@drawable/ic_dot_disclaimer"
-                        android:layout_marginEnd="12dp" />
-
-                    <TextView
-                        style="@style/TextAppearance.Lumo.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/disclaimer_item1"
-                        android:textColor="@color/sc_on_surface" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/ic_dot_disclaimer" android:layout_marginEnd="12dp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="@string/disclaimer_item1"
+                        android:textColor="#2D2420" android:textSize="13sp"
+                        android:fontFamily="@font/outfit" android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
 
                 <!-- Item 2 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="4dp"
-                        android:background="@drawable/ic_dot_disclaimer"
-                        android:layout_marginEnd="12dp" />
-
-                    <TextView
-                        style="@style/TextAppearance.Lumo.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/disclaimer_item2"
-                        android:textColor="@color/sc_on_surface" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/ic_dot_disclaimer" android:layout_marginEnd="12dp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="@string/disclaimer_item2"
+                        android:textColor="#2D2420" android:textSize="13sp"
+                        android:fontFamily="@font/outfit" android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
 
                 <!-- Item 3 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="4dp"
-                        android:background="@drawable/ic_dot_disclaimer"
-                        android:layout_marginEnd="12dp" />
-
-                    <TextView
-                        style="@style/TextAppearance.Lumo.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/disclaimer_item3"
-                        android:textColor="@color/sc_on_surface" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/ic_dot_disclaimer" android:layout_marginEnd="12dp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="@string/disclaimer_item3"
+                        android:textColor="#2D2420" android:textSize="13sp"
+                        android:fontFamily="@font/outfit" android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
 
-                <!-- Item 4 (emergency) -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="4dp"
-                        android:background="@drawable/ic_dot_disclaimer_warning"
-                        android:layout_marginEnd="12dp" />
-
-                    <TextView
-                        style="@style/TextAppearance.Lumo.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/disclaimer_item4"
-                        android:textColor="@color/sc_on_surface" />
+                <!-- Item 4 emergency -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/ic_dot_disclaimer_warning" android:layout_marginEnd="12dp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="@string/disclaimer_item4"
+                        android:textColor="#2D2420" android:textSize="13sp"
+                        android:fontFamily="@font/outfit" android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Checkbox acceptance -->
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/checkboxDisclaimer"
+        <!-- Checkbox row: DSL CheckboxRow — CRITICAL: ID = cbDisclaimer -->
+        <LinearLayout
+            android:id="@+id/checkboxRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/disclaimer_checkbox"
-            android:textAppearance="@style/TextAppearance.Lumo.Body"
-            android:textColor="@color/sc_on_surface"
-            android:contentDescription="@string/cd_disclaimer_check"
-            app:buttonTint="@color/sc_primary" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/lumo_surface_variant"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cbDisclaimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/cd_disclaimer_check"
+                app:buttonTint="#C8855A" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/disclaimer_checkbox"
+                android:textColor="#6B4F3A"
+                android:textSize="12sp"
+                android:fontFamily="@font/outfit_semibold"
+                android:lineSpacingMultiplier="1.4" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

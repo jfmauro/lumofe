@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Renamed intent: now maps to caramel pale (DSL bg_icon_caramel) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid android:color="#1AC8644A" />
+    android:shape="rectangle">
+    <solid android:color="#F5DEC8" />
+    <corners android:radius="12dp" />
 </shape>

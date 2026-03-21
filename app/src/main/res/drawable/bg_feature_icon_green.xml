@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Renamed intent: now maps to sage pale (DSL bg_icon_sage) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid android:color="#1A4A7C6F" />
+    android:shape="rectangle">
+    <solid android:color="#DFF0EA" />
+    <corners android:radius="12dp" />
 </shape>

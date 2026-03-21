@@ -23,13 +23,13 @@ class DisclaimerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.checkboxDisclaimer.setOnCheckedChangeListener { _, isChecked ->
+        // KEY CHANGE: checkboxDisclaimer -> cbDisclaimer (matches fragment_disclaimer.xml DSL layout)
+        binding.cbDisclaimer.setOnCheckedChangeListener { _, isChecked ->
             (activity as? OnboardingActivity)?.onDisclaimerCheckChanged(isChecked)
         }
     }
 
-    fun isAccepted(): Boolean = binding.checkboxDisclaimer.isChecked
+    fun isAccepted(): Boolean = binding.cbDisclaimer.isChecked
 
     override fun onDestroyView() {
         super.onDestroyView()

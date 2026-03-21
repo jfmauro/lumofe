@@ -1,79 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="@drawable/bg_hero_gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/screen_horizontal_padding"
-        android:paddingBottom="@dimen/spacing_lg">
+        android:layout_height="match_parent">
 
-        <!-- Anchor icon -->
-        <TextView
-            android:id="@+id/tvAnchorIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="⚓"
-            android:textSize="16sp"
-            android:textColor="@color/sc_primary"
-            android:contentDescription="@string/cd_safecircle_logo"
+        <!-- HERO AREA: DSL LumoMark + Wordmark + title_xl + tagline + ProgressDots -->
+        <LinearLayout
+            android:id="@+id/heroArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:paddingTop="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ctaArea"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Illustration placeholder (circle of people) -->
-        <FrameLayout
-            android:id="@+id/illustrationContainer"
-            android:layout_width="260dp"
-            android:layout_height="220dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/bg_illustration_placeholder"
-            android:contentDescription="@string/cd_illustration_welcome"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAnchorIcon">
+            <!-- Lumo mark 96dp -->
+            <ImageView
+                android:id="@+id/ivLumoMark"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="@string/cd_lumo_logo" />
 
-            <!-- SVG-style circle network illustration via shapes -->
-            <TextView
+            <!-- Wordmark "Lu" brown-mid + "mo" caramel -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="👥"
-                android:textSize="72sp" />
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:baselineAligned="true">
 
-        </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lu"
+                    android:textColor="#6B4F3A"
+                    android:textSize="42sp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:letterSpacing="-0.04" />
 
-        <!-- App name -->
-        <TextView
-            android:id="@+id/tvAppName"
-            style="@style/TextAppearance.Lumo.Display"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:gravity="center"
-            android:text="@string/welcome_title"
-            android:textColor="@color/sc_on_surface"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/illustrationContainer" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mo"
+                    android:textColor="#C8855A"
+                    android:textSize="42sp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:letterSpacing="-0.04" />
 
-        <!-- Tagline -->
-        <TextView
-            android:id="@+id/tvSubtitle"
-            style="@style/TextAppearance.Lumo.Body"
+            </LinearLayout>
+
+            <!-- display_xl: DM Serif Display 35sp, text_secondary -->
+            <TextView
+                android:id="@+id/tvWelcomeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/welcome_title"
+                android:textColor="#6B4F3A"
+                android:textSize="35sp"
+                android:fontFamily="@font/dm_serif_display"
+                android:lineSpacingMultiplier="1.1"
+                android:gravity="center"
+                android:maxLines="2" />
+
+            <!-- body_m italic, text_disabled -->
+            <TextView
+                android:id="@+id/tvWelcomeTagline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/welcome_subtitle"
+                android:textColor="#9C7B63"
+                android:textSize="13sp"
+                android:fontFamily="@font/outfit"
+                android:textStyle="italic"
+                android:gravity="center" />
+
+            <!-- DSL ProgressDots: 4 dots, dot 0 active -->
+            <LinearLayout
+                android:id="@+id/progressDots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <View android:layout_width="20dp" android:layout_height="6dp"
+                    android:background="@drawable/ic_step_dot_active"
+                    android:layout_marginEnd="6dp" />
+                <View android:layout_width="6dp" android:layout_height="6dp"
+                    android:background="@drawable/ic_step_dot_inactive"
+                    android:layout_marginEnd="6dp" />
+                <View android:layout_width="6dp" android:layout_height="6dp"
+                    android:background="@drawable/ic_step_dot_inactive"
+                    android:layout_marginEnd="6dp" />
+                <View android:layout_width="6dp" android:layout_height="6dp"
+                    android:background="@drawable/ic_step_dot_inactive" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- CTA AREA: PrimaryButton + SecondaryButton -->
+        <!-- Note: buttons are ALSO present in activity_onboarding.xml bottom sheet.
+             This layout is used when the fragment fills the full screen independently.
+             When hosted in OnboardingActivity, ctaArea is hidden (visibility=gone) and
+             the activity's bottom sheet buttons are used instead. -->
+        <LinearLayout
+            android:id="@+id/ctaArea"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/welcome_description"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="40dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreateCircle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/welcome_btn_create"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="@font/outfit_semibold"
+                android:background="@drawable/bg_btn_primary"
+                android:stateListAnimator="@null"
+                app:cornerRadius="28dp"
+                app:elevation="4dp" />
+
+            <Space android:layout_width="match_parent" android:layout_height="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnJoinInvitation"
+                style="@style/Widget.Lumo.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/welcome_btn_invitation" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

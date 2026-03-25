@@ -138,4 +138,114 @@
     <string name="concept_feature4_desc">Your data stays private, shared only with your circle.</string>
     <string name="concept_cta">Got it, continue →</string>
 
+    <!-- Circle settings — US-0.1.3 -->
+    <string name="circle_settings_step_label">STEP 3 / 4</string>
+    <string name="circle_settings_title">Configure your circle</string>
+    <string name="circle_settings_subtitle">Customize how your circle works</string>
+
+    <string name="circle_settings_size_label">Target circle size</string>
+    <string name="circle_settings_size_small">Small (3–4 people)</string>
+    <string name="circle_settings_size_small_desc">A tight, close-knit network</string>
+    <string name="circle_settings_size_medium">Medium (5–6 people)</string>
+    <string name="circle_settings_size_medium_desc">Recommended to balance support and coordination</string>
+    <string name="circle_settings_size_large">Large (7–8 people)</string>
+    <string name="circle_settings_size_large_desc">Extended family or a large group of friends</string>
+    <string name="circle_settings_size_tip">💡 Recommended: 4–6 people to balance support and coordination</string>
+
+    <string name="circle_settings_checkin_label">Check-in mode</string>
+    <string name="circle_settings_checkin_simple">Daily check-in only</string>
+    <string name="circle_settings_checkin_simple_desc">One tap per day to confirm your presence</string>
+    <string name="circle_settings_checkin_simple_preview">Your circle sees: Present</string>
+    <string name="circle_settings_checkin_energy">Check-in + energy sharing</string>
+    <string name="circle_settings_checkin_energy_desc">Presence + daily energy level (1–5)</string>
+    <string name="circle_settings_checkin_energy_preview">Your circle sees: Present · Energy 3/5</string>
+
+    <string name="circle_settings_protection_label">Protection level</string>
+    <string name="circle_settings_protection_standard">Standard (alerts at 2/5/7 days)</string>
+    <string name="circle_settings_protection_standard_desc">Recommended for most users</string>
+    <string name="circle_settings_protection_reinforced">Reinforced (alerts at 1/3/5 days)</string>
+    <string name="circle_settings_protection_reinforced_desc">For closer monitoring</string>
+    <string name="circle_settings_timeline_d1">D1</string>
+    <string name="circle_settings_timeline_d2">D2</string>
+    <string name="circle_settings_timeline_d3">D3</string>
+    <string name="circle_settings_timeline_d4">D4</string>
+    <string name="circle_settings_timeline_d5">D5</string>
+    <string name="circle_settings_timeline_d6">D6</string>
+    <string name="circle_settings_timeline_d7">D7</string>
+    <string name="circle_settings_timeline_legend">= notification sent to your circle</string>
+
+    <string name="circle_settings_metrics_label">Statistics sharing</string>
+    <string name="circle_settings_metrics_toggle_title">Allow statistics visibility</string>
+    <string name="circle_settings_metrics_toggle_desc">Members can see: check-in rate, circle activity, reciprocity</string>
+    <string name="circle_settings_metrics_note">ℹ You can change these settings at any time in circle settings.</string>
+
+    <string name="circle_settings_summary_label">Summary:</string>
+    <string name="circle_settings_chip_small">Small</string>
+    <string name="circle_settings_chip_medium">Medium</string>
+    <string name="circle_settings_chip_large">Large</string>
+    <string name="circle_settings_chip_simple">Simple check-in</string>
+    <string name="circle_settings_chip_energy">Energy</string>
+    <string name="circle_settings_chip_standard">Standard · D2/D5/D7</string>
+    <string name="circle_settings_chip_reinforced">Reinforced · D1/D3/D5</string>
+
+    <string name="circle_settings_btn_finalize">Finalize creation</string>
+    <string name="circle_settings_btn_saving">Saving…</string>
+
+    <string name="circle_settings_error_forbidden">Access denied. Only the creator can configure the circle.</string>
+    <string name="circle_settings_error_not_found">Circle not found.</string>
+    <string name="circle_settings_error_already_exists">Settings have already been configured for this circle.</string>
+
+
+    <!-- Responsibilities -->
+    <string name="resp_title">Responsibilities as circle creator</string>
+    <string name="resp_cta">Accept and create circle</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_invitations">Invitations</string>
+    <string name="nav_alerts">Alerts</string>
+    <string name="nav_energy">Energy</string>
+
+    <!-- Check-in -->
+    <string name="checkin_header">Daily Check-in</string>
+    <string name="checkin_mood_question">How are you feeling?</string>
+    <string name="mood_tired">Tired</string>
+    <string name="mood_neutral">Neutral</string>
+    <string name="mood_good">Good</string>
+    <string name="mood_energetic">Energetic</string>
+
+    <!-- Invitations -->
+    <string name="invitations_title">Invitations</string>
+    <string name="invitations_send">+ Send an invitation</string>
+    <string name="filter_all">All</string>
+    <string name="filter_pending">Pending</string>
+    <string name="filter_accepted">Accepted</string>
+    <string name="filter_refused">Declined</string>
+
+    <!-- Alerts -->
+    <string name="alerts_title">Alerts &amp; Actions</string>
+
+    <!-- Decline -->
+    <string name="decline_title">Decline this invitation?</string>
+    <string name="decline_confirm">Confirm decline</string>
+    <string name="decline_cancel">Cancel</string>
+
+    <!-- Login -->
+    <string name="login_title">Welcome back!</string>
+    <string name="login_btn_submit">Login</string>
+    <string name="login_field_email">Email address</string>
+    <string name="login_field_password">Password</string>
+    <string name="login_forgot_password">Forgot password?</string>
+
+    <!-- Compte / Navigation Drawer -->
+    <string name="nav_header_subtitle">Presence &amp; connection</string>
+    <string name="nav_section_account">Account</string>
+    <string name="nav_item_logout">Logout</string>
+    <string name="nav_drawer_opened">Navigation drawer opened</string>
+
+
+    <string name="creator_consent_stub_message">Creator Consent screen stub. Implementation
+        pending.
+    </string>
+
 </resources>

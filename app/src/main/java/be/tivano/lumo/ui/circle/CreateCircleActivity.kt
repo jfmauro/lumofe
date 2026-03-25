@@ -247,7 +247,8 @@ class CreateCircleActivity : AppCompatActivity() {
                 when {
                     response.isSuccessful && response.body() != null -> {
                         CircleDraftManager.clearDraft(this@CreateCircleActivity)
-                        navigateToMain()
+                        val circleId = response.body()!!.circleId
+                        navigateToCircleSettings(circleId)
                     }
                     response.code() == 409 -> {
                         binding.tilCircleName.error = getString(R.string.error_circle_name_already_exists)
@@ -335,6 +336,14 @@ class CreateCircleActivity : AppCompatActivity() {
                 }
                 .show()
         }
+    }
+
+    private fun navigateToCircleSettings(circleId: String) {
+        val intent = Intent(this, CircleSettingsActivity::class.java).apply {
+            putExtra(CircleSettingsActivity.EXTRA_CIRCLE_ID, circleId)
+        }
+        startActivity(intent)
+        finish()
     }
 
     private fun restoreDraft(draft: CircleCreationDraft) {

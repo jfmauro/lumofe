@@ -361,5 +361,8 @@
     <string name="tracking_error_resend_limit">Resend limit reached (3 maximum).</string>
     <string name="main_no_active_circle">No active circle found. Please create a circle first.</string>
 
+    <string name="nav_item_profile">My profile</string>
+    <string name="nav_menu_open">Open menu</string>
+
 
 </resources>

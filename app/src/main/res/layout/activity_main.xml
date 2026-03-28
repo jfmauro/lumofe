@@ -14,23 +14,67 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/lumo_surface"
-            android:elevation="4dp"
-            app:navigationIcon="@drawable/ic_menu"
-            app:navigationIconTint="@color/lumo_primary"
-            app:title="@string/app_name"
-            app:titleTextAppearance="@style/TextAppearance.Lumo.ToolbarTitle"
-            app:titleTextColor="@color/lumo_on_surface" />
-
         <FrameLayout
             android:id="@+id/contentFrame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@color/lumo_background" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lumo_surface"
+            android:visibility="gone"
+            app:fabAlignmentMode="center"
+            app:hideOnScroll="false"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/bottomNavBar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/lumo_surface"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/btnNavHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/nav_home"
+                android:padding="12dp"
+                android:src="@drawable/ic_nav_home"
+                app:tint="@color/lumo_primary" />
+
+            <ImageButton
+                android:id="@+id/btnNavInvitations"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/nav_invitations"
+                android:padding="12dp"
+                android:src="@drawable/ic_nav_invitations"
+                app:tint="@color/lumo_on_surface_muted" />
+
+            <ImageButton
+                android:id="@+id/btnNavMenu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/nav_menu_open"
+                android:padding="12dp"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/lumo_on_surface_muted" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

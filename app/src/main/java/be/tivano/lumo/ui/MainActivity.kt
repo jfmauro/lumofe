@@ -3,8 +3,8 @@ package be.tivano.lumo.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.lifecycleScope
@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var tokenManager: TokenManager
-    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,28 +30,43 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         tokenManager = TokenManager(this)
 
-        setupToolbar()
-        setupDrawer()
         setupNavigationView()
+        setupBottomNavBar()
     }
 
-    private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(true)
+    // ─── BOTTOM NAV BAR ──────────────────────────────────────────────────────
+
+    private fun setupBottomNavBar() {
+        binding.btnNavMenu.setOnClickListener {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        binding.btnNavHome.setOnClickListener {
+            // Reserved for Epic 1 home / check-in fragment
+        }
+
+        binding.btnNavInvitations.setOnClickListener {
+            navigateToInvitationTracking()
+        }
     }
 
-    private fun setupDrawer() {
-        toggle = ActionBarDrawerToggle(
-            this,
-            binding.drawerLayout,
-            binding.toolbar,
-            R.string.nav_drawer_opened,
-            R.string.nav_drawer_opened
-        )
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-        toggle.drawerArrowDrawable.color = getColor(R.color.lumo_primary)
+    private fun updateBottomNavVisibility() {
+        lifecycleScope.launch {
+            val isLoggedIn = tokenManager.isLoggedIn()
+            binding.bottomNavBar.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
+        }
     }
+
+    private fun updateNavHeaderUserName() {
+        lifecycleScope.launch {
+            val firstName = tokenManager.getUserFirstName().orEmpty()
+            val headerView = binding.navigationView.getHeaderView(0)
+            val tvUserName = headerView.findViewById<android.widget.TextView>(R.id.navHeaderUserName)
+            tvUserName?.text = if (firstName.isNotBlank()) firstName else ""
+        }
+    }
+
+    // ─── NAVIGATION VIEW ─────────────────────────────────────────────────────
 
     private fun setupNavigationView() {
         binding.navigationView.setNavigationItemSelectedListener(this)
@@ -60,7 +74,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.nav_home -> { /* Reserved */ }
             R.id.nav_invitations -> navigateToInvitationTracking()
+            R.id.nav_profile -> { /* Reserved for profile screen */ }
             R.id.nav_logout -> performLogout()
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -102,6 +118,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(Intent(this, OnboardingActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         })
+    }
+
+    // ─── LIFECYCLE ───────────────────────────────────────────────────────────
+
+    override fun onResume() {
+        super.onResume()
+        updateBottomNavVisibility()
+        updateNavHeaderUserName()
     }
 
     override fun onBackPressed() {

@@ -375,4 +375,7 @@
     <string name="tracking_error_resend_limit">Limite de renvois atteinte (3 maximum).</string>
     <string name="main_no_active_circle">Aucun cercle actif trouvé. Créez d\'abord un cercle.</string>
 
+    <string name="nav_item_profile">Mon profil</string>
+    <string name="nav_menu_open">Ouvrir le menu</string>
+
 </resources>

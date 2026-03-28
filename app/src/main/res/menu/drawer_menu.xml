@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/nav_invitations"
-        android:icon="@drawable/ic_nav_invitations"
-        android:title="@string/nav_invitations"
-        android:checkable="false" />
+    <group android:id="@+id/group_main">
 
-    <item
-        android:id="@+id/nav_section_account"
-        android:title="@string/nav_section_account"
-        android:checkable="false" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_nav_home"
+            android:title="@string/nav_home"
+            android:checkable="false" />
 
-    <item
-        android:id="@+id/nav_logout"
-        android:icon="@drawable/ic_nav_logout"
-        android:title="@string/nav_item_logout"
-        android:checkable="false" />
+        <item
+            android:id="@+id/nav_invitations"
+            android:icon="@drawable/ic_nav_invitations"
+            android:title="@string/nav_invitations"
+            android:checkable="false" />
+
+    </group>
+
+    <group
+        android:id="@+id/group_account"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_nav_profile"
+            android:title="@string/nav_item_profile"
+            android:checkable="false" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_nav_logout"
+            android:title="@string/nav_item_logout"
+            android:checkable="false" />
+
+    </group>
 
 </menu>

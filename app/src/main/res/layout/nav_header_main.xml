@@ -2,16 +2,18 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="200dp"
     android:background="@drawable/bg_splash_gradient"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="24dp">
 
     <ImageView
         android:id="@+id/navHeaderLogo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:contentDescription="@string/cd_lumo_logo"
         android:src="@mipmap/ic_launcher_round" />
 
@@ -19,10 +21,10 @@
         android:id="@+id/navHeaderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:fontFamily="@font/playfair_display_semibold" />
 
     <TextView
@@ -32,7 +34,19 @@
         android:layout_marginTop="2dp"
         android:text="@string/nav_header_subtitle"
         android:textColor="#CCFFFFFF"
+        android:textSize="13sp"
+        android:fontFamily="@font/outfit"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/navHeaderUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="#FFFFFFFF"
         android:textSize="12sp"
-        android:fontFamily="@font/outfit" />
+        android:fontFamily="@font/outfit"
+        android:alpha="0.75" />
 
 </LinearLayout>

@@ -318,4 +318,48 @@
     <string name="invite_error_forbidden">Access denied. Only the circle creator can send invitations.</string>
 
 
+    <!-- ══════════════════════════════════════════════════
+         US-0.2.4 — Invitation Tracking Dashboard
+         ══════════════════════════════════════════════════ -->
+    <string name="tracking_step_label">INVITATION TRACKING</string>
+    <string name="tracking_title_placeholder">Invitation tracking</string>
+    <string name="tracking_title">Invitations — %1$s</string>
+    <string name="tracking_subtitle">Manage and track the status of your invitations.</string>
+
+    <string name="tracking_stats_header">📊 STATISTICS</string>
+    <string name="tracking_stat_sent">%1$d sent</string>
+    <string name="tracking_stat_sent_placeholder">0 sent</string>
+    <string name="tracking_stat_accepted">%1$d accepted (%2$d%%)</string>
+    <string name="tracking_stat_accepted_placeholder">0 accepted</string>
+    <string name="tracking_stat_pending">%1$d pending</string>
+    <string name="tracking_stat_pending_placeholder">0 pending</string>
+    <string name="tracking_stat_members">Circle: %1$d member(s)</string>
+    <string name="tracking_stat_members_placeholder">Circle: 0 member(s)</string>
+
+    <string name="filter_expired">Expired</string>
+    <string name="filter_revoked">Revoked</string>
+
+    <string name="tracking_sent_today">Sent today</string>
+    <string name="tracking_sent_yesterday">Sent yesterday</string>
+    <string name="tracking_sent_days_ago">%1$d days ago</string>
+
+    <string name="tracking_email_opened">✓ Email opened</string>
+    <string name="tracking_resend_count">Resent %1$d time(s)</string>
+
+    <string name="tracking_btn_resend">Resend</string>
+    <string name="tracking_btn_send_invitation">+ Invite a new member</string>
+
+    <string name="tracking_empty_state">No invitations in this category.</string>
+
+    <string name="tracking_resend_title">Resend invitation?</string>
+    <string name="tracking_resend_message">A new invitation link will be sent to %1$s.</string>
+    <string name="tracking_resend_confirm">Confirm</string>
+    <string name="tracking_resend_success">✓ Invitation resent to %1$s</string>
+
+    <string name="tracking_error_revoke_invalid_state">Cannot revoke this invitation in its current state.</string>
+    <string name="tracking_error_resend_invalid_state">Cannot resend this invitation in its current state.</string>
+    <string name="tracking_error_resend_limit">Resend limit reached (3 maximum).</string>
+
+
+
 </resources>

@@ -238,7 +238,14 @@ class InviteByEmailActivity : AppCompatActivity() {
     // ─── SKIP BUTTON ─────────────────────────────────────────────────────────
 
     private fun setupSkipButton() {
-        binding.btnSkip.setOnClickListener { navigateToMain() }
+        binding.btnSkip.setOnClickListener {
+            val intent = Intent(this, InvitationTrackingActivity::class.java).apply {
+                putExtra(InvitationTrackingActivity.EXTRA_CIRCLE_ID, circleId)
+                putExtra(InvitationTrackingActivity.EXTRA_CIRCLE_NAME, circleName)
+            }
+            startActivity(intent)
+            finish()
+        }
     }
 
     // ─── INVITATION LIST ─────────────────────────────────────────────────────

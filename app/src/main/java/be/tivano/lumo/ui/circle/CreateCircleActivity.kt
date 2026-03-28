@@ -41,6 +41,8 @@ class CreateCircleActivity : AppCompatActivity() {
         const val SUGGESTION_SUPPORT = "circle_support"
         const val SUGGESTION_CUSTOM = "personnaliser"
 
+        const val EXTRA_CIRCLE_NAME = "extra_circle_name"
+
         private val CIRCLE_NAME_PATTERN = Regex("^[a-zA-ZÀ-ÿ0-9\\s\\-']{3,50}$")
     }
 
@@ -338,13 +340,16 @@ class CreateCircleActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToCircleSettings(circleId: String) {
+   private fun navigateToCircleSettings(circleId: String) {
+        val circleName = binding.etCircleName.text?.toString().orEmpty().trim()
         val intent = Intent(this, CircleSettingsActivity::class.java).apply {
             putExtra(CircleSettingsActivity.EXTRA_CIRCLE_ID, circleId)
+            putExtra(CircleSettingsActivity.EXTRA_CIRCLE_NAME, circleName)
         }
         startActivity(intent)
         finish()
     }
+
 
     private fun restoreDraft(draft: CircleCreationDraft) {
         binding.etCircleName.setText(draft.circleName)

@@ -359,7 +359,7 @@
     <string name="tracking_error_revoke_invalid_state">Cannot revoke this invitation in its current state.</string>
     <string name="tracking_error_resend_invalid_state">Cannot resend this invitation in its current state.</string>
     <string name="tracking_error_resend_limit">Resend limit reached (3 maximum).</string>
-
+    <string name="main_no_active_circle">No active circle found. Please create a circle first.</string>
 
 
 </resources>

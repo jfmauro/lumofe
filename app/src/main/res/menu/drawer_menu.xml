@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/nav_invitations"
+        android:icon="@drawable/ic_nav_invitations"
+        android:title="@string/nav_invitations"
+        android:checkable="false" />
+
+    <item
         android:id="@+id/nav_section_account"
         android:title="@string/nav_section_account"
         android:checkable="false" />

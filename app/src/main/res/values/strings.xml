@@ -373,4 +373,6 @@
     <string name="tracking_error_revoke_invalid_state">Impossible de révoquer cette invitation dans son état actuel.</string>
     <string name="tracking_error_resend_invalid_state">Impossible de renvoyer cette invitation dans son état actuel.</string>
     <string name="tracking_error_resend_limit">Limite de renvois atteinte (3 maximum).</string>
+    <string name="main_no_active_circle">Aucun cercle actif trouvé. Créez d\'abord un cercle.</string>
+
 </resources>

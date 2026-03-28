@@ -25,6 +25,8 @@ class CircleSettingsActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_CIRCLE_ID = "extra_circle_id"
 
+        const val EXTRA_CIRCLE_NAME = "extra_circle_name"
+
         private const val TARGET_SIZE_SMALL = "SMALL"
         private const val TARGET_SIZE_MEDIUM = "MEDIUM"
         private const val TARGET_SIZE_LARGE = "LARGE"
@@ -34,6 +36,7 @@ class CircleSettingsActivity : AppCompatActivity() {
 
         private const val PROTECTION_STANDARD = "STANDARD"
         private const val PROTECTION_REINFORCED = "REINFORCED"
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -262,10 +265,10 @@ class CircleSettingsActivity : AppCompatActivity() {
     }
 
     private fun navigateToCreatorConsent(circleId: String) {
-        // Navigate to US-0.1.4 — CreatorConsentActivity
-        // Pass circleId forward for the consent step
+        val circleName = intent.getStringExtra(EXTRA_CIRCLE_NAME).orEmpty()
         val intent = Intent(this, CreatorConsentActivity::class.java).apply {
             putExtra(CreatorConsentActivity.EXTRA_CIRCLE_ID, circleId)
+            putExtra(CreatorConsentActivity.EXTRA_CIRCLE_NAME, circleName)
         }
         startActivity(intent)
         finish()

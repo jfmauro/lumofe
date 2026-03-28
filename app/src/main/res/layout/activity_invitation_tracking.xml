@@ -20,28 +20,19 @@
         android:paddingTop="48dp"
         android:paddingBottom="56dp">
 
-        <!-- Back button row -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnBack"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_gravity="start"
-                android:text="@string/common_back"
-                android:textColor="#B3FFFFFF"
-                android:textSize="13sp"
-                android:fontFamily="@font/outfit_semibold"
-                app:icon="@drawable/ic_back_arrow"
-                app:iconTint="#B3FFFFFF"
-                app:iconSize="16dp"
-                app:iconPadding="4dp" />
-
-        </FrameLayout>
+        <!-- Back button — TextView, no icon drawable reference -->
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:text="@string/common_back"
+            android:textColor="#B3FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="@font/outfit_semibold"
+            android:paddingStart="0dp"
+            android:paddingEnd="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -76,7 +67,7 @@
     </LinearLayout>
 
     <!-- ══════════════════════════════════════════
-         SCROLLABLE CONTENT (overlaps hero by 20dp)
+         SCROLLABLE CONTENT
          ══════════════════════════════════════════ -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -114,28 +105,17 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <!-- Section header -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="14dp">
+                        android:layout_marginBottom="14dp"
+                        android:text="@string/tracking_stats_header"
+                        android:textColor="@color/lumo_primary"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/outfit_bold"
+                        android:letterSpacing="0.06"
+                        android:textAllCaps="true" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/tracking_stats_header"
-                            android:textColor="@color/lumo_primary"
-                            android:textSize="12sp"
-                            android:fontFamily="@font/outfit_bold"
-                            android:letterSpacing="0.06"
-                            android:textAllCaps="true" />
-
-                    </LinearLayout>
-
-                    <!-- Stats grid — 2x2 -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -234,7 +214,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ── FILTER TABS SCROLLABLE ───────────────────── -->
+            <!-- ── FILTER TABS (reuse bg_badge_rounded already in project) ─── -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,38 +230,98 @@
 
                     <TextView
                         android:id="@+id/tabAll"
-                        style="@style/Widget.Lumo.FilterTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="6dp"
                         android:text="@string/filter_all"
-                        android:layout_marginEnd="6dp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/lumo_surface_variant"
+                        android:textColor="@color/lumo_on_surface_muted" />
 
                     <TextView
                         android:id="@+id/tabPending"
-                        style="@style/Widget.Lumo.FilterTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="6dp"
                         android:text="@string/filter_pending"
-                        android:layout_marginEnd="6dp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/lumo_surface_variant"
+                        android:textColor="@color/lumo_on_surface_muted" />
 
                     <TextView
                         android:id="@+id/tabAccepted"
-                        style="@style/Widget.Lumo.FilterTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="6dp"
                         android:text="@string/filter_accepted"
-                        android:layout_marginEnd="6dp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/lumo_surface_variant"
+                        android:textColor="@color/lumo_on_surface_muted" />
 
                     <TextView
                         android:id="@+id/tabDeclined"
-                        style="@style/Widget.Lumo.FilterTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="6dp"
                         android:text="@string/filter_refused"
-                        android:layout_marginEnd="6dp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/lumo_surface_variant"
+                        android:textColor="@color/lumo_on_surface_muted" />
 
                     <TextView
                         android:id="@+id/tabExpired"
-                        style="@style/Widget.Lumo.FilterTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="6dp"
                         android:text="@string/filter_expired"
-                        android:layout_marginEnd="6dp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/lumo_surface_variant"
+                        android:textColor="@color/lumo_on_surface_muted" />
 
                     <TextView
                         android:id="@+id/tabRevoked"
-                        style="@style/Widget.Lumo.FilterTab"
-                        android:text="@string/filter_revoked" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/filter_revoked"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/lumo_surface_variant"
+                        android:textColor="@color/lumo_on_surface_muted" />
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -332,7 +372,7 @@
                 android:fontFamily="@font/outfit_semibold"
                 android:textSize="15sp"
                 android:textColor="@color/white"
-                android:background="@drawable/bg_btn_primary"
+                app:backgroundTint="@color/lumo_primary"
                 app:cornerRadius="@dimen/button_corner_radius" />
 
         </LinearLayout>

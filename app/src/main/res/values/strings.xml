@@ -273,7 +273,7 @@
     <string name="creator_consent_limit_2">Les alertes automatiques sont indicatives et non certifiées.</string>
 
     <string name="creator_consent_cb_responsibility">J\'ai lu et compris les responsabilités ci-dessus.</string>
-    <string name="creator_consent_cb_emergency">Je comprends que Lumo ne remplace pas les services d\'urgence (15, 17, 18, 112).</string>
+    <string name="creator_consent_cb_emergency">Je comprends que Lumo ne remplace pas les services d\'urgence (112).</string>
     <string name="creator_consent_cb_inform_members">J\'accepte d\'informer les membres invités de ces limitations.</string>
 
     <string name="creator_consent_scroll_hint">Faites défiler jusqu\'en bas pour activer les cases à cocher.</string>
@@ -286,5 +286,50 @@
     <string name="creator_consent_error_not_found">Cercle introuvable.</string>
     <string name="creator_consent_error_already_exists">Le consentement a déjà été enregistré pour ce cercle.</string>
     <string name="creator_consent_error_unprocessable">Le cercle n\'est pas en statut DRAFT ou ses paramètres ne sont pas configurés.</string>
+
+
+    <!-- ══════════════════════════════════════════════════
+         US-0.2.1 — Email Invitation
+         ══════════════════════════════════════════════════ -->
+    <string name="invite_step_label">ÉTAPE 5 / 5</string>
+    <string name="invite_title_placeholder">Inviter des membres</string>
+    <string name="invite_title">Inviter des membres à %1$s</string>
+    <string name="invite_subtitle">Ajoutez des proches à votre cercle.</string>
+
+    <string name="invite_field_email">Adresse email du membre *</string>
+    <string name="invite_field_message">Ajouter un message personnel (optionnel)</string>
+    <string name="invite_msg_counter">%1$d/200</string>
+
+    <string name="invite_btn_send">Envoyer l\'invitation</string>
+    <string name="invite_btn_sending">Envoi en cours…</string>
+    <string name="invite_btn_skip">Passer cette étape →</string>
+
+    <string name="invite_section_pending">Invitations envoyées</string>
+    <string name="invite_empty_state">Aucune invitation envoyée pour l\'instant.</string>
+
+    <string name="invite_sent_at">Envoyé le %1$s</string>
+    <string name="invite_sending">Envoi en cours…</string>
+
+    <string name="invitation_status_pending">EN ATTENTE</string>
+    <string name="invitation_status_accepted">ACCEPTÉE</string>
+    <string name="invitation_status_declined">REFUSÉE</string>
+    <string name="invitation_status_expired">EXPIRÉE</string>
+    <string name="invitation_status_revoked">RÉVOQUÉE</string>
+
+    <string name="invite_revoke_action">Révoquer</string>
+    <string name="invite_revoke_title">Révoquer l\'invitation ?</string>
+    <string name="invite_revoke_message">L\'invitation de %1$s sera annulée.</string>
+    <string name="invite_revoke_confirm">Confirmer</string>
+    <string name="invite_revoke_cancel">Annuler</string>
+    <string name="invite_revoke_success">Invitation révoquée.</string>
+
+    <string name="invite_success">✓ Invitation envoyée à %1$s</string>
+    <string name="invite_error_invalid_email">Format d\'email invalide</string>
+    <string name="invite_error_message_too_long">Le message ne peut pas dépasser 200 caractères</string>
+    <string name="invite_error_already_invited">Cette adresse a déjà été invitée</string>
+    <string name="invite_error_already_member">Cette adresse est déjà membre du cercle</string>
+    <string name="invite_error_limit_reached">Limite d\'invitations atteinte (20 par jour)</string>
+    <string name="invite_error_forbidden">Accès refusé. Seul le créateur peut inviter des membres.</string>
+
 
 </resources>

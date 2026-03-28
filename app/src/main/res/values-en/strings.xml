@@ -276,5 +276,46 @@
     <string name="creator_consent_error_already_exists">Consent has already been recorded for this circle.</string>
     <string name="creator_consent_error_unprocessable">The circle is not in DRAFT status or its settings are not configured.</string>
 
+    <!-- US-0.2.1 — Email Invitation -->
+    <string name="invite_step_label">STEP 5 / 5</string>
+    <string name="invite_title_placeholder">Invite members</string>
+    <string name="invite_title">Invite members to %1$s</string>
+    <string name="invite_subtitle">Add trusted people to your circle.</string>
+
+    <string name="invite_field_email">Member\'s email address *</string>
+    <string name="invite_field_message">Add a personal message (optional)</string>
+    <string name="invite_msg_counter">%1$d/200</string>
+
+    <string name="invite_btn_send">Send invitation</string>
+    <string name="invite_btn_sending">Sending…</string>
+    <string name="invite_btn_skip">Skip this step →</string>
+
+    <string name="invite_section_pending">Sent invitations</string>
+    <string name="invite_empty_state">No invitations sent yet.</string>
+
+    <string name="invite_sent_at">Sent on %1$s</string>
+    <string name="invite_sending">Sending…</string>
+
+    <string name="invitation_status_pending">PENDING</string>
+    <string name="invitation_status_accepted">ACCEPTED</string>
+    <string name="invitation_status_declined">DECLINED</string>
+    <string name="invitation_status_expired">EXPIRED</string>
+    <string name="invitation_status_revoked">REVOKED</string>
+
+    <string name="invite_revoke_action">Revoke</string>
+    <string name="invite_revoke_title">Revoke invitation?</string>
+    <string name="invite_revoke_message">The invitation for %1$s will be cancelled.</string>
+    <string name="invite_revoke_confirm">Confirm</string>
+    <string name="invite_revoke_cancel">Cancel</string>
+    <string name="invite_revoke_success">Invitation revoked.</string>
+
+    <string name="invite_success">✓ Invitation sent to %1$s</string>
+    <string name="invite_error_invalid_email">Invalid email format</string>
+    <string name="invite_error_message_too_long">Message cannot exceed 200 characters</string>
+    <string name="invite_error_already_invited">This email has already been invited</string>
+    <string name="invite_error_already_member">This email is already a circle member</string>
+    <string name="invite_error_limit_reached">Invitation limit reached (20 per day)</string>
+    <string name="invite_error_forbidden">Access denied. Only the circle creator can send invitations.</string>
+
 
 </resources>

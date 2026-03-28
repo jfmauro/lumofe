@@ -332,4 +332,47 @@
     <string name="invite_error_forbidden">Accès refusé. Seul le créateur peut inviter des membres.</string>
 
 
+    <!-- ══════════════════════════════════════════════════
+     US-0.2.4 — Invitation Tracking Dashboard
+     ══════════════════════════════════════════════════ -->
+    <string name="tracking_step_label">SUIVI DES INVITATIONS</string>
+    <string name="tracking_title_placeholder">Suivi des invitations</string>
+    <string name="tracking_title">Invitations — %1$s</string>
+    <string name="tracking_subtitle">Gérez et suivez l\'état de vos invitations.</string>
+
+    <string name="tracking_stats_header">📊 STATISTIQUES</string>
+    <string name="tracking_stat_sent">%1$d envoyée(s)</string>
+    <string name="tracking_stat_sent_placeholder">0 envoyée(s)</string>
+    <string name="tracking_stat_accepted">%1$d acceptée(s) (%2$d%%)</string>
+    <string name="tracking_stat_accepted_placeholder">0 acceptée(s)</string>
+    <string name="tracking_stat_pending">%1$d en attente</string>
+    <string name="tracking_stat_pending_placeholder">0 en attente</string>
+    <string name="tracking_stat_members">Cercle : %1$d membre(s)</string>
+    <string name="tracking_stat_members_placeholder">Cercle : 0 membre(s)</string>
+
+    <string name="filter_expired">Expirées</string>
+    <string name="filter_revoked">Révoquées</string>
+
+    <string name="tracking_sent_today">Envoyée aujourd\'hui</string>
+    <string name="tracking_sent_yesterday">Envoyée hier</string>
+    <string name="tracking_sent_days_ago">Il y a %1$d jours</string>
+
+    <string name="tracking_email_opened">✓ Email ouvert</string>
+    <string name="tracking_resend_count">Renvoyée %1$d fois</string>
+
+    <string name="tracking_btn_resend">Renvoyer</string>
+    <string name="tracking_btn_send_invitation">+ Inviter un nouveau membre</string>
+
+    <string name="tracking_empty_state">Aucune invitation dans cette catégorie.</string>
+
+    <string name="tracking_resend_title">Renvoyer l\'invitation ?</string>
+    <string name="tracking_resend_message">L\'invitation de %1$s sera renvoyée avec un nouveau lien.</string>
+    <string name="tracking_resend_confirm">Confirmer</string>
+    <string name="tracking_resend_success">✓ Invitation renvoyée à %1$s</string>
+
+    <string name="tracking_error_revoke_invalid_state">Impossible de révoquer cette invitation dans son état actuel.</string>
+    <string name="tracking_error_resend_invalid_state">Impossible de renvoyer cette invitation dans son état actuel.</string>
+    <string name="tracking_error_resend_limit">Limite de renvois atteinte (3 maximum).</string>
+    <string name="main_no_active_circle">Aucun cercle actif trouvé. Créez d\'abord un cercle.</string>
+
 </resources>

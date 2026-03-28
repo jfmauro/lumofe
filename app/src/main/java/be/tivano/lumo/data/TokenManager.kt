@@ -22,6 +22,10 @@ class TokenManager(private val context: Context) {
         private val USER_FIRSTNAME_KEY = stringPreferencesKey("user_firstname")
         private val USER_LASTNAME_KEY = stringPreferencesKey("user_lastname")
         private val USER_EMAIL_KEY = stringPreferencesKey("user_email")
+
+        // ─── US-0.2.4 — Active circle ────────────────────────────────────────
+        private val CIRCLE_ID_KEY = stringPreferencesKey("active_circle_id")
+        private val CIRCLE_NAME_KEY = stringPreferencesKey("active_circle_name")
     }
 
     suspend fun saveToken(token: String) {
@@ -79,6 +83,41 @@ class TokenManager(private val context: Context) {
     fun isLoggedInFlow(): Flow<Boolean> {
         return context.dataStore.data.map { preferences ->
             preferences[TOKEN_KEY] != null
+        }
+    }
+
+    // ─── Active circle ────────────────────────────────────────────────────────
+
+    suspend fun saveActiveCircle(circleId: String, circleName: String) {
+        context.dataStore.edit { preferences ->
+            preferences[CIRCLE_ID_KEY] = circleId
+            preferences[CIRCLE_NAME_KEY] = circleName
+        }
+    }
+
+    suspend fun getActiveCircleId(): String? {
+        val preferences = context.dataStore.data.first()
+        return preferences[CIRCLE_ID_KEY]
+    }
+
+    suspend fun getActiveCircleName(): String? {
+        val preferences = context.dataStore.data.first()
+        return preferences[CIRCLE_NAME_KEY]
+    }
+
+    fun getActiveCircleIdSync(): String? {
+        return try {
+            kotlinx.coroutines.runBlocking { getActiveCircleId() }
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    fun getActiveCircleNameSync(): String? {
+        return try {
+            kotlinx.coroutines.runBlocking { getActiveCircleName() }
+        } catch (e: Exception) {
+            null
         }
     }
 

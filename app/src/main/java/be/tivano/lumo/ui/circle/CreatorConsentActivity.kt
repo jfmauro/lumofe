@@ -7,13 +7,13 @@ import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import be.tivano.lumo.ui.invitation.InviteByEmailActivity
 import androidx.lifecycle.lifecycleScope
 import be.tivano.lumo.R
 import be.tivano.lumo.data.RetrofitClient
+import be.tivano.lumo.data.TokenManager
 import be.tivano.lumo.databinding.ActivityCreatorConsentBinding
 import be.tivano.lumo.model.CreatorConsentRequest
-import be.tivano.lumo.ui.MainActivity
+import be.tivano.lumo.ui.invitation.InviteByEmailActivity
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.format.DateTimeFormatter
@@ -21,12 +21,15 @@ import java.time.format.DateTimeFormatter
 class CreatorConsentActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreatorConsentBinding
+    private lateinit var tokenManager: TokenManager
 
     private var circleId: String = ""
+    private var circleName: String = ""
     private var checkboxesUnlocked = false
 
     companion object {
         const val EXTRA_CIRCLE_ID = "extra_circle_id"
+        const val EXTRA_CIRCLE_NAME = "extra_circle_name"
 
         private const val DISCLAIMER_VERSION = "v1.0.0"
         private const val SUCCESS_REDIRECT_DELAY_MS = 2000L
@@ -37,10 +40,13 @@ class CreatorConsentActivity : AppCompatActivity() {
         binding = ActivityCreatorConsentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        tokenManager = TokenManager(this)
+
         circleId = intent.getStringExtra(EXTRA_CIRCLE_ID) ?: run {
             finish()
             return
         }
+        circleName = intent.getStringExtra(EXTRA_CIRCLE_NAME).orEmpty()
 
         setupScrollListener()
         setupCheckboxListeners()
@@ -70,36 +76,46 @@ class CreatorConsentActivity : AppCompatActivity() {
         binding.cbResponsibility.isEnabled = true
         binding.cbEmergency.isEnabled = true
         binding.cbInformMembers.isEnabled = true
-        binding.tvConsentHint.visibility = View.GONE
     }
 
-    // ─── CHECKBOX VALIDATION ─────────────────────────────────────────────────
+    // ─── CHECKBOXES ──────────────────────────────────────────────────────────
 
     private fun setupCheckboxListeners() {
-        val listener = { _: android.widget.CompoundButton, _: Boolean ->
-            updateButtonState()
+        binding.cbResponsibility.isEnabled = false
+        binding.cbEmergency.isEnabled = false
+        binding.cbInformMembers.isEnabled = false
+
+        val updateButton = {
+            binding.btnAcceptCreate.isEnabled =
+                binding.cbResponsibility.isChecked &&
+                binding.cbEmergency.isChecked &&
+                binding.cbInformMembers.isChecked
         }
-        binding.cbResponsibility.setOnCheckedChangeListener(listener)
-        binding.cbEmergency.setOnCheckedChangeListener(listener)
-        binding.cbInformMembers.setOnCheckedChangeListener(listener)
+        binding.cbResponsibility.setOnCheckedChangeListener { _, _ -> updateButton() }
+        binding.cbEmergency.setOnCheckedChangeListener { _, _ -> updateButton() }
+        binding.cbInformMembers.setOnCheckedChangeListener { _, _ -> updateButton() }
+        binding.btnAcceptCreate.isEnabled = false
     }
 
-    private fun updateButtonState() {
-        val allChecked = binding.cbResponsibility.isChecked
-                && binding.cbEmergency.isChecked
-                && binding.cbInformMembers.isChecked
-        binding.btnAcceptCreate.isEnabled = allChecked
-    }
-
-    // ─── API CALL ─────────────────────────────────────────────────────────────
+    // ─── SUBMIT ──────────────────────────────────────────────────────────────
 
     private fun setupButtonListener() {
-        binding.btnAcceptCreate.setOnClickListener {
-            submitConsent()
-        }
+        binding.btnAcceptCreate.setOnClickListener { performConsent() }
     }
 
-    private fun submitConsent() {
+    private fun performConsent() {
+        if (!binding.cbResponsibility.isChecked ||
+            !binding.cbEmergency.isChecked ||
+            !binding.cbInformMembers.isChecked
+        ) {
+            Toast.makeText(
+                this,
+                getString(R.string.creator_consent_error_validation),
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
         setLoadingState(true)
 
         val consentedAt = DateTimeFormatter.ISO_INSTANT.format(Instant.now())
@@ -118,6 +134,10 @@ class CreatorConsentActivity : AppCompatActivity() {
                 )
                 when {
                     response.isSuccessful && response.body() != null -> {
+                        onConsentSuccess()
+                    }
+                    response.code() == 409 -> {
+                        // 409 = consent already recorded — treat as success
                         onConsentSuccess()
                     }
                     response.code() == 400 -> {
@@ -151,14 +171,6 @@ class CreatorConsentActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                         setLoadingState(false)
-                    }
-                    response.code() == 409 -> {
-                        Toast.makeText(
-                            this@CreatorConsentActivity,
-                            getString(R.string.creator_consent_error_already_exists),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        navigateToMain()
                     }
                     response.code() == 422 -> {
                         Toast.makeText(
@@ -196,16 +208,21 @@ class CreatorConsentActivity : AppCompatActivity() {
             getString(R.string.creator_consent_success),
             Toast.LENGTH_LONG
         ).show()
+
+        // Persist active circle so MainActivity can access it from the drawer
+        lifecycleScope.launch {
+            tokenManager.saveActiveCircle(circleId, circleName)
+        }
+
         Handler(Looper.getMainLooper()).postDelayed({
-            navigateToMain()
+            navigateToInvite()
         }, SUCCESS_REDIRECT_DELAY_MS)
     }
 
-    private fun navigateToMain() {
-        val circleId = intent.getStringExtra(EXTRA_CIRCLE_ID).orEmpty()
+    private fun navigateToInvite() {
         val intent = Intent(this, InviteByEmailActivity::class.java).apply {
             putExtra(InviteByEmailActivity.EXTRA_CIRCLE_ID, circleId)
-            putExtra(InviteByEmailActivity.EXTRA_CIRCLE_NAME, binding.tvTitle.text?.toString().orEmpty())
+            putExtra(InviteByEmailActivity.EXTRA_CIRCLE_NAME, circleName)
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(intent)

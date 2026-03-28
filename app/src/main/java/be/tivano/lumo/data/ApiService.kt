@@ -10,6 +10,7 @@ import be.tivano.lumo.model.CreatorConsentResponse
 import be.tivano.lumo.model.InvitationListResponse
 import be.tivano.lumo.model.InvitationRequest
 import be.tivano.lumo.model.InvitationResponse
+import be.tivano.lumo.model.InvitationStatisticsResponse
 import be.tivano.lumo.model.RegisterRequest
 import be.tivano.lumo.model.RegisterResponse
 import retrofit2.Response
@@ -61,6 +62,19 @@ interface ApiService {
 
     @DELETE("api/v1/circles/{circleId}/invitations/{invitationId}")
     suspend fun revokeInvitation(
+        @Path("circleId") circleId: String,
+        @Path("invitationId") invitationId: String
+    ): Response<InvitationResponse>
+
+   // ─── US-0.2.4 — Invitation Tracking ──────────────────────────────────────
+
+    @GET("api/v1/circles/{circleId}/invitations/statistics")
+    suspend fun getInvitationStatistics(
+        @Path("circleId") circleId: String
+    ): Response<InvitationStatisticsResponse>
+
+    @POST("api/v1/circles/{circleId}/invitations/{invitationId}/resend")
+    suspend fun resendInvitation(
         @Path("circleId") circleId: String,
         @Path("invitationId") invitationId: String
     ): Response<InvitationResponse>

@@ -34,5 +34,11 @@ data class InvitationResponse(
     val emailDeliveryStatus: String?,
 
     @SerializedName("resendCount")
-    val resendCount: Int = 0
+    val resendCount: Int = 0,
+
+    @SerializedName("emailOpenedAt")
+    val emailOpenedAt: String? = null,
+
+    @SerializedName("acceptedAt")
+    val acceptedAt: String? = null
 )

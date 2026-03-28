@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import be.tivano.lumo.ui.invitation.InviteByEmailActivity
 import androidx.lifecycle.lifecycleScope
 import be.tivano.lumo.R
 import be.tivano.lumo.data.RetrofitClient
@@ -201,7 +202,10 @@ class CreatorConsentActivity : AppCompatActivity() {
     }
 
     private fun navigateToMain() {
-        val intent = Intent(this, MainActivity::class.java).apply {
+        val circleId = intent.getStringExtra(EXTRA_CIRCLE_ID).orEmpty()
+        val intent = Intent(this, InviteByEmailActivity::class.java).apply {
+            putExtra(InviteByEmailActivity.EXTRA_CIRCLE_ID, circleId)
+            putExtra(InviteByEmailActivity.EXTRA_CIRCLE_NAME, binding.tvTitle.text?.toString().orEmpty())
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(intent)

@@ -97,4 +97,6 @@
     <color name="caramel">#C8855A</color>
     <color name="cream">#FAF6F0</color>
 
+    <color name="lumo_on_surface_variant">#8C7B70</color>
+
 </resources>

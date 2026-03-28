@@ -5,12 +5,16 @@ import be.tivano.lumo.model.CircleSettingsResponse
 import be.tivano.lumo.model.CreateCircleRequest
 import be.tivano.lumo.model.CreateCircleResponse
 import be.tivano.lumo.model.CreateCircleSettingsRequest
-import be.tivano.lumo.model.RegisterRequest
-import be.tivano.lumo.model.RegisterResponse
 import be.tivano.lumo.model.CreatorConsentRequest
 import be.tivano.lumo.model.CreatorConsentResponse
+import be.tivano.lumo.model.InvitationListResponse
+import be.tivano.lumo.model.InvitationRequest
+import be.tivano.lumo.model.InvitationResponse
+import be.tivano.lumo.model.RegisterRequest
+import be.tivano.lumo.model.RegisterResponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -26,7 +30,6 @@ interface ApiService {
     @GET("api/v1/circles/check-name")
     suspend fun checkCircleName(@Query("name") name: String): Response<CheckCircleNameResponse>
 
-    // US-0.1.3 — Circle settings configuration
     @POST("api/v1/circles/{circleId}/settings")
     suspend fun createCircleSettings(
         @Path("circleId") circleId: String,
@@ -38,4 +41,27 @@ interface ApiService {
         @Path("circleId") circleId: String,
         @Body request: CreatorConsentRequest
     ): Response<CreatorConsentResponse>
+
+    // ─── US-0.2.1 — Email Invitation ─────────────────────────────────────────
+
+    @POST("api/v1/circles/{circleId}/invitations")
+    suspend fun sendInvitation(
+        @Path("circleId") circleId: String,
+        @Body request: InvitationRequest
+    ): Response<InvitationResponse>
+
+    @GET("api/v1/circles/{circleId}/invitations")
+    suspend fun getInvitations(
+        @Path("circleId") circleId: String,
+        @Query("status") status: String? = null,
+        @Query("page") page: Int = 0,
+        @Query("size") size: Int = 20,
+        @Query("sort") sort: String = "sentAt,desc"
+    ): Response<InvitationListResponse>
+
+    @DELETE("api/v1/circles/{circleId}/invitations/{invitationId}")
+    suspend fun revokeInvitation(
+        @Path("circleId") circleId: String,
+        @Path("invitationId") invitationId: String
+    ): Response<InvitationResponse>
 }

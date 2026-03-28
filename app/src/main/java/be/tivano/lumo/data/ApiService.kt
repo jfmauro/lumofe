@@ -7,6 +7,8 @@ import be.tivano.lumo.model.CreateCircleResponse
 import be.tivano.lumo.model.CreateCircleSettingsRequest
 import be.tivano.lumo.model.RegisterRequest
 import be.tivano.lumo.model.RegisterResponse
+import be.tivano.lumo.model.CreatorConsentRequest
+import be.tivano.lumo.model.CreatorConsentResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -30,4 +32,10 @@ interface ApiService {
         @Path("circleId") circleId: String,
         @Body request: CreateCircleSettingsRequest
     ): Response<CircleSettingsResponse>
+
+    @POST("api/v1/circles/{circleId}/creator-consent")
+    suspend fun acceptCreatorConsent(
+        @Path("circleId") circleId: String,
+        @Body request: CreatorConsentRequest
+    ): Response<CreatorConsentResponse>
 }

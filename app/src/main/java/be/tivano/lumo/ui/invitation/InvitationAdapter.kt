@@ -56,9 +56,9 @@ class InvitationAdapter(
 
             val sentDate = item.sentAt?.let { parseDisplayDate(it) }
             binding.tvSentAt.text = if (sentDate != null) {
-                binding.root.context.getString(R.string.invitation_sent_at, sentDate)
+                binding.root.context.getString(R.string.invite_sent_at, sentDate)
             } else {
-                binding.root.context.getString(R.string.invitation_sending)
+                binding.root.context.getString(R.string.invite_sending)
             }
 
             applyStatusBadge(item.status)

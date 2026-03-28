@@ -244,8 +244,37 @@
     <string name="nav_drawer_opened">Navigation drawer opened</string>
 
 
-    <string name="creator_consent_stub_message">Creator Consent screen stub. Implementation
-        pending.
-    </string>
+    <!-- ══════════════════════════════════════════════════
+       US-0.1.4 — Creator Consent
+       ══════════════════════════════════════════════════ -->
+    <string name="creator_consent_step_label">STEP 4 / 4</string>
+    <string name="creator_consent_title">Responsibilities as circle creator</string>
+    <string name="creator_consent_subtitle">Please read carefully before continuing.</string>
+
+    <string name="creator_consent_section_responsibilities_title">✓ YOUR RESPONSIBILITIES</string>
+    <string name="creator_consent_resp_1">Invite trusted people only and manage false alerts and invitations.</string>
+    <string name="creator_consent_resp_2">Inform your members in case of planned absence or emergency.</string>
+    <string name="creator_consent_resp_3">Coordinate actions and make decisions when necessary.</string>
+    <string name="creator_consent_resp_4">Respect the privacy and boundaries of each member of your circle.</string>
+
+    <string name="creator_consent_section_limitations_title">⚠ IMPORTANT LIMITATIONS</string>
+    <string name="creator_consent_limit_1">Lumo does not replace professional emergency services.</string>
+    <string name="creator_consent_limit_2">Automatic alerts are indicative and not certified.</string>
+
+    <string name="creator_consent_cb_responsibility">I have read and understood the responsibilities above.</string>
+    <string name="creator_consent_cb_emergency">I understand that Lumo does not replace emergency services (112).</string>
+    <string name="creator_consent_cb_inform_members">I agree to inform invited members of these limitations.</string>
+
+    <string name="creator_consent_scroll_hint">Scroll to the bottom to enable the checkboxes.</string>
+    <string name="creator_consent_btn_accept">Accept and create circle</string>
+    <string name="creator_consent_btn_loading">Creating circle…</string>
+    <string name="creator_consent_success">Circle successfully created! You can now invite members.</string>
+
+    <string name="creator_consent_error_validation">All three conditions must be accepted.</string>
+    <string name="creator_consent_error_forbidden">Access denied. Only the creator can accept consent.</string>
+    <string name="creator_consent_error_not_found">Circle not found.</string>
+    <string name="creator_consent_error_already_exists">Consent has already been recorded for this circle.</string>
+    <string name="creator_consent_error_unprocessable">The circle is not in DRAFT status or its settings are not configured.</string>
+
 
 </resources>

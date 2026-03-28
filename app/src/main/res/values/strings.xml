@@ -98,13 +98,35 @@
     <string name="draft_restore_yes">Reprendre</string>
     <string name="draft_restore_no">Recommencer</string>
 
-    <!-- Circle creation -->
-    <string name="circle_create_title">Définissez votre cercle</string>
-    <string name="circle_create_subtitle">Quelques détails rapides. Cela pourra être modifié par la suite.</string>
+    <!-- Circle creation — US-0.1.2 -->
+    <string name="circle_step_label">ÉTAPE 2 / 4</string>
+    <string name="circle_create_title">Créons votre cercle</string>
+    <string name="circle_create_subtitle">Donnez un nom à votre réseau de support.</string>
+    <string name="circle_suggestions_label">Suggestions rapides</string>
+    <string name="circle_suggestion_family">Famille</string>
+    <string name="circle_suggestion_family_named">Famille %1$s</string>
+    <string name="circle_suggestion_friends">Mes Proches</string>
+    <string name="circle_suggestion_support">Cercle de Support</string>
+    <string name="circle_suggestion_custom">Personnaliser</string>
     <string name="circle_field_name">Nom du cercle *</string>
     <string name="circle_field_description">Description (optionnel)</string>
+    <string name="circle_desc_counter">%1$d/200</string>
+    <string name="circle_desc_counter_zero">0/200</string>
     <string name="circle_tip">Vous pourrez inviter vos proches après la création du cercle.</string>
-    <string name="circle_btn_create">Créer le cercle →</string>
+    <string name="circle_btn_create">Créer mon cercle →</string>
+    <string name="circle_btn_creating">Création en cours…</string>
+    <string name="circle_description_hint_family">Cercle familial de la famille %1$s</string>
+    <string name="circle_description_hint_friends">Mon cercle de proches pour le soutien mutuel</string>
+    <string name="circle_description_hint_support">Mon réseau de soutien quotidien</string>
+    <string name="circle_description_hint_custom">Ex: Mon cercle avec Alice, Bob et Claire pour qu\'ils sachent que je vais bien</string>
+
+    <!-- Circle validation errors -->
+    <string name="error_circle_name_too_short">Le nom doit contenir au moins 3 caractères</string>
+    <string name="error_circle_name_too_long">Le nom ne peut pas dépasser 50 caractères</string>
+    <string name="error_circle_name_invalid_chars">Caractères spéciaux non autorisés</string>
+    <string name="error_circle_name_already_exists">Un cercle avec ce nom existe déjà</string>
+    <string name="error_circle_desc_too_long">La description ne peut pas dépasser 200 caractères</string>
+    <string name="error_session_expired">Session expirée, veuillez vous reconnecter</string>
 
     <!-- Responsibilities -->
     <string name="resp_title">Responsabilités en tant que créateur du cercle</string>
@@ -162,7 +184,6 @@
     <string name="nav_item_logout">Se déconnecter</string>
     <string name="nav_drawer_opened">Navigation ouverte</string>
 
-
     <string name="concept_title">Comprendre\nLumo</string>
     <string name="concept_subtitle">Votre réseau de soutien quotidien.</string>
     <string name="concept_feature1_title">Check-in quotidien en 1 tap</string>
@@ -174,5 +195,67 @@
     <string name="concept_feature4_title">Confidentialité garantie</string>
     <string name="concept_feature4_desc">Vos données restent privées, partagées uniquement avec votre cercle.</string>
     <string name="concept_cta">J\'ai compris, continuer →</string>
+
+
+    <!-- Circle settings — US-0.1.3 -->
+    <string name="circle_settings_step_label">ÉTAPE 3 / 4</string>
+    <string name="circle_settings_title">Configurez votre cercle</string>
+    <string name="circle_settings_subtitle">Personnalisez le fonctionnement de votre cercle</string>
+
+    <string name="circle_settings_size_label">Taille cible du cercle</string>
+    <string name="circle_settings_size_small">Petit (3–4 personnes)</string>
+    <string name="circle_settings_size_small_desc">Réseau restreint et très proche</string>
+    <string name="circle_settings_size_medium">Moyen (5–6 personnes)</string>
+    <string name="circle_settings_size_medium_desc">Recommandé pour équilibrer soutien et coordination</string>
+    <string name="circle_settings_size_large">Grand (7–8 personnes)</string>
+    <string name="circle_settings_size_large_desc">Famille élargie ou grand groupe d\'amis</string>
+    <string name="circle_settings_size_tip">💡 Recommandé : 4–6 personnes pour équilibrer soutien et coordination</string>
+
+    <string name="circle_settings_checkin_label">Mode de check-in</string>
+    <string name="circle_settings_checkin_simple">Check-in quotidien uniquement</string>
+    <string name="circle_settings_checkin_simple_desc">Une pression par jour pour confirmer votre présence</string>
+    <string name="circle_settings_checkin_simple_preview">Vos proches voient : Présent</string>
+    <string name="circle_settings_checkin_energy">Check-in + partage d\'énergie</string>
+    <string name="circle_settings_checkin_energy_desc">Présence + niveau d\'énergie du jour (1–5)</string>
+    <string name="circle_settings_checkin_energy_preview">Vos proches voient : Présent · Énergie 3/5</string>
+
+    <string name="circle_settings_protection_label">Niveau de protection</string>
+    <string name="circle_settings_protection_standard">Standard (alertes à 2/5/7 jours)</string>
+    <string name="circle_settings_protection_standard_desc">Recommandé pour la plupart des utilisateurs</string>
+    <string name="circle_settings_protection_reinforced">Renforcé (alertes à 1/3/5 jours)</string>
+    <string name="circle_settings_protection_reinforced_desc">Pour une surveillance plus rapprochée</string>
+    <string name="circle_settings_timeline_d1">J1</string>
+    <string name="circle_settings_timeline_d2">J2</string>
+    <string name="circle_settings_timeline_d3">J3</string>
+    <string name="circle_settings_timeline_d4">J4</string>
+    <string name="circle_settings_timeline_d5">J5</string>
+    <string name="circle_settings_timeline_d6">J6</string>
+    <string name="circle_settings_timeline_d7">J7</string>
+    <string name="circle_settings_timeline_legend">= notification envoyée à vos proches</string>
+
+    <string name="circle_settings_metrics_label">Partage des statistiques</string>
+    <string name="circle_settings_metrics_toggle_title">Autoriser la visibilité des statistiques</string>
+    <string name="circle_settings_metrics_toggle_desc">Les membres peuvent voir : taux de check-in, activité du cercle, réciprocité</string>
+    <string name="circle_settings_metrics_note">ℹ Vous pourrez modifier ces paramètres à tout moment dans les réglages du cercle.</string>
+
+    <string name="circle_settings_summary_label">Récapitulatif :</string>
+    <string name="circle_settings_chip_small">Petit</string>
+    <string name="circle_settings_chip_medium">Moyen</string>
+    <string name="circle_settings_chip_large">Grand</string>
+    <string name="circle_settings_chip_simple">Check-in simple</string>
+    <string name="circle_settings_chip_energy">Énergie</string>
+    <string name="circle_settings_chip_standard">Standard · J2/J5/J7</string>
+    <string name="circle_settings_chip_reinforced">Renforcé · J1/J3/J5</string>
+
+    <string name="circle_settings_btn_finalize">Finaliser la création</string>
+    <string name="circle_settings_btn_saving">Enregistrement en cours…</string>
+
+    <string name="circle_settings_error_forbidden">Accès refusé. Seul le créateur peut configurer le cercle.</string>
+    <string name="circle_settings_error_not_found">Cercle introuvable.</string>
+    <string name="circle_settings_error_already_exists">Les paramètres ont déjà été configurés pour ce cercle.</string>
+    <!-- Other existing strings -->
+    <string name="creator_consent_stub_message">Creator Consent screen stub. Implementation
+        pending.
+    </string>
 
 </resources>

@@ -88,7 +88,6 @@ class GuestOnboardingActivity : AppCompatActivity() {
     }
 
     private fun setupCheckinToggle() {
-        // Default: toggle OFF → guest is a watcher, not monitored
         binding.switchCheckin.isChecked = false
         binding.layoutCheckinFields.visibility = View.GONE
 
@@ -221,7 +220,6 @@ class GuestOnboardingActivity : AppCompatActivity() {
     }
 
     private fun validateStep3(): Boolean {
-        // Toggle OFF: nothing to validate
         if (!binding.switchCheckin.isChecked) return true
 
         val timeInput = binding.etCheckinTime.text?.toString().orEmpty().trim()
@@ -250,7 +248,6 @@ class GuestOnboardingActivity : AppCompatActivity() {
         val lastName = binding.etLastName.text?.toString().orEmpty().trim()
         val password = binding.etPassword.text?.toString().orEmpty()
 
-        // Only send check-in preferences when the guest explicitly opted in
         val checkinEnabled = binding.switchCheckin.isChecked
         val checkinTime: String? = if (checkinEnabled)
             binding.etCheckinTime.text?.toString().orEmpty().trim().ifBlank { DEFAULT_CHECKIN_TIME }
@@ -285,6 +282,8 @@ class GuestOnboardingActivity : AppCompatActivity() {
                             email = body.email
                         )
                         tokenManager.saveActiveCircle(body.circleId, body.circleName)
+                        // Guest is a member, not the creator — invitations tab must be hidden
+                        tokenManager.saveIsCircleCreator(false)
                         navigateToMain()
                     }
                     response.code() == 400 -> {

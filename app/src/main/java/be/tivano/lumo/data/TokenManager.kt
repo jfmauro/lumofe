@@ -3,6 +3,7 @@ package be.tivano.lumo.data
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -26,6 +27,9 @@ class TokenManager(private val context: Context) {
         // ─── US-0.2.4 — Active circle ────────────────────────────────────────
         private val CIRCLE_ID_KEY = stringPreferencesKey("active_circle_id")
         private val CIRCLE_NAME_KEY = stringPreferencesKey("active_circle_name")
+
+        // ─── US-0.3.2 — Circle role (creator vs member) ──────────────────────
+        private val IS_CIRCLE_CREATOR_KEY = booleanPreferencesKey("is_circle_creator")
     }
 
     suspend fun saveToken(token: String) {
@@ -120,6 +124,38 @@ class TokenManager(private val context: Context) {
             null
         }
     }
+
+    // ─── Circle role ──────────────────────────────────────────────────────────
+
+    /**
+     * Persists whether the current user is the creator of their active circle.
+     * Must be called immediately after account creation or invitation acceptance.
+     * Cleared automatically by [clearAll] on logout.
+     */
+    suspend fun saveIsCircleCreator(isCreator: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[IS_CIRCLE_CREATOR_KEY] = isCreator
+        }
+    }
+
+    /**
+     * Returns true only if the user explicitly saved the CREATOR role.
+     * Defaults to false when the key is absent (safe default: restrict access).
+     */
+    suspend fun isCircleCreator(): Boolean {
+        val preferences = context.dataStore.data.first()
+        return preferences[IS_CIRCLE_CREATOR_KEY] ?: false
+    }
+
+    fun isCircleCreatorSync(): Boolean {
+        return try {
+            kotlinx.coroutines.runBlocking { isCircleCreator() }
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    // ─── Clear ────────────────────────────────────────────────────────────────
 
     suspend fun clearAll() {
         context.dataStore.edit { preferences ->

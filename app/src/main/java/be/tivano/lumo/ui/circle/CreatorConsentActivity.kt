@@ -88,8 +88,8 @@ class CreatorConsentActivity : AppCompatActivity() {
         val updateButton = {
             binding.btnAcceptCreate.isEnabled =
                 binding.cbResponsibility.isChecked &&
-                binding.cbEmergency.isChecked &&
-                binding.cbInformMembers.isChecked
+                        binding.cbEmergency.isChecked &&
+                        binding.cbInformMembers.isChecked
         }
         binding.cbResponsibility.setOnCheckedChangeListener { _, _ -> updateButton() }
         binding.cbEmergency.setOnCheckedChangeListener { _, _ -> updateButton() }
@@ -209,9 +209,11 @@ class CreatorConsentActivity : AppCompatActivity() {
             Toast.LENGTH_LONG
         ).show()
 
-        // Persist active circle so MainActivity can access it from the drawer
         lifecycleScope.launch {
+            // Persist active circle so MainActivity can access it from the drawer
             tokenManager.saveActiveCircle(circleId, circleName)
+            // Mark this user as circle creator — controls invitations visibility
+            tokenManager.saveIsCircleCreator(true)
         }
 
         Handler(Looper.getMainLooper()).postDelayed({

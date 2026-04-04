@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.lifecycleScope
@@ -30,8 +31,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         tokenManager = TokenManager(this)
 
+
         setupNavigationView()
         setupBottomNavBar()
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+            }
+        }
     }
 
     // ─── BOTTOM NAV BAR ──────────────────────────────────────────────────────
@@ -50,10 +61,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    /**
+     * Shows the bottom nav bar only when logged in.
+     * The invitations button is additionally gated on the CREATOR role.
+     */
     private fun updateBottomNavVisibility() {
         lifecycleScope.launch {
             val isLoggedIn = tokenManager.isLoggedIn()
             binding.bottomNavBar.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
+
+            if (isLoggedIn) {
+                val isCreator = tokenManager.isCircleCreator()
+                binding.btnNavInvitations.visibility =
+                    if (isCreator) View.VISIBLE else View.GONE
+            }
         }
     }
 
@@ -63,6 +84,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val headerView = binding.navigationView.getHeaderView(0)
             val tvUserName = headerView.findViewById<android.widget.TextView>(R.id.navHeaderUserName)
             tvUserName?.text = if (firstName.isNotBlank()) firstName else ""
+        }
+    }
+
+    /**
+     * Shows the invitations item in the navigation drawer only for circle creators.
+     * Called every onResume to reflect the current role without requiring a restart.
+     */
+    private fun updateDrawerInvitationsVisibility() {
+        lifecycleScope.launch {
+            val isCreator = tokenManager.isCircleCreator()
+            binding.navigationView.menu
+                .findItem(R.id.nav_invitations)
+                ?.isVisible = isCreator
         }
     }
 
@@ -87,6 +121,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun navigateToInvitationTracking() {
         lifecycleScope.launch {
+            // Double-check: a non-creator should never reach this, but we guard anyway
+            if (!tokenManager.isCircleCreator()) return@launch
+
             val circleId = tokenManager.getActiveCircleId()
             val circleName = tokenManager.getActiveCircleName()
             if (circleId.isNullOrBlank()) {
@@ -126,13 +163,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onResume()
         updateBottomNavVisibility()
         updateNavHeaderUserName()
+        updateDrawerInvitationsVisibility()
     }
 
-    override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
-    }
 }

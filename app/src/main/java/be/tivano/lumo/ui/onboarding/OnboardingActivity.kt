@@ -49,6 +49,7 @@ class OnboardingActivity : AppCompatActivity() {
         setupViewPager()
         setupStepDots()
         setupButtons()
+        updateUiForStep(0)
     }
 
     private fun setupViewPager() {

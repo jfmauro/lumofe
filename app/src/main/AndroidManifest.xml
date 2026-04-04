@@ -73,7 +73,57 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- ══════════════════════════════════════════════════
+             US-0.3.1 — Invitation Landing Page
+             exported=true : reçoit les deep links /join/{token}
+             ══════════════════════════════════════════════════ -->
+        <activity
+            android:name=".ui.acceptance.InvitationLandingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
 
+            <!-- Deep link : https://safecircle.app/join/{token} -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="safecircle.app"
+                    android:pathPrefix="/join/" />
+            </intent-filter>
+
+            <!-- Fallback HTTP (dev / ngrok) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="http"
+                    android:host="safecircle.app"
+                    android:pathPrefix="/join/" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- ══════════════════════════════════════════════════
+             US-0.3.2 — Guest Onboarding (accept invitation)
+             ══════════════════════════════════════════════════ -->
+        <activity
+            android:name=".ui.acceptance.GuestOnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- ══════════════════════════════════════════════════
+             US-0.3.3 — Invitation Decline
+             ══════════════════════════════════════════════════ -->
+        <activity
+            android:name=".ui.acceptance.InvitationDeclineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

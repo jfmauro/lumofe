@@ -1,5 +1,7 @@
 package be.tivano.lumo.data
 
+import be.tivano.lumo.model.AcceptInvitationRequest
+import be.tivano.lumo.model.AcceptInvitationResponse
 import be.tivano.lumo.model.CheckCircleNameResponse
 import be.tivano.lumo.model.CircleSettingsResponse
 import be.tivano.lumo.model.CreateCircleRequest
@@ -7,6 +9,10 @@ import be.tivano.lumo.model.CreateCircleResponse
 import be.tivano.lumo.model.CreateCircleSettingsRequest
 import be.tivano.lumo.model.CreatorConsentRequest
 import be.tivano.lumo.model.CreatorConsentResponse
+import be.tivano.lumo.model.DeclineInvitationRequest
+import be.tivano.lumo.model.DeclineInvitationResponse
+import be.tivano.lumo.model.DeclineReasonsResponse
+import be.tivano.lumo.model.InvitationLandingResponse
 import be.tivano.lumo.model.InvitationListResponse
 import be.tivano.lumo.model.InvitationRequest
 import be.tivano.lumo.model.InvitationResponse
@@ -66,7 +72,7 @@ interface ApiService {
         @Path("invitationId") invitationId: String
     ): Response<InvitationResponse>
 
-   // ─── US-0.2.4 — Invitation Tracking ──────────────────────────────────────
+    // ─── US-0.2.4 — Invitation Tracking ──────────────────────────────────────
 
     @GET("api/v1/circles/{circleId}/invitations/statistics")
     suspend fun getInvitationStatistics(
@@ -78,4 +84,30 @@ interface ApiService {
         @Path("circleId") circleId: String,
         @Path("invitationId") invitationId: String
     ): Response<InvitationResponse>
+
+    // ─── US-0.3.1 — Invitation Landing (public, no JWT) ──────────────────────
+
+    @GET("api/v1/invitations/{token}/landing")
+    suspend fun getInvitationLanding(
+        @Path("token") token: String
+    ): Response<InvitationLandingResponse>
+
+    // ─── US-0.3.2 — Accept Invitation / Guest Onboarding (public, no JWT) ────
+
+    @POST("api/v1/invitations/{token}/accept")
+    suspend fun acceptInvitation(
+        @Path("token") token: String,
+        @Body request: AcceptInvitationRequest
+    ): Response<AcceptInvitationResponse>
+
+    // ─── US-0.3.3 — Decline Invitation (public, no JWT) ──────────────────────
+
+    @POST("api/v1/invitations/{token}/decline")
+    suspend fun declineInvitation(
+        @Path("token") token: String,
+        @Body request: DeclineInvitationRequest
+    ): Response<DeclineInvitationResponse>
+
+    @GET("api/v1/invitations/decline-reasons")
+    suspend fun getDeclineReasons(): Response<DeclineReasonsResponse>
 }

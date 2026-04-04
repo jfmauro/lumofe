@@ -364,5 +364,94 @@
     <string name="nav_item_profile">My profile</string>
     <string name="nav_menu_open">Open menu</string>
 
+    <!-- ══════════════════════════════════════════════════
+     US-0.3.1 — Invitation Landing Page
+     ══════════════════════════════════════════════════ -->
+    <string name="landing_step_label">INVITATION</string>
+    <string name="landing_title">You have been invited</string>
+    <string name="landing_subtitle">Review the details before deciding.</string>
+
+    <string name="landing_token_label">INVITATION TOKEN</string>
+    <string name="landing_token_hint">Paste the link or token received by email.</string>
+    <string name="landing_token_field_hint">Invitation link or token</string>
+    <string name="landing_btn_verify">Verify invitation</string>
+
+    <string name="landing_inviter_greeting">%1$s %2$s is inviting you to join the circle "%3$s".</string>
+    <string name="landing_circle_label">CIRCLE</string>
+    <string name="landing_members_label">CURRENT MEMBERS</string>
+    <string name="landing_expires_label">EXPIRES ON</string>
+    <string name="landing_member_count">%1$d member(s)</string>
+
+    <string name="landing_btn_accept">Accept and join</string>
+    <string name="landing_btn_decline">Politely decline</string>
+
+    <string name="landing_error_400_title">Invalid token</string>
+    <string name="landing_error_404_title">Invitation not found</string>
+    <string name="landing_error_410_title">Invitation unavailable</string>
+    <string name="landing_error_invalid_token_format">Invalid invitation token format.</string>
+    <string name="landing_error_not_found">Invitation not found. Please check the link you received.</string>
+    <string name="landing_error_expired">This invitation has expired. Contact the inviter for a new one.</string>
+    <string name="landing_error_already_processed">This invitation has already been processed and is no longer available.</string>
+
+    <!-- ══════════════════════════════════════════════════
+         US-0.3.2 — Guest Onboarding (accept invitation)
+         ══════════════════════════════════════════════════ -->
+    <string name="onboarding_guest_step_1_label">STEP 1 / 3</string>
+    <string name="onboarding_guest_step_1_title">Create your account</string>
+    <string name="onboarding_guest_step_1_subtitle">A few details to get you started.</string>
+
+    <string name="onboarding_guest_step_2_label">STEP 2 / 3</string>
+    <string name="onboarding_guest_step_2_title">Your consent</string>
+    <string name="onboarding_guest_step_2_subtitle">Please read before joining the circle.</string>
+
+    <string name="onboarding_guest_step_3_label">STEP 3 / 3</string>
+    <string name="onboarding_guest_step_3_title">Your preferences</string>
+    <string name="onboarding_guest_step_3_subtitle">Customize your check-in experience.</string>
+
+    <string name="onboarding_guest_password_hint">Minimum 8 characters, 1 uppercase letter and 1 digit required.</string>
+    <string name="onboarding_guest_password_error">Password must be at least 8 characters, one uppercase letter and one digit.</string>
+
+    <string name="onboarding_guest_consent_title">SafeCircle Member Terms</string>
+    <string name="onboarding_guest_consent_body">By joining this circle, you agree to actively participate in the daily check-in and to inform members of any planned absence. Lumo does not replace professional emergency services.</string>
+    <string name="onboarding_guest_consent_checkbox">I have read and accept the SafeCircle member terms.</string>
+    <string name="onboarding_guest_consent_required">Acceptance of the member terms is mandatory.</string>
+
+    <string name="onboarding_guest_checkin_time_label">Preferred check-in time (HH:MM)</string>
+    <string name="onboarding_guest_checkin_time_hint">Default: 20:00 — can be changed at any time.</string>
+    <string name="onboarding_guest_checkin_time_error">Invalid format. Use HH:MM (e.g. 20:00).</string>
+
+    <string name="onboarding_guest_response_window_label">Response window (hours)</string>
+    <string name="onboarding_guest_response_window_hint">Between 2 and 24 hours. Default: 8h.</string>
+    <string name="onboarding_guest_response_window_error">A value between 2 and 24 hours is required.</string>
+
+    <string name="onboarding_guest_btn_join">Join %1$s</string>
+    <string name="onboarding_guest_success">Welcome to the circle "%1$s"!</string>
+    <string name="onboarding_guest_email_already_registered">An account already exists with this email. Please log in.</string>
+
+    <!-- ══════════════════════════════════════════════════
+         US-0.3.3 — Decline Invitation
+         ══════════════════════════════════════════════════ -->
+    <string name="decline_step_label">DECLINE INVITATION</string>
+    <string name="decline_screen_title">Decline invitation</string>
+    <string name="decline_screen_subtitle">Your decision will be communicated to the inviter.</string>
+
+    <string name="decline_question">Are you sure you want to decline the invitation to circle "%1$s"?</string>
+    <string name="decline_info">%1$s will be notified of your refusal. You can be re-invited in 7 days if desired.</string>
+
+    <string name="decline_reason_label">REASON (OPTIONAL)</string>
+    <string name="decline_reason_field_hint">Explain your decision (max 200 characters)</string>
+    <string name="decline_reason_too_long">The reason cannot exceed 200 characters.</string>
+
+    <string name="decline_suggestion_not_comfortable">I am not comfortable with this type of application</string>
+    <string name="decline_suggestion_prefer_other">I prefer other means of communication</string>
+    <string name="decline_suggestion_cannot_commit">I cannot commit to a daily check-in</string>
+    <string name="decline_suggestion_other">Other reason (please specify)</string>
+
+    <string name="decline_btn_confirm">Confirm decline</string>
+    <string name="decline_btn_cancel">Cancel</string>
+
+    <string name="decline_success_message">The invitation from %1$s to join %2$s has been declined.</string>
+
+
 
 </resources>

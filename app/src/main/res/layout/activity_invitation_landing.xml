@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lumo_background">
+
+    <!-- ══════════════════════════════════════════
+         GRADIENT HERO HEADER
+         ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/heroHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_hero_gradient"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="56dp">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:text="@string/common_back"
+            android:textColor="#B3FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="@font/outfit_semibold"
+            android:paddingEnd="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/landing_step_label"
+            android:textColor="#B3FFFFFF"
+            android:textSize="11sp"
+            android:fontFamily="@font/outfit_semibold"
+            android:letterSpacing="0.12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/landing_title"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:fontFamily="@font/outfit_bold"
+            android:letterSpacing="0.01"
+            android:lineSpacingMultiplier="1.2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/landing_subtitle"
+            android:textColor="#B3FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="@font/outfit" />
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════
+         SCROLLABLE CONTENT
+         ══════════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="40dp">
+
+            <!-- ── TOKEN INPUT CARD (visible initially from WelcomeFragment) ── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTokenInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/elevation_sm"
+                app:cardBackgroundColor="@color/lumo_surface"
+                app:strokeColor="@color/lumo_outline_variant"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/landing_token_label"
+                        android:textColor="@color/lumo_primary"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/outfit_bold"
+                        android:letterSpacing="0.06"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/landing_token_hint"
+                        android:textColor="@color/lumo_on_surface_muted"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit"
+                        android:lineSpacingMultiplier="1.4" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilToken"
+                        style="@style/Widget.Lumo.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/landing_token_field_hint"
+                        app:endIconMode="clear_text">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etToken"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:imeOptions="actionDone"
+                            android:fontFamily="@font/outfit" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVerifyToken"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/landing_btn_verify"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_btn_primary"
+                        android:stateListAnimator="@null"
+                        android:enabled="false"
+                        app:cornerRadius="28dp"
+                        app:elevation="4dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── LOADING INDICATOR ────────────────────────── -->
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/lumo_primary"
+                android:visibility="gone" />
+
+            <!-- ── ERROR CARD ───────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/card_corner_radius_sm"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFF0F3"
+                app:strokeColor="#33C25C6E"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvErrorTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="#C25C6E"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit_bold" />
+
+                    <TextView
+                        android:id="@+id/tvErrorMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#C25C6E"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/outfit"
+                        android:lineSpacingMultiplier="1.4" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── INVITATION INFO CARD ─────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLanding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/elevation_sm"
+                app:cardBackgroundColor="@color/lumo_surface"
+                app:strokeColor="@color/lumo_outline_variant"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Inviter greeting -->
+                    <TextView
+                        android:id="@+id/tvInviterGreeting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/lumo_on_surface"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:lineSpacingMultiplier="1.4" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lumo_outline_variant"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Circle info row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_caramel"
+                            android:layout_marginEnd="12dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/landing_circle_label"
+                                android:textColor="@color/lumo_on_surface_subtle"
+                                android:textSize="10sp"
+                                android:fontFamily="@font/outfit_bold"
+                                android:letterSpacing="0.06"
+                                android:textAllCaps="true" />
+
+                            <TextView
+                                android:id="@+id/tvCircleName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/lumo_on_surface"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/outfit_semibold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Member count row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_sage"
+                            android:layout_marginEnd="12dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/landing_members_label"
+                                android:textColor="@color/lumo_on_surface_subtle"
+                                android:textSize="10sp"
+                                android:fontFamily="@font/outfit_bold"
+                                android:letterSpacing="0.06"
+                                android:textAllCaps="true" />
+
+                            <TextView
+                                android:id="@+id/tvMemberCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/lumo_on_surface"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/outfit_semibold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Expiration row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_raspberry"
+                            android:layout_marginEnd="12dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/landing_expires_label"
+                                android:textColor="@color/lumo_on_surface_subtle"
+                                android:textSize="10sp"
+                                android:fontFamily="@font/outfit_bold"
+                                android:letterSpacing="0.06"
+                                android:textAllCaps="true" />
+
+                            <TextView
+                                android:id="@+id/tvExpiresAt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/lumo_on_surface_muted"
+                                android:textSize="13sp"
+                                android:fontFamily="@font/outfit" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── ACTION BUTTONS ───────────────────────────── -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAccept"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginBottom="12dp"
+                android:text="@string/landing_btn_accept"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:fontFamily="@font/outfit_semibold"
+                android:background="@drawable/bg_btn_primary"
+                android:stateListAnimator="@null"
+                android:visibility="gone"
+                app:cornerRadius="28dp"
+                app:elevation="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDecline"
+                style="@style/Widget.Lumo.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:text="@string/landing_btn_decline"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

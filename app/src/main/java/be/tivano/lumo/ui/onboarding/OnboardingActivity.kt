@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
 import be.tivano.lumo.R
 import be.tivano.lumo.databinding.ActivityOnboardingBinding
+import be.tivano.lumo.ui.acceptance.InvitationLandingActivity
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -61,8 +62,6 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun setupStepDots() {
-        // KEY CHANGE: dots are now ImageViews sized to step_dot_size (8dp) for consistency
-        // with the DSL ic_step_dot_active (pill) / ic_step_dot_inactive (circle)
         stepDots = List(OnboardingPagerAdapter.TOTAL_STEPS) { index ->
             ImageView(this).apply {
                 val size = resources.getDimensionPixelSize(R.dimen.progress_indicator_size)
@@ -135,8 +134,10 @@ class OnboardingActivity : AppCompatActivity() {
                 navigateToRegister()
             }
         }
+
+        // ─── US-0.3.1 : navigate to invitation landing page ──────────────────
         binding.btnSecondary.setOnClickListener {
-            // TODO: navigate to invitation deep-link flow (Feature 0.3)
+            startActivity(Intent(this, InvitationLandingActivity::class.java))
         }
     }
 

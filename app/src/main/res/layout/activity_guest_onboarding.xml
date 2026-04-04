@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lumo_background">
+
+    <!-- ══════════════════════════════════════════
+         GRADIENT HERO HEADER
+         ══════════════════════════════════════════ -->
+    <View
+        android:id="@+id/headerBand"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_register_header" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="120dp">
+
+            <!-- Header area -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="48dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp">
+
+                <TextView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/common_back"
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/outfit_semibold" />
+
+                <!-- Step indicator -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/tvStepLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/onboarding_guest_step_1_label"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:letterSpacing="0.12" />
+
+                    <!-- Step dots -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:id="@+id/dotStep1"
+                            android:layout_width="20dp"
+                            android:layout_height="6dp"
+                            android:background="@drawable/ic_step_dot_active"
+                            android:layout_marginEnd="6dp" />
+
+                        <View
+                            android:id="@+id/dotStep2"
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@drawable/ic_step_dot_inactive"
+                            android:layout_marginEnd="6dp" />
+
+                        <View
+                            android:id="@+id/dotStep3"
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@drawable/ic_step_dot_inactive" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvStepTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/onboarding_guest_step_1_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:lineSpacingMultiplier="1.2" />
+
+                <TextView
+                    android:id="@+id/tvStepSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/onboarding_guest_step_1_subtitle"
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/outfit" />
+
+            </LinearLayout>
+
+            <!-- Form card overlapping gradient -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/formCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/lumo_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:paddingTop="32dp"
+                    android:paddingBottom="16dp">
+
+                    <!-- ══════ STEP 1: Account creation ══════ -->
+                    <LinearLayout
+                        android:id="@+id/layoutStep1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <!-- Email (pre-filled, disabled) -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilEmail"
+                            style="@style/Widget.Lumo.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:hint="@string/register_field_email">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textEmailAddress"
+                                android:enabled="false"
+                                android:fontFamily="@font/outfit"
+                                android:textColor="@color/lumo_on_surface_muted" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- First name -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilFirstName"
+                            style="@style/Widget.Lumo.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:hint="@string/register_field_firstname"
+                            app:endIconMode="clear_text">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etFirstName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName|textCapWords"
+                                android:imeOptions="actionNext"
+                                android:maxLength="50"
+                                android:fontFamily="@font/outfit" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Last name -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilLastName"
+                            style="@style/Widget.Lumo.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:hint="@string/register_field_lastname"
+                            app:endIconMode="clear_text">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etLastName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName|textCapWords"
+                                android:imeOptions="actionNext"
+                                android:maxLength="50"
+                                android:fontFamily="@font/outfit" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Password -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPassword"
+                            style="@style/Widget.Lumo.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:hint="@string/register_field_password"
+                            app:endIconMode="password_toggle">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPassword"
+                                android:imeOptions="actionDone"
+                                android:fontFamily="@font/outfit" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:text="@string/onboarding_guest_password_hint"
+                            android:textColor="@color/lumo_on_surface_subtle"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/outfit"
+                            android:lineSpacingMultiplier="1.4" />
+
+                    </LinearLayout>
+
+                    <!-- ══════ STEP 2: Consent ══════ -->
+                    <LinearLayout
+                        android:id="@+id/layoutStep2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!-- Consent info card -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/lumo_primary_container"
+                            app:strokeWidth="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="8dp"
+                                    android:text="@string/onboarding_guest_consent_title"
+                                    android:textColor="@color/lumo_on_primary_container"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/outfit_bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/onboarding_guest_consent_body"
+                                    android:textColor="@color/lumo_on_primary_container"
+                                    android:textSize="13sp"
+                                    android:fontFamily="@font/outfit"
+                                    android:lineSpacingMultiplier="1.5" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Consent checkbox row -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="@dimen/elevation_sm"
+                            app:cardBackgroundColor="@color/lumo_surface"
+                            app:strokeColor="@color/lumo_outline_variant"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp"
+                                android:gravity="center_vertical">
+
+                                <CheckBox
+                                    android:id="@+id/cbConsent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="12dp"
+                                    android:buttonTint="@color/lumo_primary" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/onboarding_guest_consent_checkbox"
+                                    android:textColor="@color/lumo_on_surface"
+                                    android:textSize="13sp"
+                                    android:fontFamily="@font/outfit"
+                                    android:lineSpacingMultiplier="1.4" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <!-- ══════ STEP 3: Preferences ══════ -->
+                    <LinearLayout
+                        android:id="@+id/layoutStep3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!-- Check-in time -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilCheckinTime"
+                            style="@style/Widget.Lumo.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:hint="@string/onboarding_guest_checkin_time_label">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etCheckinTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="time"
+                                android:imeOptions="actionNext"
+                                android:fontFamily="@font/outfit" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:text="@string/onboarding_guest_checkin_time_hint"
+                            android:textColor="@color/lumo_on_surface_subtle"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/outfit" />
+
+                        <!-- Response window -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilResponseWindow"
+                            style="@style/Widget.Lumo.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:hint="@string/onboarding_guest_response_window_label">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etResponseWindow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:imeOptions="actionDone"
+                                android:fontFamily="@font/outfit" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:text="@string/onboarding_guest_response_window_hint"
+                            android:textColor="@color/lumo_on_surface_subtle"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/outfit" />
+
+                    </LinearLayout>
+
+                    <!-- ══════ ERROR BANNER ══════ -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/errorBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFF0F3"
+                        app:strokeColor="#33C25C6E"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/tvError"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="14dp"
+                            android:textColor="#C25C6E"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/outfit_semibold"
+                            android:lineSpacingMultiplier="1.4" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- ══════ CTA BUTTON ══════ -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnNext"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/common_next"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/outfit_semibold"
+                        android:background="@drawable/bg_btn_primary"
+                        android:stateListAnimator="@null"
+                        android:enabled="false"
+                        app:cornerRadius="28dp"
+                        app:elevation="4dp" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        android:indeterminate="true"
+                        app:indicatorColor="@color/lumo_primary"
+                        app:trackColor="@color/lumo_outline_variant"
+                        app:trackCornerRadius="4dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

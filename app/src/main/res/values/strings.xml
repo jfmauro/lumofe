@@ -378,4 +378,93 @@
     <string name="nav_item_profile">Mon profil</string>
     <string name="nav_menu_open">Ouvrir le menu</string>
 
+    <!-- ══════════════════════════════════════════════════
+     US-0.3.1 — Invitation Landing Page
+     ══════════════════════════════════════════════════ -->
+    <string name="landing_step_label">INVITATION</string>
+    <string name="landing_title">Vous avez été invité</string>
+    <string name="landing_subtitle">Consultez les détails avant de décider.</string>
+
+    <string name="landing_token_label">TOKEN D\'INVITATION</string>
+    <string name="landing_token_hint">Collez ici le lien ou le token reçu par email.</string>
+    <string name="landing_token_field_hint">Lien ou token d\'invitation</string>
+    <string name="landing_btn_verify">Vérifier l\'invitation</string>
+
+    <string name="landing_inviter_greeting">%1$s %2$s vous invite à rejoindre le cercle « %3$s ».</string>
+    <string name="landing_circle_label">CERCLE</string>
+    <string name="landing_members_label">MEMBRES ACTUELS</string>
+    <string name="landing_expires_label">EXPIRE LE</string>
+    <string name="landing_member_count">%1$d membre(s)</string>
+
+    <string name="landing_btn_accept">Accepter et rejoindre</string>
+    <string name="landing_btn_decline">Refuser poliment</string>
+
+    <string name="landing_error_400_title">Token invalide</string>
+    <string name="landing_error_404_title">Invitation introuvable</string>
+    <string name="landing_error_410_title">Invitation indisponible</string>
+    <string name="landing_error_invalid_token_format">Format du token d\'invitation invalide.</string>
+    <string name="landing_error_not_found">Invitation introuvable. Vérifiez le lien reçu.</string>
+    <string name="landing_error_expired">Cette invitation a expiré. Contactez l\'invitant pour en recevoir une nouvelle.</string>
+    <string name="landing_error_already_processed">Cette invitation a déjà été traitée et n\'est plus disponible.</string>
+
+    <!-- ══════════════════════════════════════════════════
+         US-0.3.2 — Guest Onboarding (accept invitation)
+         ══════════════════════════════════════════════════ -->
+    <string name="onboarding_guest_step_1_label">ÉTAPE 1 / 3</string>
+    <string name="onboarding_guest_step_1_title">Créez votre compte</string>
+    <string name="onboarding_guest_step_1_subtitle">Quelques informations pour vous identifier.</string>
+
+    <string name="onboarding_guest_step_2_label">ÉTAPE 2 / 3</string>
+    <string name="onboarding_guest_step_2_title">Votre consentement</string>
+    <string name="onboarding_guest_step_2_subtitle">À lire avant de rejoindre le cercle.</string>
+
+    <string name="onboarding_guest_step_3_label">ÉTAPE 3 / 3</string>
+    <string name="onboarding_guest_step_3_title">Vos préférences</string>
+    <string name="onboarding_guest_step_3_subtitle">Personnalisez votre expérience de check-in.</string>
+
+    <string name="onboarding_guest_password_hint">8 caractères minimum, 1 majuscule et 1 chiffre requis.</string>
+    <string name="onboarding_guest_password_error">Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre.</string>
+
+    <string name="onboarding_guest_consent_title">Conditions de membre SafeCircle</string>
+    <string name="onboarding_guest_consent_body">En rejoignant ce cercle, vous acceptez de participer activement au check-in quotidien et d\'informer les membres en cas d\'absence planifiée. Lumo ne remplace pas les services d\'urgence professionnels.</string>
+    <string name="onboarding_guest_consent_checkbox">J\'ai lu et j\'accepte les conditions de membre SafeCircle.</string>
+    <string name="onboarding_guest_consent_required">L\'acceptation des conditions de membre est obligatoire.</string>
+
+    <string name="onboarding_guest_checkin_time_label">Heure de check-in préférée (HH:MM)</string>
+    <string name="onboarding_guest_checkin_time_hint">Défaut : 20:00 — modifiable à tout moment.</string>
+    <string name="onboarding_guest_checkin_time_error">Format invalide. Utilisez HH:MM (ex: 20:00).</string>
+
+    <string name="onboarding_guest_response_window_label">Fenêtre de réponse (heures)</string>
+    <string name="onboarding_guest_response_window_hint">Entre 2 et 24 heures. Défaut : 8h.</string>
+    <string name="onboarding_guest_response_window_error">Valeur entre 2 et 24 heures requise.</string>
+
+    <string name="onboarding_guest_btn_join">Rejoindre %1$s</string>
+    <string name="onboarding_guest_success">Bienvenue dans le cercle « %1$s » !</string>
+    <string name="onboarding_guest_email_already_registered">Un compte existe déjà avec cette adresse email. Veuillez vous connecter.</string>
+
+    <!-- ══════════════════════════════════════════════════
+         US-0.3.3 — Decline Invitation
+         ══════════════════════════════════════════════════ -->
+    <string name="decline_step_label">REFUS D\'INVITATION</string>
+    <string name="decline_screen_title">Refuser l\'invitation</string>
+    <string name="decline_screen_subtitle">Votre décision sera communiquée à l\'invitant.</string>
+
+    <string name="decline_question">Êtes-vous sûr de vouloir refuser l\'invitation au cercle « %1$s » ?</string>
+    <string name="decline_info">%1$s sera informé(e) de votre refus. Vous pourrez être ré-invité dans 7 jours si souhaité.</string>
+
+    <string name="decline_reason_label">RAISON (OPTIONNEL)</string>
+    <string name="decline_reason_field_hint">Expliquez votre refus (max 200 caractères)</string>
+    <string name="decline_reason_too_long">La raison ne peut pas dépasser 200 caractères.</string>
+
+    <string name="decline_suggestion_not_comfortable">Je ne suis pas à l\'aise avec ce type d\'application</string>
+    <string name="decline_suggestion_prefer_other">Je préfère d\'autres moyens de communication</string>
+    <string name="decline_suggestion_cannot_commit">Je ne peux pas m\'engager à un check-in quotidien</string>
+    <string name="decline_suggestion_other">Autre raison (préciser)</string>
+
+    <string name="decline_btn_confirm">Confirmer le refus</string>
+    <string name="decline_btn_cancel">Annuler</string>
+
+    <string name="decline_success_message">The invitation from %1$s to join %2$s has been
+        declined.
+    </string>
 </resources>

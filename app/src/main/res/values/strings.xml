@@ -467,4 +467,8 @@
     <string name="decline_success_message">The invitation from %1$s to join %2$s has been
         declined.
     </string>
+
+    <string name="onboarding_guest_checkin_toggle_title">Être suivi par ce cercle</string>
+    <string name="onboarding_guest_checkin_toggle_subtitle">Activez si vous souhaitez que ce cercle soit alerté si vous ne signalez pas votre présence.</string>
+    <string name="onboarding_guest_checkin_toggle_hint">ℹ Désactivé par défaut. Vous pourrez activer cette option plus tard dans vos paramètres. La plupart des membres activent uniquement les alertes pour la personne qui a créé le cercle.</string>
 </resources>

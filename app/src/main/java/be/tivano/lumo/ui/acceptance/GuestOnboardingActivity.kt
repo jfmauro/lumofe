@@ -53,6 +53,7 @@ class GuestOnboardingActivity : AppCompatActivity() {
         invitationToken = intent.getStringExtra(EXTRA_TOKEN).orEmpty()
         circleName = intent.getStringExtra(EXTRA_CIRCLE_NAME).orEmpty()
         inviterFirstName = intent.getStringExtra(EXTRA_INVITER_FIRST_NAME).orEmpty()
+
         val inviteeEmail = intent.getStringExtra(EXTRA_INVITEE_EMAIL).orEmpty()
         binding.etEmail.setText(inviteeEmail)
 
@@ -63,6 +64,7 @@ class GuestOnboardingActivity : AppCompatActivity() {
 
         setupBackButton()
         setupValidation()
+        setupCheckinToggle()
         setupNextButton()
         applyStep(STEP_ACCOUNT)
     }
@@ -71,11 +73,8 @@ class GuestOnboardingActivity : AppCompatActivity() {
 
     private fun setupBackButton() {
         binding.btnBack.setOnClickListener {
-            if (currentStep > STEP_ACCOUNT) {
-                applyStep(currentStep - 1)
-            } else {
-                finish()
-            }
+            if (currentStep > STEP_ACCOUNT) applyStep(currentStep - 1)
+            else finish()
         }
     }
 
@@ -88,18 +87,35 @@ class GuestOnboardingActivity : AppCompatActivity() {
         binding.etResponseWindow.doAfterTextChanged { updateNextButtonState() }
     }
 
+    private fun setupCheckinToggle() {
+        // Default: toggle OFF → guest is a watcher, not monitored
+        binding.switchCheckin.isChecked = false
+        binding.layoutCheckinFields.visibility = View.GONE
+
+        binding.switchCheckin.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.layoutCheckinFields.visibility = View.VISIBLE
+                if (binding.etCheckinTime.text.isNullOrBlank()) {
+                    binding.etCheckinTime.setText(DEFAULT_CHECKIN_TIME)
+                }
+                if (binding.etResponseWindow.text.isNullOrBlank()) {
+                    binding.etResponseWindow.setText(DEFAULT_RESPONSE_WINDOW)
+                }
+            } else {
+                binding.layoutCheckinFields.visibility = View.GONE
+                binding.tilCheckinTime.error = null
+                binding.tilResponseWindow.error = null
+            }
+            updateNextButtonState()
+        }
+    }
+
     private fun setupNextButton() {
         binding.btnNext.setOnClickListener {
             when (currentStep) {
-                STEP_ACCOUNT -> {
-                    if (validateStep1()) applyStep(STEP_CONSENT)
-                }
-                STEP_CONSENT -> {
-                    if (validateStep2()) applyStep(STEP_PREFERENCES)
-                }
-                STEP_PREFERENCES -> {
-                    if (validateStep3()) performAcceptInvitation()
-                }
+                STEP_ACCOUNT -> if (validateStep1()) applyStep(STEP_CONSENT)
+                STEP_CONSENT -> if (validateStep2()) applyStep(STEP_PREFERENCES)
+                STEP_PREFERENCES -> if (validateStep3()) performAcceptInvitation()
             }
         }
     }
@@ -114,12 +130,11 @@ class GuestOnboardingActivity : AppCompatActivity() {
         binding.layoutStep2.visibility = if (step == STEP_CONSENT) View.VISIBLE else View.GONE
         binding.layoutStep3.visibility = if (step == STEP_PREFERENCES) View.VISIBLE else View.GONE
 
-        val dotActiveDrawable = be.tivano.lumo.R.drawable.ic_step_dot_active
-        val dotInactiveDrawable = be.tivano.lumo.R.drawable.ic_step_dot_inactive
-
-        binding.dotStep1.setBackgroundResource(if (step == STEP_ACCOUNT) dotActiveDrawable else dotInactiveDrawable)
-        binding.dotStep2.setBackgroundResource(if (step == STEP_CONSENT) dotActiveDrawable else dotInactiveDrawable)
-        binding.dotStep3.setBackgroundResource(if (step == STEP_PREFERENCES) dotActiveDrawable else dotInactiveDrawable)
+        val dotActive = R.drawable.ic_step_dot_active
+        val dotInactive = R.drawable.ic_step_dot_inactive
+        binding.dotStep1.setBackgroundResource(if (step == STEP_ACCOUNT) dotActive else dotInactive)
+        binding.dotStep2.setBackgroundResource(if (step == STEP_CONSENT) dotActive else dotInactive)
+        binding.dotStep3.setBackgroundResource(if (step == STEP_PREFERENCES) dotActive else dotInactive)
 
         when (step) {
             STEP_ACCOUNT -> {
@@ -139,12 +154,6 @@ class GuestOnboardingActivity : AppCompatActivity() {
                 binding.tvStepTitle.text = getString(R.string.onboarding_guest_step_3_title)
                 binding.tvStepSubtitle.text = getString(R.string.onboarding_guest_step_3_subtitle)
                 binding.btnNext.text = getString(R.string.onboarding_guest_btn_join, circleName)
-                if (binding.etCheckinTime.text.isNullOrBlank()) {
-                    binding.etCheckinTime.setText(DEFAULT_CHECKIN_TIME)
-                }
-                if (binding.etResponseWindow.text.isNullOrBlank()) {
-                    binding.etResponseWindow.setText(DEFAULT_RESPONSE_WINDOW)
-                }
             }
         }
 
@@ -160,15 +169,19 @@ class GuestOnboardingActivity : AppCompatActivity() {
                 val lastName = binding.etLastName.text?.toString().orEmpty().trim()
                 val password = binding.etPassword.text?.toString().orEmpty()
                 firstName.length in 1..50 &&
-                    lastName.length in 1..50 &&
-                    PASSWORD_REGEX.matches(password)
+                        lastName.length in 1..50 &&
+                        PASSWORD_REGEX.matches(password)
             }
             STEP_CONSENT -> binding.cbConsent.isChecked
             STEP_PREFERENCES -> {
-                val time = binding.etCheckinTime.text?.toString().orEmpty().trim()
-                val window = binding.etResponseWindow.text?.toString().orEmpty().trim().toIntOrNull()
-                (time.isBlank() || TIME_REGEX.matches(time)) &&
-                    (window == null || window in 2..24)
+                if (!binding.switchCheckin.isChecked) {
+                    true
+                } else {
+                    val time = binding.etCheckinTime.text?.toString().orEmpty().trim()
+                    val window = binding.etResponseWindow.text?.toString().orEmpty().trim().toIntOrNull()
+                    (time.isBlank() || TIME_REGEX.matches(time)) &&
+                            (window == null || window in 2..24)
+                }
             }
             else -> false
         }
@@ -208,6 +221,9 @@ class GuestOnboardingActivity : AppCompatActivity() {
     }
 
     private fun validateStep3(): Boolean {
+        // Toggle OFF: nothing to validate
+        if (!binding.switchCheckin.isChecked) return true
+
         val timeInput = binding.etCheckinTime.text?.toString().orEmpty().trim()
         if (timeInput.isNotBlank() && !TIME_REGEX.matches(timeInput)) {
             binding.tilCheckinTime.error = getString(R.string.onboarding_guest_checkin_time_error)
@@ -233,10 +249,16 @@ class GuestOnboardingActivity : AppCompatActivity() {
         val firstName = binding.etFirstName.text?.toString().orEmpty().trim()
         val lastName = binding.etLastName.text?.toString().orEmpty().trim()
         val password = binding.etPassword.text?.toString().orEmpty()
-        val checkinTime = binding.etCheckinTime.text?.toString().orEmpty().trim()
-            .ifBlank { DEFAULT_CHECKIN_TIME }
-        val responseWindow = binding.etResponseWindow.text?.toString().orEmpty().trim()
-            .toIntOrNull() ?: 8
+
+        // Only send check-in preferences when the guest explicitly opted in
+        val checkinEnabled = binding.switchCheckin.isChecked
+        val checkinTime: String? = if (checkinEnabled)
+            binding.etCheckinTime.text?.toString().orEmpty().trim().ifBlank { DEFAULT_CHECKIN_TIME }
+        else null
+
+        val responseWindow: Int? = if (checkinEnabled)
+            binding.etResponseWindow.text?.toString().orEmpty().trim().toIntOrNull() ?: 8
+        else null
 
         setLoadingState(true)
 
@@ -323,9 +345,9 @@ class GuestOnboardingActivity : AppCompatActivity() {
     private fun setLoadingState(loading: Boolean) {
         binding.btnNext.isEnabled = !loading
         binding.btnNext.text = if (loading) getString(R.string.register_loading)
-                               else if (currentStep == STEP_PREFERENCES)
-                                   getString(R.string.onboarding_guest_btn_join, circleName)
-                               else getString(R.string.common_next)
+        else if (currentStep == STEP_PREFERENCES)
+            getString(R.string.onboarding_guest_btn_join, circleName)
+        else getString(R.string.common_next)
         binding.progressBar.visibility = if (loading) View.VISIBLE else View.GONE
     }
 

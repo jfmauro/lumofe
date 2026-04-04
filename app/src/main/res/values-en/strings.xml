@@ -452,6 +452,8 @@
 
     <string name="decline_success_message">The invitation from %1$s to join %2$s has been declined.</string>
 
-
+    <string name="onboarding_guest_checkin_toggle_title">Be monitored by this circle</string>
+    <string name="onboarding_guest_checkin_toggle_subtitle">Enable this if you want the circle to be alerted if you don\'t signal your presence.</string>
+    <string name="onboarding_guest_checkin_toggle_hint">ℹ Disabled by default. You can enable this option later in your settings. Most members only monitor the person who created the circle.</string>
 
 </resources>

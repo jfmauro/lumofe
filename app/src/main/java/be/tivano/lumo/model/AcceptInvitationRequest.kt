@@ -15,9 +15,11 @@ data class AcceptInvitationRequest(
     @SerializedName("consentAccepted")
     val consentAccepted: Boolean,
 
+    // null = guest opted out of personal check-in tracking
     @SerializedName("preferredCheckinTime")
-    val preferredCheckinTime: String = "20:00",
+    val preferredCheckinTime: String? = null,
 
+    // null = guest opted out of personal check-in tracking
     @SerializedName("responseWindowHours")
-    val responseWindowHours: Int = 8
+    val responseWindowHours: Int? = null
 )

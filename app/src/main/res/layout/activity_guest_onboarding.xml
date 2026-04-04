@@ -337,61 +337,158 @@
                         android:orientation="vertical"
                         android:visibility="gone">
 
-                        <!-- Check-in time -->
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/tilCheckinTime"
-                            style="@style/Widget.Lumo.TextInputLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:hint="@string/onboarding_guest_checkin_time_label">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etCheckinTime"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="time"
-                                android:imeOptions="actionNext"
-                                android:fontFamily="@font/outfit" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <TextView
+                        <!-- ── Toggle card: opt-in check-in ─────────────── -->
+                        <com.google.android.material.card.MaterialCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="20dp"
-                            android:text="@string/onboarding_guest_checkin_time_hint"
-                            android:textColor="@color/lumo_on_surface_subtle"
-                            android:textSize="11sp"
-                            android:fontFamily="@font/outfit" />
+                            app:cardCornerRadius="@dimen/card_corner_radius"
+                            app:cardElevation="@dimen/elevation_sm"
+                            app:cardBackgroundColor="@color/lumo_surface"
+                            app:strokeColor="@color/lumo_outline_variant"
+                            app:strokeWidth="1dp">
 
-                        <!-- Response window -->
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/tilResponseWindow"
-                            style="@style/Widget.Lumo.TextInputLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:hint="@string/onboarding_guest_response_window_label">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etResponseWindow"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="number"
-                                android:imeOptions="actionDone"
-                                android:fontFamily="@font/outfit" />
+                                android:orientation="vertical"
+                                android:padding="20dp">
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                <!-- Toggle row -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginBottom="8dp">
 
-                        <TextView
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:layout_marginEnd="12dp">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="2dp"
+                                            android:text="@string/onboarding_guest_checkin_toggle_title"
+                                            android:textColor="@color/lumo_on_surface"
+                                            android:textSize="14sp"
+                                            android:fontFamily="@font/outfit_semibold" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/onboarding_guest_checkin_toggle_subtitle"
+                                            android:textColor="@color/lumo_on_surface_muted"
+                                            android:textSize="12sp"
+                                            android:fontFamily="@font/outfit"
+                                            android:lineSpacingMultiplier="1.4" />
+
+                                    </LinearLayout>
+
+                                    <com.google.android.material.materialswitch.MaterialSwitch
+                                        android:id="@+id/switchCheckin"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checked="false"
+                                        app:thumbTint="@color/white"
+                                        app:trackTint="@color/lumo_primary" />
+
+                                </LinearLayout>
+
+                                <!-- Contextual hint (always visible) -->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="0dp"
+                                    app:cardBackgroundColor="@color/lumo_surface_variant"
+                                    app:strokeWidth="0dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="12dp"
+                                        android:text="@string/onboarding_guest_checkin_toggle_hint"
+                                        android:textColor="@color/lumo_on_surface_muted"
+                                        android:textSize="11sp"
+                                        android:fontFamily="@font/outfit"
+                                        android:lineSpacingMultiplier="1.5" />
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- ── Checkin fields (visible only when toggle ON) ─ -->
+                        <LinearLayout
+                            android:id="@+id/layoutCheckinFields"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="24dp"
-                            android:text="@string/onboarding_guest_response_window_hint"
-                            android:textColor="@color/lumo_on_surface_subtle"
-                            android:textSize="11sp"
-                            android:fontFamily="@font/outfit" />
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Check-in time -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tilCheckinTime"
+                                style="@style/Widget.Lumo.TextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:hint="@string/onboarding_guest_checkin_time_label">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etCheckinTime"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="time"
+                                    android:imeOptions="actionNext"
+                                    android:fontFamily="@font/outfit" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="20dp"
+                                android:text="@string/onboarding_guest_checkin_time_hint"
+                                android:textColor="@color/lumo_on_surface_subtle"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/outfit" />
+
+                            <!-- Response window -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tilResponseWindow"
+                                style="@style/Widget.Lumo.TextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:hint="@string/onboarding_guest_response_window_label">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etResponseWindow"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:imeOptions="actionDone"
+                                    android:fontFamily="@font/outfit" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="24dp"
+                                android:text="@string/onboarding_guest_response_window_hint"
+                                android:textColor="@color/lumo_on_surface_subtle"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/outfit" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 

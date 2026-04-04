@@ -3,6 +3,7 @@ package be.tivano.lumo.model
 import com.google.gson.annotations.SerializedName
 
 data class InvitationLandingResponse(
+
     @SerializedName("invitationToken")
     val invitationToken: String,
 
@@ -11,6 +12,9 @@ data class InvitationLandingResponse(
 
     @SerializedName("circleName")
     val circleName: String,
+
+    @SerializedName("inviteeEmail")
+    val inviteeEmail: String,
 
     @SerializedName("inviterFirstName")
     val inviterFirstName: String,

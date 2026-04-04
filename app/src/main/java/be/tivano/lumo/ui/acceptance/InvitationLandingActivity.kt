@@ -101,6 +101,7 @@ class InvitationLandingActivity : AppCompatActivity() {
                 putExtra(GuestOnboardingActivity.EXTRA_TOKEN, data.invitationToken)
                 putExtra(GuestOnboardingActivity.EXTRA_CIRCLE_NAME, data.circleName)
                 putExtra(GuestOnboardingActivity.EXTRA_INVITER_FIRST_NAME, data.inviterFirstName)
+                putExtra(GuestOnboardingActivity.EXTRA_INVITEE_EMAIL, data.inviteeEmail)
             }
             startActivity(intent)
         }

@@ -29,6 +29,7 @@ class GuestOnboardingActivity : AppCompatActivity() {
         const val EXTRA_TOKEN = "extra_invitation_token"
         const val EXTRA_CIRCLE_NAME = "extra_circle_name"
         const val EXTRA_INVITER_FIRST_NAME = "extra_inviter_first_name"
+        const val EXTRA_INVITEE_EMAIL = "extra_invitee_email"
 
         private const val STEP_ACCOUNT = 1
         private const val STEP_CONSENT = 2
@@ -52,6 +53,8 @@ class GuestOnboardingActivity : AppCompatActivity() {
         invitationToken = intent.getStringExtra(EXTRA_TOKEN).orEmpty()
         circleName = intent.getStringExtra(EXTRA_CIRCLE_NAME).orEmpty()
         inviterFirstName = intent.getStringExtra(EXTRA_INVITER_FIRST_NAME).orEmpty()
+        val inviteeEmail = intent.getStringExtra(EXTRA_INVITEE_EMAIL).orEmpty()
+        binding.etEmail.setText(inviteeEmail)
 
         if (invitationToken.isBlank()) {
             finish()
